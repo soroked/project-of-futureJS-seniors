@@ -1,13 +1,20 @@
 
-// .hero-dark {
-//     color: var( --primary-text-color-theme-dark);
-// }
+body.dark .hero-dark {
+    color: var( --primary-text-color-theme-dark);
+}
 
 .hero {
     display: flex;
     flex-direction: column;
     padding: 0 20px;
     margin: auto;
+}
+
+.hero-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 100px;
 }
 
 .hero-text-container {
@@ -59,29 +66,33 @@
 
 .hero-img-container {
     position: relative;
-    // max-width: 354px;
-    margin-bottom: 33px;
 }
 
-.hero-img {
-    position: absolute;
-    content: '';
-    // width: 100%;
-    // margin: auto;
+@media screen and (max-width: 767px){
+    .hero-img {
+        // position: relative;
+        max-width: 100%;
+        max-height: 100%;
+    }
+    .hero-img-container {
+        max-width: 335px;
+        max-height: 481px;
+    }
 }
 
 .hero-abc-description {
     position: absolute;
+    // top: 0;
+    // left: 81px;
+    left: 24%;
+    top: 86%;
     content: '';
-    left: 170px;
-    bottom: -1px;
     max-width: 173px;
     font-size: 14px;
     font-weight: 400;
     line-height: 1.4;
     letter-spacing: 0.28px;
     text-transform: uppercase;
-    // margin: auto;
     color: var( --primary-text-color-theme-light);
 }
 
@@ -109,11 +120,9 @@
 
 .input-search-icon {
     position: absolute;
-    content: '';
-    // top: 400px;
-    // left: 34px;
     top: 50%;
     left: 14px;
+    content: '';
     transform: translateY(-50%);
     fill: var(--primary-text-color-theme-light);
     cursor: pointer;
@@ -124,10 +133,7 @@
         padding: 0 32px;
     }
     .hero-wrapper {
-        position: relative;
-        display: flex;
         flex-direction: row;
-        margin-bottom: 100px;
     }
     .hero-text-container {
         padding: 124px 0 137px;
@@ -139,7 +145,6 @@
         margin-bottom: 0;
     }
     .main-hero-title {
-        
         font-size: 44px;
         line-height: 1.09;
         margin-bottom: 24px;
@@ -159,7 +164,10 @@
         letter-spacing: 0.36px;
     }
     .hero-abc-description {
-        max-width: 198px;
+        position: absolute;
+        top: 546px;
+        left: 131px;
+        min-width: 198px;
         font-size: 16px;
         line-height: 1.5;
         letter-spacing: 0.32px;
@@ -178,14 +186,10 @@
         padding-left: 100px;
         padding-right: 100px;
     }
-    .hero-wrapper {
-        gap: 56px;
-    }
     .hero-img-container {
         position: absolute;
-        left: 647px;
+        left: 611px;
         content: '';
-        margin-bottom: 0;
     }
     .hero-text-container {
         padding: 134px 0 125px;
@@ -202,6 +206,8 @@
         margin-bottom: 56px;
     }
     .hero-abc-description {
+        top: 625px;
+        left: 170px;
         min-width: 219px;
         font-size: 18px;
         line-height: 1.33;

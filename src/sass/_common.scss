@@ -1,11 +1,11 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
 
 .list {
-    list-style: none;
+  list-style: none;
 }
 
 .link {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 
@@ -19,19 +19,19 @@ h3,
 h4,
 h5,
 p {
-    margin-top: 0;
-    margin-bottom: 0;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 ul,
 ol {
-    margin-top: 0;
-    margin-bottom: 0;
-    padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
 }
 
 img {
-    display: block;
+  display: block;
 }
 
 :root {
@@ -59,22 +59,37 @@ img {
     --hover-modal-btn-color-theme-dark: rgba(253, 253, 255, 0.20);
 }
 
-@media screen and (min-width: 375px) {
-    .container {
-        width: 375px;
-        margin-left: auto;
-        margin-right: auto;
-    }
+body {
+  font-family: var(--primary-font);
+  background-size: cover;
 }
 
-@media screen and (min-width: 768px) {
-    .container {
-        width: 768px;
-    }
+@media screen and (min-width: 375px) and (max-width: 767px) {
+  .container {
+    width: 375px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  body {
+    background-image: url('../img/background/background.png');
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .container {
+    width: 768px;
+  }
+  body {
+    background-image: url('../img/background/background-tablet.png');
+  }
 }
 
 @media screen and (min-width: 1280px) {
-    .container {
-        width: 1280px;
-    }
+  .container {
+    width: 1280px;
+  }
+  body {
+    background-image: url('../img/background/background-desktop.png');
+  }
 }

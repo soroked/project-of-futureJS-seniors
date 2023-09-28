@@ -1,23 +1,28 @@
-<section class="hero">
-    <div class="hero-container container">
+<section class="hero container">
+    <div class="hero-wrapper">
         <div class="hero-text-container">
             <h1 class="main-hero-title hero-dark">A party without<span class="hero-title-accent"><br>cocktails<br></span>is not
                 like a party</h1>
             <p class="hero-description hero-dark">From classic sips to exotic mixes, we're your key to becoming a cocktail wizard!
             </p>
             <button type="button" class="btn-hero" onclick="document.location='#cocktails'">View cocktails</button>
-
-            <!-- <div class="btn-hero-container">
-                <a href="#cocktails" class="btn-hero">
-                    View cocktails
-                </a>
-            </div> -->
         </div>
         <div class="hero-img-container">
-            <svg class="input-search-icon" aria-label="search" width="16" height="16">
-                <use href="./images/hero/group.svg#icon-search"></use>
-              </svg>
-            <p class="hero-abc-description hero-dark">Search your favorite cocktail by ABC </p>
+            <picture>
+                <source media="(min-width: 1280px)"
+                srcset="./images/hero/hero-img-desktop.png 1x,
+                ./images/hero/hero-img-desktop@2x.png 2x" >
+                <source media="(min-width: 768px)"
+                srcset="./images/hero/hero-img-tablet.png 1x,
+                ./images/hero/hero-img-tablet@2x.png 2x" >
+                <source media="(min-width: 320px)"
+                srcset="./images/hero/hero-img-mobile.png 1x,
+                ./images/hero/hero-img-mobile@2x.png 2x" >
+                <img loading="lazy" class="hero-img"
+            src="./images/hero/hero-img-mobile.png" alt="Girl with a  cocktail">
+            </picture>
+            <p class="hero-abc-description hero-dark">Search your favorite cocktail by ABC</p>
+        </div>
         </div>
 
         <ul class="btn-abc btn-abc-js"></ul>
@@ -33,5 +38,5 @@
             </label>
             </form>
 
-    </div>
+   
 </section>

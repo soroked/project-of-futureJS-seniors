@@ -15,7 +15,6 @@
 }
 
 .main-hero-title {
-    font-family: var(--primary-font);
     font-size: 32px;
     font-weight: 400;
     line-height: 1.19;
@@ -30,7 +29,6 @@
 
 .hero-description {
     max-width: 335px;
-    font-family: var(--primary-font);
     font-size: 14px;
     font-weight: 400;
     line-height: 1.4;
@@ -47,8 +45,6 @@
     text-decoration: none;
     background-color: var(--primary-accent-color);
     transition: var(--transition-btn);
-
-    font-family: var(--primary-font);
     font-size: 14px;
     font-weight: 600;
     line-height: 1.4;
@@ -68,23 +64,24 @@
 }
 
 .hero-img {
-    width: 100%;
-    margin: auto;
+    position: absolute;
+    content: '';
+    // width: 100%;
+    // margin: auto;
 }
 
 .hero-abc-description {
     position: absolute;
     content: '';
-    left: 76px;
-    bottom: 7px;
+    left: 170px;
+    bottom: -1px;
     max-width: 173px;
-    font-family: var(--primary-font);
     font-size: 14px;
     font-weight: 400;
     line-height: 1.4;
     letter-spacing: 0.28px;
     text-transform: uppercase;
-    margin: auto;
+    // margin: auto;
     color: var( --primary-text-color-theme-light);
 }
 
@@ -105,7 +102,6 @@
 }
 
 .hero-form-input::placeholder {
-    font-family: var(--primary-font);
     font-size: 14px;
     line-height: normal;
     color: var(--hover-modal-btn-color-theme-light)
@@ -128,15 +124,18 @@
         padding: 0 32px;
     }
     .hero-wrapper {
+        position: relative;
         display: flex;
         flex-direction: row;
         margin-bottom: 100px;
     }
     .hero-text-container {
-    //    max-width: 371px;
         padding: 124px 0 137px;
     }
     .hero-img-container {
+        position: absolute;
+        left: 331px;
+        content: '';
         margin-bottom: 0;
     }
     .main-hero-title {
@@ -165,7 +164,6 @@
         line-height: 1.5;
         letter-spacing: 0.32px;
         text-transform: uppercase;
-        margin: 51px auto;
     }
     .hero-form-input{
         max-width: 300px;
@@ -178,10 +176,16 @@
 @media screen and (min-width: 1280px) {
     .hero {
         padding-left: 100px;
-        padding-right: 17px;
+        padding-right: 100px;
     }
     .hero-wrapper {
         gap: 56px;
+    }
+    .hero-img-container {
+        position: absolute;
+        left: 647px;
+        content: '';
+        margin-bottom: 0;
     }
     .hero-text-container {
         padding: 134px 0 125px;
@@ -198,7 +202,7 @@
         margin-bottom: 56px;
     }
     .hero-abc-description {
-        max-width: 219px;
+        min-width: 219px;
         font-size: 18px;
         line-height: 1.33;
         letter-spacing: 0.36px;

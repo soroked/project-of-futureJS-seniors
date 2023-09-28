@@ -9,18 +9,77 @@
         </div>
         <div class="hero-img-container">
             <picture>
-                <source media="(min-width: 1280px)"
-                srcset="./images/hero/hero-img-desktop.png 1x,
-                ./images/hero/hero-img-desktop@2x.png 2x" >
-                <source media="(min-width: 768px)"
-                srcset="./images/hero/hero-img-tablet.png 1x,
-                ./images/hero/hero-img-tablet@2x.png 2x" >
-                <source media="(min-width: 320px)"
-                srcset="./images/hero/hero-img-mobile.png 1x,
-                ./images/hero/hero-img-mobile@2x.png 2x" >
-                <img loading="lazy" class="hero-img"
-            src="./images/hero/hero-img-mobile.png" alt="Girl with a  cocktail">
+              <source media="(min-width: 1280px)"
+              type="image/webp"
+              srcset="./img/hero/hero-img-desktop.webp 1x,
+              ./img/hero/hero-img-desktop@2x.webp 2x">
+
+              <source media="(min-width: 1280px)"
+              type="image/png"
+              srcset="./img/hero/hero-img-desktop.png 1x,
+              ./img/hero/hero-img-desktop@2x.png 2x" >
+
+              <source media="(min-width: 768px)"
+              type="image/webp"
+              srcset="./img/hero/hero-img-tablet.webp 1x,
+              ./img/hero/hero-img-tablet@2x.webp 2x" >
+
+              <source media="(min-width: 768px)"
+              type="image/png"
+              srcset="./img/hero/hero-img-tablet.png 1x,
+              ./img/hero/hero-img-tablet@2x.png 2x" >
+
+              <source media="(min-width: 320px)"
+              type="image/webp"
+              srcset="./img/hero/hero-img-mobile.webp 1x,
+              ./img/hero/hero-img-mobile@2x.webp 2x" >
+
+              <source media="(min-width: 320px)"
+              type="image/png"
+              srcset="./img/hero/hero-img-mobile.png 1x,
+              ./img/hero/hero-img-mobile@2x.png 2x" >
+
+              <img loading="lazy" class="hero-img"
+              src="./img/hero/hero-img-mobile.png" alt="Girl with a  cocktail">
             </picture>
+
+            <div class="hero-dark is-hidden">
+              <picture>
+                <source media="(min-width: 1280px)"
+                type="image/webp"
+                srcset="./img/hero/hero-img-desktop-dark.webp 1x,
+                ./img/hero/hero-img-desktop-dark@2x.webp 2x">
+  
+                <source media="(min-width: 1280px)"
+                type="image/png"
+                srcset="./img/hero/hero-img-desktop-dark.png 1x,
+                ./img/hero/hero-img-desktop-dark@2x.png 2x" >
+  
+                <source media="(min-width: 768px)"
+                type="image/webp"
+                srcset="./img/hero/hero-img-tablet-dark.webp 1x,
+                ./img/hero/hero-img-tablet-dark@2x.webp 2x" >
+  
+                <source media="(min-width: 768px)"
+                type="image/png"
+                srcset="./img/hero/hero-img-tablet-dark.png 1x,
+                ./img/hero/hero-img-tablet-dark@2x.png 2x" >
+  
+                <source media="(min-width: 320px)"
+                type="image/webp"
+                srcset="./img/hero/hero-img-mobile-dark.webp 1x,
+                ./img/hero/hero-img-mobile-dark@2x.webp 2x" >
+  
+                <source media="(min-width: 320px)"
+                type="image/png"
+                srcset="./img/hero/hero-img-mobile-dark.png 1x,
+                ./img/hero/hero-img-mobile-dark@2x.png 2x" >
+  
+                <img loading="lazy" class="hero-img"
+                src="./img/hero/hero-img-mobile-dark.png" alt="Girl with a  cocktail">
+              </picture>
+            </div>
+
             <p class="hero-abc-description hero-dark">Search your favorite cocktail by ABC</p>
         </div>
         </div>
@@ -31,8 +90,8 @@
               <div class="hero-input-container">
                 <input id="data-search" class="hero-form-input" name="data-search" type="text" placeholder="Search" autocomplete="off">
               <svg class="input-search-icon" aria-label="search" width="16" height="16">
-              <use href="./images/hero/search.svg#icon-search"></use>
+              <use href="./img/hero/search.svg#icon-search"></use>
             </svg>
               </div>
-            </form>
+         </form>
 </section>

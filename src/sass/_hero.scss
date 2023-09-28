@@ -3,6 +3,19 @@ body.dark .hero-dark {
     color: var( --primary-text-color-theme-dark);
 }
 
+.is-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
 .hero {
     display: flex;
     flex-direction: column;
@@ -68,22 +81,8 @@ body.dark .hero-dark {
     position: relative;
 }
 
-@media screen and (max-width: 767px){
-    .hero-img {
-        // position: relative;
-        max-width: 100%;
-        max-height: 100%;
-    }
-    .hero-img-container {
-        max-width: 335px;
-        max-height: 481px;
-    }
-}
-
 .hero-abc-description {
     position: absolute;
-    // top: 0;
-    // left: 81px;
     left: 24%;
     top: 86%;
     content: '';
@@ -101,7 +100,6 @@ body.dark .hero-dark {
 }
 
 .hero-form-input{
-    // position: relative;
     display: block;
     margin: auto;
     width: 100%;
@@ -126,6 +124,12 @@ body.dark .hero-dark {
     transform: translateY(-50%);
     fill: var(--primary-text-color-theme-light);
     cursor: pointer;
+}
+
+@media screen and (max-width: 767px){
+    .hero-img {
+        max-width: 100%;
+    }
 }
 
 @media screen and (min-width: 768px) {
@@ -216,5 +220,4 @@ body.dark .hero-dark {
     .input-search-icon {
         left: 38%;
     }
-
 }

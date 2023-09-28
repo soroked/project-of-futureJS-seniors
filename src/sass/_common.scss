@@ -64,19 +64,21 @@ body {
   background-size: cover;
 }
 
+@media screen and (max-width: 767px) {
+  body {
+      background-image: url('../img/background/background.png');
+  
+      &.body-dark-theme {
+        background-image: url('../img/background/background-dark.png');
+      }
+    }
+}
+
 @media screen and (min-width: 375px) and (max-width: 767px) {
   .container {
     width: 375px;
     margin-left: auto;
     margin-right: auto;
-  }
-
-  body {
-    background-image: url('../img/background/background.png');
-
-    &.body-dark-theme {
-      background-image: url('../img/background/background-dark.png');
-    }
   }
 }
 

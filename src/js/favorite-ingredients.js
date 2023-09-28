@@ -3,6 +3,7 @@ import { getFavCoctails } from "./fetch-ingredient";
 const ingredientsGallery = document.querySelector('.ingredients-gallery')
 const notFoundContainer = document.querySelector('.not-found-container')
 
+
 export const renderIngredients = ids => {
   ingredientsGallery.innerHTML = '';
   notFoundContainer.classList.add('is-hidden');
@@ -34,7 +35,7 @@ export const renderIngredients = ids => {
           >
             <svg
     class="delete-icon">
-        <use href="./images/fav-images/icons.svg#icon-trash"></use>
+        <use href="../img/icons.svg#icon-trash-01"></use>
             </svg>
           </button>
         </div>
@@ -42,6 +43,10 @@ export const renderIngredients = ids => {
     `;
   });
 };
+
+
+
+
 
 
 

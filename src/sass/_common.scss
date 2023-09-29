@@ -8,9 +8,8 @@
   text-decoration: none;
 }
 
-
 button {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 h1,
@@ -35,28 +34,28 @@ img {
 }
 
 :root {
-    --primary-font: 'Poppins', sans-serif;
-    --primary-accent-color: #7E8FDD;
-    --primary-hover-accent-color: #6E7FCF;
-    --secondary-accent-color: #9CDFDF;
-    --bg-abc-btn-color: rgba(126, 143, 221, 0.40);
-    --transition-btn: 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    /* --LIGHT THEME-- */
-    --primary-text-color-theme-light: #242424;
-    --modal-first-text-color-theme-light: rgba(36, 36, 36, 0.50);
-    --modal-second-text-color-theme-light: rgba(36, 36, 36, 0.80);
-    --bg-card-color-theme-light: #FDFDFF;
-    --bg-modal-color-theme-light: #F8F9FF;
-    --modal-btn-color-theme-light: rgba(36, 36, 36, 0.10);
-    --hover-modal-btn-color-theme-light: rgba(36, 36, 36, 0.20);
-    /* --DARK THEME-- */
-    --primary-text-color-theme-dark: #FDFDFF;
-    --modal-first-text-color-theme-dark: rgba(253, 253, 255, 0.99);
-    --modal-second-text-color-theme-dark: rgba(253, 253, 255, 0.50);
-    --modal-third-text-color-theme-dark: rgba(253, 253, 255, 0.80);
-    --bg-card-modal-color-theme-dark: #232330;
-    --modal-btn-color-theme-dark: rgba(253, 253, 255, 0.10);
-    --hover-modal-btn-color-theme-dark: rgba(253, 253, 255, 0.20);
+  --primary-font: 'Poppins', sans-serif;
+  --primary-accent-color: #7e8fdd;
+  --primary-hover-accent-color: #6e7fcf;
+  --secondary-accent-color: #9cdfdf;
+  --bg-abc-btn-color: rgba(126, 143, 221, 0.4);
+  --transition-btn: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  /* --LIGHT THEME-- */
+  --primary-text-color-theme-light: #242424;
+  --modal-first-text-color-theme-light: rgba(36, 36, 36, 0.5);
+  --modal-second-text-color-theme-light: rgba(36, 36, 36, 0.8);
+  --bg-card-color-theme-light: #fdfdff;
+  --bg-modal-color-theme-light: #f8f9ff;
+  --modal-btn-color-theme-light: rgba(36, 36, 36, 0.1);
+  --hover-modal-btn-color-theme-light: rgba(36, 36, 36, 0.2);
+  /* --DARK THEME-- */
+  --primary-text-color-theme-dark: #fdfdff;
+  --modal-first-text-color-theme-dark: rgba(253, 253, 255, 0.99);
+  --modal-second-text-color-theme-dark: rgba(253, 253, 255, 0.5);
+  --modal-third-text-color-theme-dark: rgba(253, 253, 255, 0.8);
+  --bg-card-modal-color-theme-dark: #232330;
+  --modal-btn-color-theme-dark: rgba(253, 253, 255, 0.1);
+  --hover-modal-btn-color-theme-dark: rgba(253, 253, 255, 0.2);
 }
 
 body {
@@ -72,12 +71,12 @@ body {
 
 @media screen and (max-width: 767px) {
   body {
-      background-image: url('../img/background/background.png');
-  
-      &.body-dark-theme {
-        background-image: url('../img/background/background-dark.png');
-      }
+    background-image: url('../img/background/background.png');
+
+    &.body-dark-theme {
+      background-image: url('../img/background/background-dark.png');
     }
+  }
 }
 
 @media screen and (min-width: 375px) and (max-width: 767px) {
@@ -96,6 +95,7 @@ body {
   }
   body {
     background-image: url('../img/background/background-tablet.png');
+    background-color: black;
 
     &.body-dark-theme {
       background-image: url('../img/background/background-tablet-dark.png');
@@ -113,6 +113,7 @@ body {
     background-image: url('../img/background/background-desktop.png');
 
     &.body-dark-theme {
-      background-image: url('../img/background/background-desktop-dark.png');}
+      background-image: url('../img/background/background-desktop-dark.png');
+    }
   }
 }

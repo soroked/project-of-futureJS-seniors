@@ -2,7 +2,7 @@ import axios from "axios";
 
 const BASE_URL = 'https://drinkify.b.goit.study/api/v1/';
 const ENDPOINT_COCKTAIL = 'cocktails/search/';
-const ENDPOINT_INGREDIENTS = 'ingredients/search/'
+const ENDPOINT_INGREDIENTS = 'ingredients/search/';
 
 function getCocktails(query) {
 

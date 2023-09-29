@@ -64,32 +64,55 @@ body {
   background-size: cover;
 }
 
+@media screen and (max-width: 374px) {
+  body {
+    background-image: url('../img/background/background.png');
+  }
+}
+
+@media screen and (max-width: 767px) {
+  body {
+      background-image: url('../img/background/background.png');
+  
+      &.body-dark-theme {
+        background-image: url('../img/background/background-dark.png');
+      }
+    }
+}
+
 @media screen and (min-width: 375px) and (max-width: 767px) {
   .container {
     width: 375px;
     margin-left: auto;
     margin-right: auto;
   }
-
-  body {
-    background-image: url('../img/background/background.png');
-  }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .container {
     width: 768px;
+    margin-left: auto;
+    margin-right: auto;
   }
   body {
     background-image: url('../img/background/background-tablet.png');
+
+    &.body-dark-theme {
+      background-image: url('../img/background/background-tablet-dark.png');
+    }
   }
 }
 
 @media screen and (min-width: 1280px) {
   .container {
     width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
   }
   body {
     background-image: url('../img/background/background-desktop.png');
+
+    &.body-dark-theme {
+      background-image: url('../img/background/background-desktop-dark.png');}
   }
 }

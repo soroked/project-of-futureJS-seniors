@@ -1,0 +1,13 @@
+{{#each this}}
+<li class="cocktail-card">
+    <img class="gallery-item__img" src="{{drinkThumb}}" alt="{{drink}}" loading="lazy" />
+    <div class="info">
+        <h3 class="info-item">
+            {{drink}}
+        </h3>
+        <p class="info-item">
+            {{description}}
+        </p>
+    </div>
+</li>
+{{/each}}

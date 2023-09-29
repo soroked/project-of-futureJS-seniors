@@ -1,19 +1,12 @@
 import { getCocktails } from '../swagger-api.js';
 import searchMarkup from '../../templates/searchMarkup.hbs';
-
-const refs = {
-  form: document.querySelector('.hero-search-form'),
-  input: document.querySelector('.hero-form-input'),
-  list: document.querySelector('.hero-search-cards'),
-  searchButtonWrapper: document.querySelector('.button-search-wrapper-js'),
-  searchButton: document.querySelector('.button-search-js'),
-};
+import refs from './refs.js';
 
 refs.form.addEventListener('submit', onInputSearch);
 refs.searchButtonWrapper.addEventListener('click', onInputSearch);
 
 let page = 1;
-let cardPerPage = 8;
+let cardPerPage = 9;
 
 async function onInputSearch(e) {
   e.preventDefault();
@@ -24,20 +17,20 @@ async function onInputSearch(e) {
   } else if (e.currentTarget.nodeName === 'DIV') {
     searchQuery = e.target.dataset.value;
   } else {
-    searchQuery = e.currentTarget.elements.search.value.toLowerCase().trim();
+    searchQuery = e.currentTarget.elements.search.value.trim();
   }
 
   try {
     const response = await getCocktails(searchQuery);
 
-    function renderMarkup(page) {
+    function renderCards(page) {
       let firstIndex = (page - 1) * cardPerPage;
       let lastIndex = firstIndex + cardPerPage;
       const pageLimit = response.data.slice(firstIndex, lastIndex);
 
       return (refs.list.innerHTML = searchMarkup(pageLimit));
     }
-    renderMarkup(page);
+    renderCards(page);
   } catch (error) {
     refs.list.innerHTML = '';
   } finally {

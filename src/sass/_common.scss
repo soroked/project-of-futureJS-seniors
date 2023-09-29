@@ -64,6 +64,12 @@ body {
   background-size: cover;
 }
 
+@media screen and (max-width: 374px) {
+  body {
+    background-image: url('../img/background/background.png');
+  }
+}
+
 @media screen and (max-width: 767px) {
   body {
       background-image: url('../img/background/background.png');
@@ -85,6 +91,8 @@ body {
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .container {
     width: 768px;
+    margin-left: auto;
+    margin-right: auto;
   }
   body {
     background-image: url('../img/background/background-tablet.png');
@@ -98,6 +106,8 @@ body {
 @media screen and (min-width: 1280px) {
   .container {
     width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
   }
   body {
     background-image: url('../img/background/background-desktop.png');

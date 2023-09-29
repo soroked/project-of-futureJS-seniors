@@ -1,7 +1,22 @@
-const BASE_URL = 'https://drinkify.b.goit.study/api/v1/';
+import axios from "axios";
 
-export const getFavCoctails = async id =>  {
-    const response = await fetch(`${BASE_URL}ingredients/{id}`);
-    const json = await response.json();
-    return json;
+const BASE_URL = 'https://drinkify.b.goit.study/api/v1/ingredients/search/';
+
+
+export async function getIngredients(letter) {
+    const options = {
+        params: {
+            f: letter
+        }
+    }
+    try {
+        const response = await axios.get(BASE_URL, options)
+        
+        return response
+    } catch (error) {
+        throw new Error(error)
+    }
 }
+
+
+

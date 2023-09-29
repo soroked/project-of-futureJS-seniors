@@ -43,8 +43,7 @@
               src="./img/hero/hero-img-mobile.png" alt="Girl with a  cocktail">
             </picture>
 
-            <div class="hero-dark is-hidden-hero">
-              <picture>
+              <picture class="hero-dark is-hidden-hero">
                 <source media="(min-width: 1280px)"
                 type="image/webp"
                 srcset="./img/hero/hero-img-desktop-dark.webp 1x,
@@ -78,17 +77,29 @@
                 <img loading="lazy" class="hero-img"
                 src="./img/hero/hero-img-mobile-dark.png" alt="Girl with a  cocktail">
               </picture>
-            </div>
+            
 
             <p class="hero-abc-description hero-dark">Search your favorite cocktail by ABC</p>
         </div>
         </div>
 
-        <ul class="btn-abc btn-abc-js"></ul>
+        <div>
+          <div class="button-search-wrapper button-search-wrapper-js">
+            <div class="button-search button-search-js">
+              <span class="button-search-span-js">A</span>
+              <svg class="icon">
+                <use href="./img/icons.svg#icon-chevron-down"></use>
+              </svg>
+            </div>
+            <div class="button-search-dropdown hidden button-dropdown-js">
+              <div class="buttons-list button-list-js"></div>
+            </div>
+          </div>
+        </div>
 
         <form class="hero-search-form">
               <div class="hero-input-container">
-                <input id="search" class="hero-form-input" name="data-search" type="search" placeholder="Search" autocomplete="off">
+                <input id="search" class="hero-form-input" name="search" type="search" placeholder="Search" autocomplete="off">
               <svg class="input-search-icon" aria-label="search" width="16" height="16">
               <use href="./img/hero/search.svg#icon-search"></use>
             </svg>

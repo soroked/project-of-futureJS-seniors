@@ -1,59 +1,46 @@
 import { getCocktails } from '../swagger-api.js';
+import searchMarkup from '../../templates/searchMarkup.hbs';
 
 const refs = {
   form: document.querySelector('.hero-search-form'),
   input: document.querySelector('.hero-form-input'),
   list: document.querySelector('.hero-search-cards'),
+  searchButtonWrapper: document.querySelector('.button-search-wrapper-js'),
+  searchButton: document.querySelector('.button-search-js'),
 };
 
 refs.form.addEventListener('submit', onInputSearch);
+refs.searchButtonWrapper.addEventListener('click', onInputSearch);
 
-function onInputSearch(e) {
+let page = 1;
+let cardPerPage = 8;
+
+async function onInputSearch(e) {
   e.preventDefault();
+  let searchQuery = null;
 
-  const searchQuery = e.currentTarget.elements['data-search'].value
-    .toLowerCase()
-    .trim();
-  console.log(searchQuery);
+  if (e.target.nodeName === 'BUTTON') {
+    searchQuery = e.target.dataset.value;
+  } else if (e.currentTarget.nodeName === 'DIV') {
+    searchQuery = e.target.dataset.value;
+  } else {
+    searchQuery = e.currentTarget.elements.search.value.toLowerCase().trim();
+  }
 
-  getCocktails(searchQuery)
-    .then(response => response.data)
-    .then(data => {
-      refs.list.innerHTML = renderMarkup(data);
-      // console.log(data);
-    })
-    .catch(console.error())
-    .finally(refs.form.reset());
+  try {
+    const response = await getCocktails(searchQuery);
 
-  function renderMarkup(card) {
-    // const firstIndex = (page - 1) * cardPerPage;
-    // const lastIndex = firstIndex + cardPerPage;
+    function renderMarkup(page) {
+      let firstIndex = (page - 1) * cardPerPage;
+      let lastIndex = firstIndex + cardPerPage;
+      const pageLimit = response.data.slice(firstIndex, lastIndex);
 
-    // const pageLimit = data.slice(firstIndex, lastIndex);
-
-    return card
-      .map(({ drinkThumb, drink, description }) => {
-        return `<li class="cocktail-card">
-            <img class="gallery-item__img" src="${drinkThumb}" alt="${drink}" loading="lazy"/>
-            <div class="info">
-              <h3 class="info-item">
-                ${drink}
-              </h3>
-              <p class="info-item">
-                ${description}
-              </p>
-            </div>
-          </li>`;
-      })
-      .join('');
+      return (refs.list.innerHTML = searchMarkup(pageLimit));
+    }
+    renderMarkup(page);
+  } catch (error) {
+    refs.list.innerHTML = '';
+  } finally {
+    refs.form.reset();
   }
 }
-
-// const page = 1;
-// const contentPerPage = 3
-// const lastIndex = page * contentPerPage // 3
-// const firstIndex = lastIndex - contentPerPage // 0
-// scouts.slice(firstIndex, lastIndex)
-// scouts.slice(0, 3) => [ 'levi', 'hange', 'erwin' ]
-// page 2
-// scouts.slice(3, 6) => [ 'petra', 'oruo', 'miche' ]

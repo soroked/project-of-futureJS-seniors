@@ -1,12 +1,24 @@
 import { getCocktails } from '../swagger-api.js';
-import searchMarkup from '../../templates/searchMarkup.hbs';
-import refs from './refs.js';
+import { renderMarkupCard } from '../renderMarkupCard.js';
+import { updateValueBasedOnScreenWidth } from '../main/pagination/updateValueBasedOnScreenWidth.js';
+import debounce from 'debounce';
+import { listPag } from '../main/pagination/pagination.js';
+
+export const refs = {
+  form: document.querySelector('.hero-search-form'),
+  input: document.querySelector('.hero-form-input'),
+  list: document.querySelector('.hero-search-cards'),
+  searchButtonWrapper: document.querySelector('.button-search-wrapper-js'),
+  searchButton: document.querySelector('.button-search-js'),
+};
 
 refs.form.addEventListener('submit', onInputSearch);
 refs.searchButtonWrapper.addEventListener('click', onInputSearch);
 
 let page = 1;
-let cardPerPage = 9;
+
+window.addEventListener('load', updateValueBasedOnScreenWidth);
+window.addEventListener('resize', debounce(updateValueBasedOnScreenWidth, 300));
 
 async function onInputSearch(e) {
   e.preventDefault();
@@ -23,15 +35,11 @@ async function onInputSearch(e) {
   try {
     const response = await getCocktails(searchQuery);
 
-    function renderMarkupCard(page) {
-      let firstIndex = (page - 1) * cardPerPage;
-      let lastIndex = firstIndex + cardPerPage;
-      const pageLimit = response.data.slice(firstIndex, lastIndex);
-
-      return (refs.list.innerHTML = searchMarkup(pageLimit));
-    }
-    renderMarkupCard(page);
+    let arr = [];
+    arr.push(response.data);
+    renderMarkupCard(page, cardPerPage, ...arr);
   } catch (error) {
+    listPag.innerHTML = '';
     const logo = new URL('../../img/hero/Group 11.png', import.meta.url);
     refs.list.innerHTML = `<div class="error-img-container">
     <img class="hero-error-img" src="${logo}" alt="cocktails" >

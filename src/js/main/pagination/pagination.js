@@ -1,13 +1,18 @@
 import { renderMarkupCard } from '../../renderMarkupCard';
 import { updateValueBasedOnScreenWidth } from './updateValueBasedOnScreenWidth';
+import refs from '../../hero/refs';
 
 export const listPag = document.querySelector('.pagination-list');
+
 let paginationIsSet = false;
+
 export function createPagination(totalPages, page, arr) {
   let liItem = '';
   let activeLiItem = null;
   let beforePage = page - 1;
   let afterPage = page + 1;
+
+  refs.list.scrollIntoView({ behavior: 'smooth' });
 
   if (page > 1) {
     liItem += `<li class="prev"><span>&#60</span></li>`;

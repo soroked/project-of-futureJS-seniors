@@ -6,7 +6,7 @@ padding: 0 20px;
 position: relative;
 }
 
-.is-hidden {
+.fav-ingr-is-hidden {
 visibility: hidden;
 pointer-events: none;
 position: absolute;
@@ -31,7 +31,7 @@ row-gap: 20px;
 width: 335px;
 padding: 20px;
 border-radius: 20px;
-background: var(--color-background-white);
+background: var(--bg-card-color-theme-light);
 box-shadow: 0px 4px 46px 0px rgba(0, 0, 0, 0.05);
 }
 
@@ -47,7 +47,7 @@ margin-bottom: 4px;
 }
 
 .alcoholic-ing {
-color: rgba(36, 36, 36, 0.5);
+color: var(--modal-first-text-color-theme-light);
 line-height: 1.28;
 margin-bottom: 14px;
 }
@@ -55,6 +55,7 @@ margin-bottom: 14px;
 .ingredient-description {
 width: 295px;
 height: 54px;
+font-size: 14px;
 overflow: hidden;
 text-overflow: ellipsis;
 white-space: wrap;
@@ -67,22 +68,24 @@ display: flex;
 gap: 15px;
 }
 
+
+
 .ingredient-learn-more-btn {
 width: 232px;
 height: 48px;
 font-weight: 600;
 border-radius: 12px;
-border: 1px solid #7e8fdd;
+border: 1px solid var(--primary-accent-color);
 }
 
 .learn-more-btn {
-padding: 14px 70px;
+
 background: transparent;
 border: 1px solid var(--primary-accent-color);
 border-radius: 12px;
 color: var(--primary-text-color-theme-light);
 font-family: Poppins;
-font-size: 14px;
+font-size: 18px;
 font-style: normal;
 font-weight: 600;
 line-height: 20px;
@@ -99,8 +102,8 @@ color: var(--bg-card-color-theme-light);
 
 .delete-btn {
 display: flex;
-width: 48px;
-height: 48px;
+width: 56px;
+height: 56px;
 justify-content: center;
 align-items: center;
 flex-shrink: 0;
@@ -142,7 +145,7 @@ display: none;
 
 
 .not-found-txt-span {
-  color:#9CDFDF;
+  color:var(--secondary-accent-color);
   font-style: italic;
 }
 
@@ -213,6 +216,27 @@ line-height: 1.17;
 row-gap: 44px;
 column-gap: 24px;
 }
+}
+
+
+// body-dark-the-ingredients
+
+
+body.dark-theme {
+  background: #121212;
+}
+
+body.dark-theme .ingredient-card {
+  background-color: var(--bg-card-modal-color-theme-dark);
+}
+
+.body.dark-theme .learn-more-btn {
+  color: var(--color-background-white);
+}
+
+.body.dark-theme .ingredient-description,
+body.dark-theme .alcoholic-ing {
+  color: var(--modal-second-text-color-theme-dark);
 }
 
 

@@ -1,56 +1,63 @@
-import { renderMarkUpIngredients } from "./createMarkup";
-const BASE_URL = 'https://drinkify.b.goit.study/api/v1/ingredients/';
+const BASE_URL = 'https://drinkify.b.goit.study/api/v1/';
 
-import local from "./local";
 import axios from 'axios';
+import createIngredientCard from './createMarkup';
+import addToFavorites from './localstorage-fav-ingredients';
 
-import { getIngredients } from "./fetch-ingredient";
 
 const notFoundContainer = document.querySelector('.not-found-container')
-
 const ingredientsGallery = document.querySelector('.ingredients-gallery')
 
 
 
-function createMarkupIngredients(id) {
-   const render = map(`<li class="ingredient-card">
-    <h2 class="ingredient-header">${title}</h2>
-    <p class="alcoholic-ing">Alcoholic</p>
-    <p class="ingredient-description">
-      ${description}
-    </p>
-    <div class="ingredient-btns">
-      <button class="ingredient-learn-more-btn learn-more-btn" data-id="${_id}">learn more</button>
-      <button class="delete-btn" data-id="${_id}">
-        <svg class="delete-icon width="18" height="18">
-         <use href="../img/icons.svg#icon-trash-01"></use>
-        </svg>
-      </button>
-    </div>
-  </li>`
-).join('')}
-
-export function renderMarkUpIngredients(arr) {
- ingredientsGallery.innerHTML = '';
-  notFoundContainer.classList.add('is-hidden');
-  if (!ids || ids.length === 0) {
-    notFoundContainer.classList.remove('is-hidden');
-  }
-  const markup = arr.flatMap(createMarkupIngredients).join('');
-  ingredientsGallery.insertAdjacentHTML('beforeend', markup);
-}
-
-async function getFavIngredients() {
+async function getIngredientsFromAPI() {
   try {
-    const arrId = local.load('id_ing');
-    const promises = arrId.map(id => axios.get(`${BASE_URL}${id}`));
+    const response = await axios.get(`${BASE_URL}ingredients/search?f`);
+ 
+    const ingredients = response.data; 
 
-    const arrForRender = await Promise.all(promises);
-    const newData = arrForRender.map(el => el.data);
+   
+if (ingredients.length === 0) {
+  
+  notFoundContainer.classList.remove('fav-ingr-is-hidden');
+} else {
+  
+  notFoundContainer.classList.add('fav-ingr-is-hidden');
 
-    renderMarkUpIngredients(newData);
-  } catch (err) {}
+
+  ingredients.forEach((ingredient) => {
+    const ingredientCard = createIngredientCard(ingredient);
+    ingredientsGallery.innerHTML += ingredientCard;
+
+
+     ingredientsGallery.addEventListener('click', (event) => {
+        
+       
+if (event.target.classList.contains('add-to-favorites')) {
+          const ingredientId = event.target.getAttribute('data-id');
+          const selectedIngredient = ingredients.find((ingredient) => ingredient._id === ingredientId);
+          
+          if (selectedIngredient) {         
+addToFavorites(selectedIngredient);
+          }
+        }
+      });
+  });
 }
+  } 
+catch (error) {
+    console.error('Error:', error);
+  }
+}
+
+window.addEventListener('load', getIngredientsFromAPI);
+
+
+ 
+
+
+
+
 
 
 

@@ -1,13 +1,12 @@
-import { renderMarkupCard } from '../../hero/renderMarkupCard';
+import { renderMarkupCard } from '../../renderMarkupCard';
 
-const list = document.querySelector('.pagination-list');
-
+export const listPag = document.querySelector('.pagination-list');
+let paginationIsSet = false;
 export function createPagination(totalPages, page, arr) {
   let liItem = '';
   let activeLiItem = null;
   let beforePage = page - 1;
   let afterPage = page + 1;
-  let cardPerPage = 8;
 
   if (page > 1) {
     liItem += `<li class="prev"><span>&#60</span></li>`;
@@ -46,7 +45,9 @@ export function createPagination(totalPages, page, arr) {
     } else {
       activeLiItem = '';
     }
-    liItem += `<li class="numb ${activeLiItem} "><span>${pageLength}</span></li>`;
+    if (totalPages !== 1) {
+      liItem += `<li class="numb ${activeLiItem} "><span>${pageLength}</span></li>`;
+    }
   }
 
   if (page < totalPages - 1) {
@@ -60,7 +61,7 @@ export function createPagination(totalPages, page, arr) {
     liItem += `<li class="next"><span>&#62</span></li>`;
   }
 
-  list.innerHTML = liItem;
+  listPag.innerHTML = liItem;
 
   const prevButton = document.querySelector('.prev');
   const nextButton = document.querySelector('.next');
@@ -81,10 +82,12 @@ export function createPagination(totalPages, page, arr) {
     );
   });
 
-  document.addEventListener('keyup', onLeftRight);
+  if (!paginationIsSet) {
+    document.addEventListener('keyup', onLeftRight);
+    paginationIsSet = true;
+  }
 
   function handlePaginationClick(clickedPage) {
-    console.log(clickedPage);
     createPagination(totalPages, clickedPage, arr);
     renderMarkupCard(clickedPage, cardPerPage, arr);
   }

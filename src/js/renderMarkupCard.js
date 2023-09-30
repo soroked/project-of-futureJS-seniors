@@ -4,7 +4,6 @@ import { createPagination } from './main/pagination/pagination.js';
 import refs from './hero/refs';
 
 export function renderMarkupCard(page, cardPerPage, arr) {
-  console.log(arr);
   let firstIndex = (page - 1) * cardPerPage;
   let lastIndex = firstIndex + cardPerPage;
   const pageLimit = arr.slice(firstIndex, lastIndex);

@@ -1,4 +1,5 @@
 import { renderMarkupCard } from '../../renderMarkupCard';
+import { updateValueBasedOnScreenWidth } from './updateValueBasedOnScreenWidth';
 
 export const listPag = document.querySelector('.pagination-list');
 let paginationIsSet = false;
@@ -89,7 +90,7 @@ export function createPagination(totalPages, page, arr) {
 
   function handlePaginationClick(clickedPage) {
     createPagination(totalPages, clickedPage, arr);
-    renderMarkupCard(clickedPage, cardPerPage, arr);
+    renderMarkupCard(clickedPage, updateValueBasedOnScreenWidth(), arr);
   }
 
   function onLeftRight(evt) {

@@ -33,7 +33,7 @@ async function onInputSearch(e) {
 
     let arr = [];
     arr.push(response.data);
-    renderMarkupCard(page, cardPerPage, ...arr);
+    renderMarkupCard(page, updateValueBasedOnScreenWidth(), ...arr);
   } catch (error) {
     listPag.innerHTML = '';
     refs.list.innerHTML = markupError;

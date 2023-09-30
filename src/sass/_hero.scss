@@ -139,13 +139,20 @@ body.dark .hero-dark {
 
 .hero-error-img {
     align-items: center;
-    width: 142px;
-    height: 122px;
 }
 
-.error-text {
+.hero-error-text {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.33;
     text-align: center;
     width: 244px;
+    color: var(--primary-text-color-theme-light);
+}
+
+.hero-text-accent {
+    color: var(--secondary-accent-color);
+    font-style: italic;
 }
 
 @media screen and (max-width: 767px){
@@ -209,6 +216,15 @@ body.dark .hero-dark {
     .input-search-icon {
         left: 31%;
     }
+    .error-img-container {
+        gap: 40px;
+        padding-top: 50px;
+    }
+    .hero-error-text {
+        font-size: 24px;
+        line-height: 1.17;
+        width: 370px;
+    }
 }
 
 @media screen and (min-width: 1280px) {
@@ -245,5 +261,8 @@ body.dark .hero-dark {
     }
     .input-search-icon {
         left: 38%;
+    }
+    .error-img-container {
+        padding-bottom: 150px;
     }
 }

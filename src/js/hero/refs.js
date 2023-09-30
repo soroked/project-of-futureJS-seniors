@@ -3,7 +3,7 @@ const refs = {
   input: document.querySelector('.hero-form-input'),
   list: document.querySelector('.hero-search-cards'),
   searchButtonWrapper: document.querySelector('.button-search-wrapper-js'),
-  searchButton: document.querySelector('.button-search-js'),
+  buttonSpan: document.querySelector('.button-search-span-js'),
 };
 
 export default refs;

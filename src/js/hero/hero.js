@@ -3,18 +3,11 @@ import { renderMarkupCard } from '../renderMarkupCard.js';
 import { updateValueBasedOnScreenWidth } from '../main/pagination/updateValueBasedOnScreenWidth.js';
 import debounce from 'debounce';
 import { listPag } from '../main/pagination/pagination.js';
-
-export const refs = {
-  form: document.querySelector('.hero-search-form'),
-  input: document.querySelector('.hero-form-input'),
-  list: document.querySelector('.hero-search-cards'),
-  searchButtonWrapper: document.querySelector('.button-search-wrapper-js'),
-  searchButton: document.querySelector('.button-search-js'),
-};
+import refs from './refs.js';
+import { markupError } from './markupError.js';
 
 refs.form.addEventListener('submit', onInputSearch);
 refs.searchButtonWrapper.addEventListener('click', onInputSearch);
-
 let page = 1;
 
 window.addEventListener('load', updateValueBasedOnScreenWidth);
@@ -40,12 +33,9 @@ async function onInputSearch(e) {
     renderMarkupCard(page, cardPerPage, ...arr);
   } catch (error) {
     listPag.innerHTML = '';
-    const logo = new URL('../../img/hero/Group 11.png', import.meta.url);
-    refs.list.innerHTML = `<div class="error-img-container">
-    <img class="hero-error-img" src="${logo}" alt="cocktails" >
-    <p class="error-text hero-dark">Sorry, we <span class="hero-title-accent">we didn’t</span> any cocktail for you</p>
-    </div>`;
+    refs.list.innerHTML = markupError;
   } finally {
     refs.form.reset();
+    refs.buttonSpan.innerHTML = 'A';
   }
 }

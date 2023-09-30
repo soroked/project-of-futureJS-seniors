@@ -5,4 +5,4 @@ import './js/footer/footer'
 
 import './js/main/buttons-search'
 
-import './js/favorite-ingredients'
+// import './js/favorite-ingredients'

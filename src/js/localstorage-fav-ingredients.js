@@ -1,3 +1,5 @@
+import Notiflix from "notiflix";
+
 export default function addToFavorites(ingredient) {
   try {
      const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
@@ -11,6 +13,6 @@ export default function addToFavorites(ingredient) {
     localStorage.setItem('favorites', JSON.stringify(favorites));
   }
   } catch (error) {
-    console.error(error);
+    Notiflix.Notify.failure(error);
   }
 }

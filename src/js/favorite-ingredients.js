@@ -1,6 +1,7 @@
 const BASE_URL = 'https://drinkify.b.goit.study/api/v1/';
 
 import axios from 'axios';
+import Notiflix from 'notiflix';
 import createIngredientCard from './createMarkup';
 import addToFavorites from './localstorage-fav-ingredients';
 
@@ -46,7 +47,7 @@ addToFavorites(selectedIngredient);
 }
   } 
 catch (error) {
-    console.error('Error:', error);
+    Notiflix.Notify.failure(error);
   }
 }
 

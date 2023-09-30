@@ -3,18 +3,11 @@ import { renderMarkupCard } from '../renderMarkupCard.js';
 import { updateValueBasedOnScreenWidth } from '../main/pagination/updateValueBasedOnScreenWidth.js';
 import debounce from 'debounce';
 import { listPag } from '../main/pagination/pagination.js';
-
-export const refs = {
-  form: document.querySelector('.hero-search-form'),
-  input: document.querySelector('.hero-form-input'),
-  list: document.querySelector('.hero-search-cards'),
-  searchButtonWrapper: document.querySelector('.button-search-wrapper-js'),
-  searchButton: document.querySelector('.button-search-js'),
-};
+import refs from './refs.js';
+import { markupError } from './markupError.js';
 
 refs.form.addEventListener('submit', onInputSearch);
 refs.searchButtonWrapper.addEventListener('click', onInputSearch);
-
 let page = 1;
 
 window.addEventListener('load', updateValueBasedOnScreenWidth);
@@ -29,7 +22,7 @@ async function onInputSearch(e) {
   } else if (e.currentTarget.nodeName === 'DIV') {
     searchQuery = e.target.dataset.value;
   } else {
-    searchQuery = e.currentTarget.elements.search.value.toLowerCase().trim();
+    searchQuery = e.currentTarget.elements.search.value.trim();
   }
 
   try {
@@ -40,8 +33,9 @@ async function onInputSearch(e) {
     renderMarkupCard(page, cardPerPage, ...arr);
   } catch (error) {
     listPag.innerHTML = '';
-    refs.list.innerHTML = '';
+    refs.list.innerHTML = markupError;
   } finally {
     refs.form.reset();
+    refs.buttonSpan.innerHTML = 'A';
   }
 }

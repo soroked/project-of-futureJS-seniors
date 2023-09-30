@@ -1,7 +1,10 @@
 import { getCocktails } from '../swagger-api.js';
-import searchMarkup from '../../templates/searchMarkup.hbs';
+import { renderMarkupCard } from '../renderMarkupCard.js';
+import { updateValueBasedOnScreenWidth } from '../main/pagination/updateValueBasedOnScreenWidth.js';
+import debounce from 'debounce';
+import { listPag } from '../main/pagination/pagination.js';
 
-const refs = {
+export const refs = {
   form: document.querySelector('.hero-search-form'),
   input: document.querySelector('.hero-form-input'),
   list: document.querySelector('.hero-search-cards'),
@@ -13,7 +16,9 @@ refs.form.addEventListener('submit', onInputSearch);
 refs.searchButtonWrapper.addEventListener('click', onInputSearch);
 
 let page = 1;
-let cardPerPage = 8;
+
+window.addEventListener('load', updateValueBasedOnScreenWidth);
+window.addEventListener('resize', debounce(updateValueBasedOnScreenWidth, 300));
 
 async function onInputSearch(e) {
   e.preventDefault();
@@ -30,15 +35,11 @@ async function onInputSearch(e) {
   try {
     const response = await getCocktails(searchQuery);
 
-    function renderMarkup(page) {
-      let firstIndex = (page - 1) * cardPerPage;
-      let lastIndex = firstIndex + cardPerPage;
-      const pageLimit = response.data.slice(firstIndex, lastIndex);
-
-      return (refs.list.innerHTML = searchMarkup(pageLimit));
-    }
-    renderMarkup(page);
+    let arr = [];
+    arr.push(response.data);
+    renderMarkupCard(page, cardPerPage, ...arr);
   } catch (error) {
+    listPag.innerHTML = '';
     refs.list.innerHTML = '';
   } finally {
     refs.form.reset();

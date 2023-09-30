@@ -127,6 +127,27 @@ body.dark .hero-dark {
     cursor: pointer;
 }
 
+.error-img-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 40px;
+    padding-bottom: 100px;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-error-img {
+    align-items: center;
+    width: 142px;
+    height: 122px;
+}
+
+.error-text {
+    text-align: center;
+    width: 244px;
+}
+
 @media screen and (max-width: 767px){
     .hero-img {
         max-width: 100%;

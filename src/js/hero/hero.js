@@ -23,16 +23,20 @@ async function onInputSearch(e) {
   try {
     const response = await getCocktails(searchQuery);
 
-    function renderCards(page) {
+    function renderMarkupCard(page) {
       let firstIndex = (page - 1) * cardPerPage;
       let lastIndex = firstIndex + cardPerPage;
       const pageLimit = response.data.slice(firstIndex, lastIndex);
 
       return (refs.list.innerHTML = searchMarkup(pageLimit));
     }
-    renderCards(page);
+    renderMarkupCard(page);
   } catch (error) {
-    refs.list.innerHTML = '';
+    const logo = new URL('../../img/hero/Group 11.png', import.meta.url);
+    refs.list.innerHTML = `<div class="error-img-container">
+    <img class="hero-error-img" src="${logo}" alt="cocktails" >
+    <p class="error-text hero-dark">Sorry, we <span class="hero-title-accent">we didn’t</span> any cocktail for you</p>
+    </div>`;
   } finally {
     refs.form.reset();
   }

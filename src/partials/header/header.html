@@ -1,0 +1,54 @@
+<header  class="header"> 
+    <nav class="header-navigation">
+     <ul class="header-list">
+         <li class="header-item">
+             <a class="header-link" href="./index.html">Home</a> 
+         </li>
+         <li class="header-item" id="favorite-dropdown" onclick="toggleFavoriteMenu(event)">
+             <a class="header-link" href="#">
+                 <span>Favorite</span>
+                 <svg class="chevron-down" width="24" height="24">
+                     <use href="./img/icons.svg#icon-chevron-down"></use> 
+                 </svg>   
+             </a> 
+             <div class="favorite-navigation"> 
+                 <ul class="navigation-list" id="favorite-menu">
+                     <li class="navigation-item"> 
+                         <a href="./favorite-cocktail.html">Favorite cocktails</a> 
+                     </li>
+                     <li class="navigation-item">     
+                         <a href="./favorite-ingredients.html">Favorite ingredients</a>   
+                     </li>
+                 </ul>      
+             </div>    
+         </li>   
+     </ul>
+ </nav>  
+    
+ <div class="logo">          
+     <a href="./index.html" class="header-logo"> 
+         <span>Drinkify</span>  
+         <svg class="header-logo-img" width="29" height="25">
+           <use href="./img/icons.svg#icon-cocktail"></use> 
+         </svg> 
+         </a> 
+         </div>   
+
+     <label class="switch toggle">
+     <input type="checkbox" id="themeSwitch">  
+     <span class="slider round"></span>   
+   </label> 
+
+   <div class="header-menu"> 
+     <svg class="heder-close-menu" id="close-menu" width="16" height="16">
+       <use href="./img/icons.svg#icon-x"></use>
+     </svg>
+     <svg class="burger-menu" id="open-menu" width="32" height="32"> 
+       <use class="menu-icon" href="./img/icons.svg#icon-align-justify"></use>
+     </svg>       
+   </div>   
+   
+             
+</header>   
+
+

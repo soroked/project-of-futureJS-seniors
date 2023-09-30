@@ -1,8 +1,10 @@
 export function updateValueBasedOnScreenWidth() {
   const screenWidth = window.innerWidth;
   if (screenWidth > 1280) {
-    return (cardPerPage = 9);
+    let cardPerPage = 9;
+    return cardPerPage;
   } else {
-    return (cardPerPage = 8);
+    let cardPerPage = 8;
+    return cardPerPage;
   }
 }

@@ -7,7 +7,8 @@ import refs from './refs.js';
 import { markupError } from './markupError.js';
 
 refs.form.addEventListener('submit', onInputSearch);
-refs.searchButtonWrapper.addEventListener('click', onInputSearch);
+refs.searchDropdown.addEventListener('click', onInputSearch);
+
 let page = 1;
 
 window.addEventListener('load', updateValueBasedOnScreenWidth);
@@ -17,9 +18,11 @@ async function onInputSearch(e) {
   e.preventDefault();
   let searchQuery = null;
 
+  if (e.target.classList.contains('button-list-js')) {
+    return;
+  }
+
   if (e.target.nodeName === 'BUTTON') {
-    searchQuery = e.target.dataset.value;
-  } else if (e.currentTarget.nodeName === 'DIV') {
     searchQuery = e.target.dataset.value;
   } else {
     searchQuery = e.currentTarget.elements.search.value.trim();
@@ -30,7 +33,7 @@ async function onInputSearch(e) {
 
     let arr = [];
     arr.push(response.data);
-    renderMarkupCard(page, cardPerPage, ...arr);
+    renderMarkupCard(page, updateValueBasedOnScreenWidth(), ...arr);
   } catch (error) {
     listPag.innerHTML = '';
     refs.list.innerHTML = markupError;

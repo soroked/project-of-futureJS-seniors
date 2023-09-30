@@ -1,7 +1,7 @@
 import { getCocktails } from '../swagger-api.js';
-import searchMarkup from '../../templates/searchMarkup.hbs';
+import { renderMarkupCard } from './renderMarkupCard.js';
 
-const refs = {
+export const refs = {
   form: document.querySelector('.hero-search-form'),
   input: document.querySelector('.hero-form-input'),
   list: document.querySelector('.hero-search-cards'),
@@ -30,14 +30,10 @@ async function onInputSearch(e) {
   try {
     const response = await getCocktails(searchQuery);
 
-    function renderMarkup(page) {
-      let firstIndex = (page - 1) * cardPerPage;
-      let lastIndex = firstIndex + cardPerPage;
-      const pageLimit = response.data.slice(firstIndex, lastIndex);
+    let arr = [];
+    arr.push(response.data);
 
-      return (refs.list.innerHTML = searchMarkup(pageLimit));
-    }
-    renderMarkup(page);
+    renderMarkupCard(page, cardPerPage, ...arr);
   } catch (error) {
     refs.list.innerHTML = '';
   } finally {

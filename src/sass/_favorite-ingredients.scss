@@ -222,15 +222,20 @@ column-gap: 24px;
 
 
 body.dark-theme {
+  color: var(--primary-text-color-theme-dark);
   background: #121212;
 }
+
+// .body.dark-theme .favorite-title {
+//   color: var(--modal-second-text-color-theme-dark);
+// }
 
 body.dark-theme .ingredient-card {
   background-color: var(--bg-card-modal-color-theme-dark);
 }
 
-.body.dark-theme .learn-more-btn {
-  color: var(--color-background-white);
+body.dark-theme .learn-more-btn {
+  color: var(--primary-text-color-theme-dark);
 }
 
 .body.dark-theme .ingredient-description,

@@ -21,11 +21,11 @@ export function addToFavorites(ingredient) {
 export function removeFromFavoritesByIndex(index) {
   try {
     const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-
-    if (index >= 0 && index < favorites.length) {
-      favorites.splice(index, 1);
-      localStorage.setItem('favorites', JSON.stringify(favorites));
-    }
+    favorites.splice(index, 1);
+    console.log(favorites);
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+    return favorites.length;
+    // }
   } catch (error) {
     Notiflix.Notify.failure(error);
   }

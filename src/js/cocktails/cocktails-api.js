@@ -1,7 +1,13 @@
 import axios from 'axios';
+import { updateValueBasedOnScreenWidth } from '../main/pagination/updateValueBasedOnScreenWidth';
+import debounce from 'debounce';
 
 const BASE_URL = 'https://drinkify.b.goit.study/api/v1/';
 const ENDPOINT_COCKTAIL = 'cocktails/';
+
+window.addEventListener('load', updateValueBasedOnScreenWidth);
+window.addEventListener('resize', debounce(updateValueBasedOnScreenWidth, 300));
+
 
 async function getRandomCocktails(query) {
   const params = {
@@ -16,18 +22,19 @@ async function getRandomCocktails(query) {
 let array = null;
 const cocktailsElement = document.querySelector('.cocktail-list');
 
-async function getCocktails(key) {
+async function getCocktails(cardPerPage) {
   try {
-    const data = await getRandomCocktails(key);
+    const data = await getRandomCocktails(updateValueBasedOnScreenWidth());
+    console.log(cardPerPage);
+
    
+    // const screenWidth = window.innerWidth;
 
-    const screenWidth = window.innerWidth;
+    // if(screenWidth <= 1250) {
+    //     key = 8
+    // }
 
-    if(screenWidth <= 1250) {
-        key = 8
-    }
-
-    const limitData = data.slice(0, key)
+    const limitData = data.slice(0, cardPerPage)
 
     const logo = new URL('../../img/icons.svg#icon-heart', import.meta.url);
     const icon = "#icon-heart"
@@ -36,6 +43,7 @@ async function getCocktails(key) {
     const cocktailsHtml = limitData
       .map(
         item =>
+        
           `
           
           
@@ -45,7 +53,7 @@ async function getCocktails(key) {
             <p class="cocktail-description">${item.description}</p>
             <div class="button-div">
             <button data-value=${item.drink} class="button-learn-more">LEARN MORE</button>
-          <button data-value=${item.drink} class="button-add-fav">
+          <button data-value=${item._id} class="button-add-fav">
           <svg class="icon-add-fav"><use href=${logo.pathname+icon}></use></svg>
         </svg></button>
             </div>
@@ -82,7 +90,7 @@ function onLearnMore(e) {
 }
 
 
-getCocktails(9);
+getCocktails(updateValueBasedOnScreenWidth());
 
 
 const toggleFavourite = () => {
@@ -96,7 +104,7 @@ const toggleFavourite = () => {
   };
 
   export function getFavourite() {
-    const favorite = JSON.parse(localStorage.getItem('favorite')) || {};
+    const favorite = JSON.stringify(localStorage.seyItem('favorite')) || {};
   
     return favorite;
   }

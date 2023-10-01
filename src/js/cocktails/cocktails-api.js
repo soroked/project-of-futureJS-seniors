@@ -44,9 +44,7 @@ async function getCocktails(cardPerPage) {
       .map(
         item =>
         
-          `
-          
-          
+          `        
          <li class="cocktail-item">
             <img class="cocktail-img" src=${item.drinkThumb} alt=${item.drink}>
             <h3 class="cocktail-title">${item.drink}</h3>
@@ -58,7 +56,6 @@ async function getCocktails(cardPerPage) {
         </svg></button>
             </div>
            </li>
-          
           
           `
       )
@@ -91,20 +88,3 @@ function onLearnMore(e) {
 
 
 getCocktails(updateValueBasedOnScreenWidth());
-
-
-const toggleFavourite = () => {
-    const btn = document.querySelector(`.button-add-fav`);
-    btn.classList.toggle('button-add-fav-active');
-    if (btn.classList.contains('button-add-fav-active')) {
-      btn.innerHTML = removeFavoriteBtn;
-    } else {
-      btn.innerHTML = addFavoriteBtn;
-    }
-  };
-
-  export function getFavourite() {
-    const favorite = JSON.stringify(localStorage.seyItem('favorite')) || {};
-  
-    return favorite;
-  }

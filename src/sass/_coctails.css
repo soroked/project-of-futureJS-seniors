@@ -30,7 +30,6 @@
         margin-right: auto;
         width: 335px; 
         border-radius: 20px;
-        /* background: var(--bg-modal-color-theme-light); */
         display: flex;
         flex-direction: column;
         gap: 20px;
@@ -155,17 +154,17 @@ transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
     
     width: 18px;
     height: 18px;
-    stroke: #FDFDFF;
+    stroke: var(--bg-card-color-theme-light);
     fill: none;
     
 }
 
 .button-add-fav:hover > .icon-add-fav {
-    fill: tomato;
+    fill: var(--bg-card-color-theme-light);
 }
 
 .button-add-fav-active{
-    fill: #FDFDFF;
+    fill: var(--bg-card-color-theme-light);
 }
 
 
@@ -192,11 +191,7 @@ transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
         column-gap: 16px;
 }
 
-/* .cocktail-main-title {
-        
-    margin-left: 12px;
-    
-} */
+
 
 .cocktail-item {
     flex-basis: calc((100% - 16px)/2); 
@@ -210,7 +205,7 @@ transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 .cocktail-img {
     width: 316px;
     height: 289px;
-    /* padding: 14px 14px 24px 14px; */
+   
 }
 
 
@@ -223,18 +218,6 @@ transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
 
 
-/* .cocktail-container {
-        
-    margin-left: auto;
-    margin-right: auto;
-    width: 335px; 
-    border-radius: 20px;
-    background: var(--bg-modal-color-theme-light);
-    display: flex;
-    
-   
-    
-} */
 
 
 .cocktail-description {
@@ -273,10 +256,14 @@ transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
     
 }
 
-@media screen and (min-width: 1250px) {
+@media screen and (min-width: 1280px) {
 
     
-    
+    .container {
+        width: 1280px;
+        padding-left: 100px;
+        padding-right: 100px;
+    }
 
     .cocktail-main-title {
         

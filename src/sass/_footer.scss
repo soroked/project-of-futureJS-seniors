@@ -19,13 +19,15 @@
 .footer-logo {
   display: inline-flex;
   justify-content: center;
-  align-items: center;
+  // align-items: center;
   gap: 4px;
+}
+.footer-logo-title{
   color: var(--bg-card-color-theme-light);
   height: 18px;
   font-size: 16px;
   font-weight: 600;
-  line-height: 1.13em;
+  line-height: 18px;
   letter-spacing: -0.16px;
   text-transform: uppercase;
 }
@@ -43,7 +45,7 @@
   color: var(--bg-card-color-theme-light);
   font-size: 14px;
   font-weight: 600;
-  line-height: 1.28em;
+  line-height: 18px;
   text-transform: uppercase;
 }
 .footer-social-link {
@@ -58,11 +60,9 @@
 }
 
 .footer-social-icon {
-  stroke-width: 1px;
   display: flex;
   justify-content: center;
   align-items: center;
-  stroke: rgba(253, 253, 255, 0.5);
 }
 @media screen and (min-width: 320px) and (max-width: 375px) {
     .footer-section {
@@ -80,7 +80,6 @@
   }
 
   .footer-section {
-    max-width: 768px;
     height: 183px;
     max-width: 768px;
     padding-left: 32px;
@@ -90,11 +89,13 @@
     padding-top: 32px;
   }
   .footer-logo {
-    letter-spacing: -0.22px;
-    height: 25px;
-    font-size: 22px;
-    line-height: 1.09em;
     gap: 8px;
+  }
+  .footer-logo-title{
+    letter-spacing: -0.22px;
+    height: 24px;
+    font-size: 22px;
+    line-height: 24px;
   }
   .footer-logo-icon {
     width: 29px;
@@ -104,10 +105,14 @@
     padding-top: 32px;
   }
   .footer-title {
-    line-height: 1.1em;
+    line-height: 110%;
   }
   .footer-social-link {
     gap: 16px;
+  }
+  .footer-social-icon {
+    width: 40px;
+    height: 40px;
   }
 }
 @media screen and (min-width: 1280px) {
@@ -121,7 +126,30 @@
   .footer-container {
     padding-top: 40px;
   }
+  .footer-logo {
+    gap: 8px;
+  }
+  .footer-logo-title{
+    letter-spacing: -0.22px;
+    height: 24px;
+    font-size: 22px;
+    line-height: 24px;
+  }
+  .footer-logo-icon {
+    width: 29px;
+    height: 25px;
+  }
   .footer-section-social-link {
     padding-top: 40px;
+  }
+  .footer-title {
+    line-height: 110%;
+  }
+  .footer-social-link {
+    gap: 16px;
+  }
+  .footer-social-icon {
+    width: 40px;
+    height: 40px;
   }
 }

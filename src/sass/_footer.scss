@@ -5,40 +5,41 @@
 .footer-section {
   max-width: 375px;
   height: 186px;
+  display: flex; 
+  flex-direction: row;
+  justify-content: space-between;
   padding-left: 20px;
   padding-right: 20px;
-  display: flex;
+  margin-left: auto;
+  margin-right: auto;
 }
 .footer-container {
-  display: flex;
   padding-top: 40px;
-  padding-right: 115px;
-}
+ }
 .footer-logo {
-  display: flex;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
   color: var(--bg-card-color-theme-light);
   height: 18px;
   font-size: 16px;
   font-weight: 600;
   line-height: 1.13em;
   letter-spacing: -0.16px;
-  gap: 4px;
   text-transform: uppercase;
 }
 .footer-logo-icon {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
+  fill: #9CDFDF;
 }
 .footer-section-social-link {
-  display: inline-flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 16px;
   padding-top: 40px;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 .footer-title {
+  display: block;
   color: var(--bg-card-color-theme-light);
   font-size: 14px;
   font-weight: 600;
@@ -47,8 +48,13 @@
 }
 .footer-social-link {
   display: flex;
-  align-items: flex-start;
+  flex-direction: row;
   gap: 14px;
+}
+.footer-link{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .footer-social-icon {
@@ -68,7 +74,7 @@
       padding-right: 75px;
     }
   } 
-@media screen and (min-width: 768px) and (max-width: 1157px) {
+@media screen and (min-width: 768px) and (max-width: 1279px) {
   .footer {
     margin-top: 50px;
   }
@@ -76,12 +82,12 @@
   .footer-section {
     max-width: 768px;
     height: 183px;
+    max-width: 768px;
     padding-left: 32px;
     padding-right: 32px;
   }
   .footer-container {
     padding-top: 32px;
-    padding-right: 418px;
   }
   .footer-logo {
     letter-spacing: -0.22px;
@@ -104,20 +110,18 @@
     gap: 16px;
   }
 }
-@media screen and (min-width: 1158px) {
+@media screen and (min-width: 1280px) {
   .footer-section {
     max-width: 1280px;
     height: 191px;
-    padding-left: 64px;
-    padding-right: 64px;
+
+    padding-left: 100px;
+    padding-right: 100px;
   }
   .footer-container {
-    padding-left: 36px;
     padding-top: 40px;
-    padding-right: 794px;
   }
   .footer-section-social-link {
-    padding-right: 36px;
     padding-top: 40px;
   }
 }

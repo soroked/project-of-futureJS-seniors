@@ -4,14 +4,14 @@ const ENDPOINT_INGREDIENTS = 'ingredients/';
 import { getCocktails } from '../swagger-api.js';
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
-import {
-  favoriteCoctail,
-  favoriteIngridient,
-  getFavoriteCoctail,
-  getFavoriteIngridient,
-  setFavoriteCoctail,
-  setFavoriteIngridient,
-} from './local-storage';
+// import {
+//   favoriteCoctail,
+//   favoriteIngridient,
+//   getFavoriteCoctail,
+//   getFavoriteIngridient,
+//   setFavoriteCoctail,
+//   setFavoriteIngridient,
+// } from './local-storage';
 function getIngredients(queryId) {
   //   return axios.get(
   //     `https://drinkify.b.goit.study/api/v1/ingredients/64aebb7f82d96cc69e0eb4a5`
@@ -19,45 +19,41 @@ function getIngredients(queryId) {
   return axios.get(BASE_URL + ENDPOINT_INGREDIENTS + `${queryId}`);
 }
 
-const refs = {
-  btnLearnMore: document.querySelector('.btn'),
-};
+const btnLearnMore = document.querySelector('.btn');
 
-const query = 'Lazy Coconut Paloma';
+const query = 'The Jimmy Conway';
 
 function handleBtnOpenModalCoctail(event) {
   event.preventDefault();
   if (event.target.nodeName === 'BUTTON') {
     getCocktails(query).then(response => {
       console.log(response);
+      const ingridientsMarkup = response.data[0].ingredients
+        .map(
+          item =>
+            `<li class="item-modal-coctail-ingridients" data-value=${item.ingredientId}>
+                    <p class="link-modal-coctail-ingridient">
+                    ${item.title}
+                    </p>
+                    </li>`
+        )
+        .join('');
+      console.log(ingridientsMarkup);
 
       // MODAL TEXT
-      const modalInstanceCoctail = basicLightbox.create(`
+      const modalInstanceCoctail = basicLightbox.create(
+        `
                     <div class="modal modal-coctail">
                     <div class="photo-card-coctail photo-card-coctail dark-photo-card-coctail">
                     <div class="photo-info photo-info-dark">
-                    <img class="photo-coctail" src="${response.data[0].drinkThumb}" alt="" title="" height="'277" loading="lazy" class="image-coctail" />
+                    <img class="photo-coctail" src="${response.data[0].drinkThumb}" alt="" title="" height="277" loading="lazy" class="image-coctail" />
                     <div class="info-modal-coctail">
                     <h2 class="main-title-modal-coctail">${response.data[0].drink}</h2>
                     <p2 class="title-modal-coctail-categories">INGREDIENTS:</p2>
                     <p class="text-modal-coctail-type">Per cocktail</p>
-                    <ul class="list-modal-coctail-ingridients">
-                    <li class="item-modal-coctail-ingridients">
-                    <p class="link-modal-coctail-ingridient" id=${response.data[0].ingredients[0].ingredientId} >
-                    ${response.data[0].ingredients[0].title}
-                    </p>
-                    </li>
-                    <li class="item-modal-coctail-ingridients">
-                    <p class="link-modal-coctail-ingridient" id=${response.data[0].ingredients[1].ingredientId} >
-                    ${response.data[0].ingredients[1].title}
-                    </p>
-                    </li>
-                    <li class="item-modal-coctail-ingridients">
-                    <p class="link-modal-coctail-ingridient" id=${response.data[0].ingredients[2].ingredientId} >
-                    ${response.data[0].ingredients[2].title}
-                    </p>
-                    </li>
-                    </ul>
+                    <ul class="list-modal-coctail-ingridients">` +
+          ingridientsMarkup +
+          `</ul>
                      </div></div>
                     <p class="title-modal-coctail-categories">INSTRUCTIONS:</p>
                     
@@ -70,35 +66,48 @@ function handleBtnOpenModalCoctail(event) {
                     </div>
                     </div>
                     </div>
-                    `);
+                    `
+      );
 
       // RENDER
       modalInstanceCoctail.show();
 
       // Add listeners for window
+      //   const linkModalCoctail = document.querySelector(
+      //     '.link-modal-coctail-ingridient'
+      //     );
       const linkModalCoctail = document.querySelector(
-        '.link-modal-coctail-ingridient'
+        '.list-modal-coctail-ingridients'
+      );
+
+      const backBtnModalCoctail = document.querySelector(
+        '.back-btn-modal-coctail'
       );
       const modalCoctail = document.querySelector('.modal-coctail');
       console.log('hi');
       console.log(linkModalCoctail);
-      //const list = document.querySelector('.modal');
 
       // RENDER INGREDIENTS
       function handleLinkOpenModalIngridient(e) {
         e.preventDefault();
         console.log('START');
-        const queryId = '64f1d5dc69d8333cf130fd36';
-        if (e.target.classList.contains('link-modal-coctail-ingridient')) {
-          // console.log(
-          //   e.target.closest['.link-modal-coctail-ingridient'].dataset
-          // );
-          console.log(queryId);
+        console.dir(
+          e.target.parentElement.classList.contains(
+            'item-modal-coctail-ingridients'
+          )
+        );
+
+        //const queryId = '64f1d5dc69d8333cf130fd36';
+        if (
+          e.target.parentElement.classList.contains(
+            'item-modal-coctail-ingridients'
+          )
+        ) {
+          const queryId = e.target.closest('.item-modal-coctail-ingridients')
+            .dataset.value;
           console.log('hoorey');
 
           modalCoctail.classList.add('is-hidden');
-
-          //const queryId = event.target.ingredientId;
 
           getIngredients(queryId).then(resp => {
             console.log(resp);
@@ -133,113 +142,101 @@ function handleBtnOpenModalCoctail(event) {
                     </div></div>
                     `);
             modalInstanceIngridient.show();
+
+            const backBtnModalIngridient = document.querySelector(
+              '.back-btn-modal-ingridient'
+            );
+            function modalCloseIngridient() {
+              modalInstanceIngridient.close();
+              modalCoctail.classList.remove('is-hidden');
+            }
+            backBtnModalIngridient.addEventListener(
+              'click',
+              modalCloseIngridient
+            );
           });
         }
       }
-      const backBtnModalCoctail = document.querySelector(
-        '.back-btn-modal-coctail'
-      );
-      const backBtnModalIngridient = document.querySelector(
-        '.back-btn-modal-ingridient'
-      );
+
       function modalCloseCoctail() {
         modalInstanceCoctail.close();
       }
-      function modalCloseIngridient() {
-        modalInstanceIngridient.close();
-      }
       linkModalCoctail.addEventListener('click', handleLinkOpenModalIngridient);
-      backBtnModalIngridient.addEventListener('click', modalCloseIngridient);
       backBtnModalCoctail.addEventListener('click', modalCloseCoctail);
     });
   }
 }
 
-//=====================Escape====================
-//  const onTargetEscapeKeydown = (event) => {
-//         if (event.key === 'Escape') {
-//             modalInstance.close();
-//             document.removeEventListener('keydown', onTargetEscapeKeydown);
-//         };
-//     };
-// document.addEventListener('keydown', onTargetEscapeKeydown);
-//}
+btnLearnMore.addEventListener('click', handleBtnOpenModalCoctail);
 
-refs.btnLearnMore.addEventListener('click', handleBtnOpenModalCoctail);
+// onFavoriteCoctailCheck();
+// onFavoriteIngridientCheck();
 
-//-------------------перевірка кнопок----------------------
-onFavoriteCoctailCheck();
-onFavoriteIngridientCheck();
+// function onFavoriteCoctailCheck() {
+//   const addBtnModalCoctail = document.querySelector(`add-btn-modal-coctail`);
+//   //якщо коктейль в списку
+//   if (favoriteCoctail.includes(query)) {
+//     addBtnModalCoctail.textContent = 'remove from favorite'; //змінити текст кнопки
+//     return;
+//   }
+//   addBtnModalCoctail.textContent = 'add to favorite'; //змінити текст кнопки
+// }
 
-function onFavoriteCoctailCheck() {
-  const addBtnModalCoctail = document.querySelector(`add-btn-modal-coctail`);
-  //якщо коктейль в списку
-  if (favoriteCoctail.includes(query)) {
-    addBtnModalCoctail.textContent = 'remove from favorite'; //змінити текст кнопки
-    return;
-  }
-  addBtnModalCoctail.textContent = 'add to favorite'; //змінити текст кнопки
-}
+// function onFavoriteIngridientCheck() {
+//   const addBtnModalIngridient = document.querySelector(
+//     '.add-btn-modal-ingridient'
+//   );
+//   if (favoriteIngridient.includes(queryId)) {
+//     addBtnModalIngridient.textContent = 'remove from favorite';
+//     return;
+//   }
 
-function onFavoriteIngridientCheck() {
-  const addBtnModalIngridient = document.querySelector(
-    '.add-btn-modal-ingridient'
-  );
-  if (favoriteIngridient.includes(queryId)) {
-    addBtnModalIngridient.textContent = 'remove from favorite';
-    return;
-  }
+//   addBtnModalIngridient.textContent = 'add to favorite';
+// }
 
-  addBtnModalIngridient.textContent = 'add to favorite';
-}
+// const addBtnModalCoctail = document.querySelector(`.add-btn-modal-ingridient`);
+// const addBtnModalIngridient = document.querySelector(
+//   `.add-btn-modal-ingridient`
+// );
 
-const addBtnModalCoctail = document.querySelector(`.add-btn-modal-ingridient`);
-const addBtnModalIngridient = document.querySelector(
-  `.add-btn-modal-ingridient`
-);
+// addBtnModalCoctail.addEventListener('click', onBtnCoctailClick);
+// addBtnModalIngridient.addEventListener('click', onBtnIngridientClick);
 
-addBtnModalCoctail.addEventListener('click', onBtnCoctailClick);
-addBtnModalIngridient.addEventListener('click', onBtnIngridientClick);
+// function onBtnCoctailClick() {
+//   //якщо коктейль вже в списку
+//   if (favoriteCoctail.includes(query)) {
+//     favoriteCoctail.splice(favoriteCoctail.indexOf(query), 1); //видаляємо з масиву коктейль
+//     setFavoriteCoctail(favoriteCoctail); //перезаписуємо сховище
+//     addBtnModalCoctail.textContent = 'add to favorite'; //змінити текст кнопки
+//     if (PAGE_OPEN === 1) {
+//       renderList(watched); //оновлюємо сторінку
+//     }
+//   }
 
-function onBtnCoctailClick() {
-  //якщо коктейль вже в списку
-  if (favoriteCoctail.includes(query)) {
-    favoriteCoctail.splice(favoriteCoctail.indexOf(query), 1); //видаляємо з масиву коктейль
-    setFavoriteCoctail(favoriteCoctail); //перезаписуємо сховище
-    addBtnModalCoctail.textContent = 'add to favorite'; //змінити текст кнопки
-    if (PAGE_OPEN === 1) {
-      renderList(watched); //оновлюємо сторінку
-    }
-  }
+//   favoriteCoctail.push(query); //додати в масив коктейль
+//   setFavoriteCoctail(query); //записати в сховище
+//   addBtnModalCoctail.textContent = 'remove from favorite'; //змінити текст кнопки
+//   if (PAGE_OPEN === 1) {
+//     renderList(watched); //оновлюємо сторінку
+//   }
+// }
 
-  favoriteCoctail.push(query); //додати в масив коктейль
-  setFavoriteCoctail(query); //записати в сховище
-  addBtnModalCoctail.textContent = 'remove from favorite'; //змінити текст кнопки
-  if (PAGE_OPEN === 1) {
-    renderList(watched); //оновлюємо сторінку
-  }
-}
+// function onBtnIngridientClick() {
+//   if (favoriteIngridient.includes(queryId)) {
+//     favoriteIngridient.splice(favoriteIngridient.indexOf(queryId), 1);
+//     setFavoriteIngridient(favoriteIngridient); //перезаписуємо сховище
+//     onBtnIngridientClick.textContent = 'add to favorite'; //змінити текст кнопки
+//     if (PAGE_OPEN === 2) {
+//       renderList(favoriteIngridient); //оновлюємо сторінку
+//     }
 
-function onBtnIngridientClick() {
-  if (favoriteIngridient.includes(queryId)) {
-    favoriteIngridient.splice(favoriteIngridient.indexOf(queryId), 1);
-    setFavoriteIngridient(favoriteIngridient); //перезаписуємо сховище
-    onBtnIngridientClick.textContent = 'add to favorite'; //змінити текст кнопки
-    if (PAGE_OPEN === 2) {
-      renderList(favoriteIngridient); //оновлюємо сторінку
-    }
+//     return;
+//   }
 
-    return;
-  }
-
-  favoriteIngridient.push(queryId);
-  setFavoriteIngridient(favoriteIngridient);
-  onBtnIngridientClick.textContent = 'remove from favorite';
-  if (PAGE_OPEN === 2) {
-    renderList(favoriteIngridient); //оновлюємо сторінку
-  }
-}
-
-addBtnModalCoctail.removeEventListener('click', onBtnCoctailClick);
-onBtnIngridientClick.removeEventListener('click', onBtnIngridientClick);
-window.removeEventListener('click', onWindowClick);
+//   favoriteIngridient.push(queryId);
+//   setFavoriteIngridient(favoriteIngridient);
+//   onBtnIngridientClick.textContent = 'remove from favorite';
+//   if (PAGE_OPEN === 2) {
+//     renderList(favoriteIngridient); //оновлюємо сторінку
+//   }
+// }

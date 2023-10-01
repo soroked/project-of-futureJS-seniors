@@ -1,0 +1,38 @@
+{{#each this}}
+<div class="photo-card">
+    <div class="info-modal-ingridient">
+        <h2 class="title-modal-ingridient">{{title}}</h2>
+        <p class="type-categories">{{type}}:</p>
+        <p class="text-modal opacity-modal">Per cocktail</p>
+        <ul class="list-ingredients">
+            <li class="item-ingredients">
+                <p class="text-modal">
+                    <b>Type:</b>{
+                    {flavour}}
+                </p>
+            </li>
+
+            <li class="item-ingredients">
+                <p class="text-modal">
+                    <b>Country of origin:</b>
+                    {{country}}
+                </p>
+            </li>
+            <li class="item-ingredients">
+                <p class="text-modal">
+                    <b>Alcohol by volume:{{abv}}</b>
+                </p>
+            </li>
+        </ul>
+        <li class="item-ingredients">
+            <p class="text-modal">
+                <b>Flavour:{{flavour}}</b>
+            </p>
+        </li>
+
+
+
+    </div>
+</div>
+
+{{/each}}

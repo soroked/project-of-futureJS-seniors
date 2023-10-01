@@ -207,13 +207,12 @@ line-height: 1.2;
 margin-bottom: 20px;
 }
    
-  
          .paragrapg-modal-coctail {
-
             margin-top: 18px; }
 .buttons{
     display: flex;
-    gap: 18px;
+    justify-content: flex-start;
+    margin-top: 40px;
 }
     
         .add-btn-modal-coctail,
@@ -225,6 +224,8 @@ margin-bottom: 20px;
             letter-spacing: 0.36px;
             padding: 16 44px;
             border: none;
+            margin-bottom: 0;
+            margin-right: 18px;
         }
     
       
@@ -265,6 +266,10 @@ margin-bottom: 20px;
         }
       .add-btn-modal-ingridient{
         margin-right: 18px;
+      }
+
+      .paragrapg-modal-coctail{
+        margin-bottom: 0;
       }
 
 

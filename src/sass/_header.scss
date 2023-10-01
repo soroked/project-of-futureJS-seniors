@@ -20,9 +20,218 @@
 
 .example .background {
   height: 240px;
-  // ❗️❗️❗️ The path to images from a SASS file
-  // is always the same as from the css folder.
+  /* ❗️❗️❗️ The path to images from a SASS file
+   is always the same as from the css folder.*/  
   background-image: url('../images/logo.png');
   background-size: cover;
-  background-position: center;
+  background-position: center; 
 }
+
+li {
+  list-style: none; 
+}
+
+a {
+  text-decoration: none;  
+}
+
+.favorite-navigation {
+  display: none; 
+}
+
+.header {  
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  padding: 0 20px;    
+}   
+ 
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .header {
+    display: flex;  
+    padding: 0 32px;  
+  }    
+}
+
+@media screen and (min-width: 1280px) {
+.header {
+  display: flex;  
+  padding: 0 100px;  
+}   
+}   
+
+.header-navigation { 
+  display: none;
+}
+
+@media screen and (min-width: 1280px) {
+  .header-navigation {
+    display: flex;
+    margin-right: 302px;  
+  } 
+
+    .header-item {
+    display: inline-block; 
+    margin-right: 28px;
+    }
+
+    .header-item:last-child {
+      margin-right: 0;
+  }  
+  
+  .header-link {
+    color:var(--primary-text-color-theme-light); 
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: 0.32px;
+    word-wrap: break-word;
+    
+  } 
+
+  .chevron-down{  
+    vertical-align: middle;  
+   fill: var(--primary-accent-color);           
+  }
+    
+  }   
+  
+  .logo {
+    display: flex;
+    padding-top: 27px;
+    padding-bottom: 75px;
+        
+  } 
+
+ .header-logo {
+  display: inline-block; 
+  color: var(--primary-text-color-theme-light);     
+ font-size: 16px;
+ font-weight: 600;
+ text-transform: uppercase;
+ line-height: 18px;
+ word-wrap: break-word;  
+
+  }   
+
+.header-logo-img { 
+  width: 21px;
+  height: 18px; 
+  vertical-align: middle;  
+  fill: var(--primary-accent-color);      
+}  
+
+.switch {
+  display: none; 
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  
+  .header-logo {
+    display: inline-block;  
+   font-size: 22px;
+   line-height: 24px;
+  
+  }   
+
+  .header-logo-img {
+    width: 29px;
+    height: 25px;  
+  }  
+
+}
+
+@media screen and (min-width: 1280px) {
+     
+  .switch {
+    display: flex;
+    margin-left: auto;
+    padding-top: 28px;
+    padding-bottom: 34px;    
+  } 
+
+  .switch input {
+    position: relative;
+    width: 64px;
+    height: 32px;
+    outline: none;
+    border-radius: 34px;
+    transition: 0.5s;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    border: 2px #242424 solid;  
+    -webkit-transition: 0.4s; 
+  }
+
+  .switch input:checked {
+    background-color: var(--secondary-accent-color); 
+    border: 2px #7E8FDD solid;  
+  }
+
+  .switch input:before {
+    content: ''; 
+    position: absolute;
+    width: 25px;     
+    height: 25px;   
+    border-radius: 100px;  
+    top: 2px;    
+    left: 2px;  
+    transition: 0.5s;  
+    transform: scale(1.1);
+    background-color: var(--secondary-accent-color);    
+  }   
+
+  .switch input:checked:before {
+    left: 34px;   
+    background-color:white;     
+  }  
+} 
+
+.header-menu { 
+  padding-top: 20px;
+  padding-bottom: 68px;  
+  } 
+   
+
+.burger-menu {
+  width: 32px;
+  height: 32px;
+ fill: var(--primary-text-color-theme-light);     
+   
+}
+
+.menu-icon {
+display: inline-block;
+width: 1em;
+height: 1em;
+stroke-width: 0;
+stroke: currentColor;
+fill: currentColor;
+}      
+
+.heder-close-menu {  
+  display: none;  
+}   
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .header-menu {
+    padding-top: 25px;
+    padding-bottom: 70px;      
+    }  
+
+   .burger-menu {
+    width: 40px;
+    height: 40px;
+      
+  }  
+
+}
+
+@media screen and (min-width: 1280px) {     
+  .header-menu {
+  display: none; 
+  
+  } 
+}        

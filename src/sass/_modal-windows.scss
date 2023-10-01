@@ -1,0 +1,271 @@
+
+.is-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+.modal{
+padding: 40px 20px;
+background-color: var(--bg-modal-color-theme-light);
+max-width: 335px;
+border-radius: 20px;
+overflow: auto;
+
+}
+
+.photo-coctail{
+    max-width: 295px;
+    border-radius: 16px;
+    background: lightgray -7.08px -17px / 103.146% 109.386% no-repeat;
+margin-bottom: 40px;
+}
+.main-title-modal-coctail{
+    visibility: hidden;
+}
+
+.title-modal-coctail-categories{
+    color: var(--primary-text-color-theme-light);
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.125;
+        text-transform: uppercase;
+}
+.text-modal-coctail-type{
+    color: var(--modal-first-text-color-theme-light);
+    font-size: 14px;
+        font-weight: 400;
+        line-height: 1.286;
+        margin-top: 8px;
+        margin-bottom: 20px;
+}
+
+.list-modal-coctail-ingridients{
+    margin-left: 20px;
+    margin-bottom: 40px;
+}
+.item-modal-coctail-ingridients{
+color: var(--modal-second-text-color-theme-light);
+font-size: 14px;
+    font-weight: 400;
+    line-height: 1.286;
+    margin-bottom: 8px;
+   
+}
+.link-modal-coctail-ingridient{
+    color: var(--modal-second-text-color-theme-light);
+text-decoration: none;
+cursor: pointer;
+}
+.link-modal-coctail-ingridient:hover,
+.item-modal-coctail-ingridients:hover {
+    color: var(--primary-accent-color);
+}
+.paragrapg-modal-coctail{
+color: var(--modal-first-text-color-theme-light);
+    font-size: 14px;
+        font-weight: 400;
+        line-height: 1.43;
+        margin-top: 14px;
+        margin-bottom: 40px;
+
+}
+.add-btn-modal-coctail,
+.add-btn-modal-ingridient {
+    color: var(--bg-card-color-theme-light);
+    min-width: 295px;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.43;
+        letter-spacing: 0.28px;
+        text-transform: uppercase;
+        padding: 14px 84px;
+        border:none;
+        border-radius: 12px;
+        background: var(--primary-accent-color);
+        margin-bottom: 14px;
+}
+
+.add-btn-modal-coctail:hover,
+.add-btn-modal-ingridient:hover {
+    background: var(--primary-hover-accent-color);
+}
+.back-btn-modal-coctail,
+.back-btn-modal-ingridient{
+color: var(--primary-text-color-theme-light);
+    font-size: 14px;
+    min-width: 295px;
+    font-weight: 600;
+    line-height: 1.43;
+    letter-spacing: 0.28px;
+    text-transform: uppercase;
+    min-width: 295px;
+    padding: 14px 128px;
+    border: none;
+    border-radius: 12px;
+    background: rgba(36, 36, 36, 0.10);
+}
+.back-btn-modal-coctail:hover,
+.back-btn-modal-ingridient:hover {
+    background: var(--hover-modal-btn-color-theme-light);
+}
+
+
+//    modal ingridient
+
+.title-modal-ingridient{
+    color: var(--primary-text-color-theme-light);
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.33;
+    margin-bottom: 8px;
+}
+
+.type-ingridient-modal-ingridient{
+    color: var(--modal-first-text-color-theme-light);
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.286;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+}
+.line:after {
+    content: '';
+
+    background-color: var(--modal-btn-color-theme-light);
+    height: 1px;
+    display: block;
+}
+.paragraph-modal-ingridient {
+    color: var(--modal-first-text-color-theme-light);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.43;
+    margin-bottom: 40px;
+    margin-top: 20px;
+}
+.span-paragraph-modal-ingridient{
+    color: var(--primary-text-color-theme-light);
+    font-weight: 600;
+}
+.list-modal-ingridients {
+    margin-left: 20px;
+    margin-bottom: 40px;
+    
+}
+
+.item-modal-ingridients {
+    color: var(--modal-second-text-color-theme-light);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.286;
+    margin-bottom: 8px;
+}
+.link-modal-ingridient {
+    color: var(--modal-second-text-color-theme-light);
+    text-decoration: none;
+}
+
+
+@media screen and (min-width: 768px){
+.modal {
+        padding: 40px;
+        max-width: 600px;
+        border-radius: 20px;
+
+    }
+    .photo-info{
+        display: flex;
+        margin-bottom: 20px;
+    }
+
+
+        .photo-coctail {
+            max-width: 288 px;
+            border-radius: 20px;
+            margin-bottom: 0;
+        }
+        
+        .info-modal-coctail{
+            margin-left: 20px;
+        }
+
+    .main-title-modal-coctail {
+ visibility: visible;
+color: var(--primary-text-color-theme-light);
+font-size: 20px;
+font-weight: 600;
+line-height: 1.2;
+margin-bottom: 20px;
+}
+   
+  
+         .paragrapg-modal-coctail {
+
+            margin-top: 18px; }
+.buttons{
+    display: flex;
+    gap: 18px;
+}
+    
+        .add-btn-modal-coctail,
+        .add-btn-modal-ingridient {
+            color: var(--bg-card-color-theme-light);
+            min-width: 251px;
+            font-size: 18px;
+            line-height: 1.33;
+            letter-spacing: 0.36px;
+            padding: 16 44px;
+            border: none;
+        }
+    
+      
+        .back-btn-modal-coctail,
+        .back-btn-modal-ingridient {
+            color: var(--primary-text-color-theme-light);
+            min-width: 173px;
+            font-size: 18px;
+            line-height: 1.33;
+            letter-spacing: 0.36px;
+            padding: 16px 60px;
+            height: 56px;
+            }
+
+    
+        .title-modal-ingridient {
+            font-size: 20px;
+            line-height: 1.2;
+            margin-bottom: 12px;
+        }
+    
+        .type-ingridient-modal-ingridient {
+            color: var(--modal-first-text-color-theme-light);
+            font-size: 16px;
+            line-height: 1.125;
+            text-transform: uppercase;
+            margin-bottom: 22px;
+        }
+    
+    
+        .paragraph-modal-ingridient {
+      margin-bottom: 40px;
+            margin-top: 18px;
+         }
+    
+        .list-modal-ingridients {
+            margin-bottom: 40px;
+        }
+      .add-btn-modal-ingridient{
+        margin-right: 18px;
+      }
+
+
+}

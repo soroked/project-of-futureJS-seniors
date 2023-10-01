@@ -4,6 +4,8 @@ const ENDPOINT_INGREDIENTS = 'ingredients/';
 import { getCocktails } from '../swagger-api.js';
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
+import { addToFavorites, removeFromFavoritesByIndex } from '../localstorage-fav-ingredients.js';
+
 // import {
 //   favoriteCoctail,
 //   favoriteIngridient,
@@ -88,7 +90,7 @@ function handleBtnOpenModalCoctail(event) {
       console.log(linkModalCoctail);
 
       // RENDER INGREDIENTS
-      function handleLinkOpenModalIngridient(e) {
+     function handleLinkOpenModalIngridient(e) {
         e.preventDefault();
         console.log('START');
         console.dir(
@@ -146,6 +148,14 @@ function handleBtnOpenModalCoctail(event) {
             const backBtnModalIngridient = document.querySelector(
               '.back-btn-modal-ingridient'
             );
+            const addBtnModalCoctail = document.querySelector(
+              '.add-btn-modal-ingridient'
+            );
+
+            addBtnModalCoctail.addEventListener('click', e => {
+              addToFavorites(resp.data[0]);
+            })
+            
             function modalCloseIngridient() {
               modalInstanceIngridient.close();
               modalCoctail.classList.remove('is-hidden');

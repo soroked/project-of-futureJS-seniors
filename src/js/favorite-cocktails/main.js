@@ -13,7 +13,7 @@ refs.form.addEventListener("submit", (e) => {
 
     if (letter === "") {
         console.log("Пустая строка");
-        return
+        return;
     }
     
     returnData(letter)

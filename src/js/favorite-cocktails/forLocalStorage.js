@@ -1,20 +1,29 @@
-import { refs } from "./refs";
+import { refsM } from "./refsM";
 import { renderList } from "./render-list";
+import { renderMarkupCard } from "../renderMarkupCard"
+import { updateValueBasedOnScreenWidth } from "../main/pagination/updateValueBasedOnScreenWidth";
+
 
 //? Функция парса локала если он есть
 export function parseLocal(key) {
     const local = localStorage.getItem(key);
-    
+    const page = 1
     try {
-          const jsos = JSON.parse(local);
-        refs.gellery.innerHTML = renderList(jsos)
+        const jsos = JSON.parse(local);
+        console.log(jsos);
+        refsM.gellery.innerHTML = renderList(jsos)
+        
+        
+        
+        // refsM.gellery.innerHTML = renderMarkupCard(page, updateValueBasedOnScreenWidth(), jsos, refsM.gellery, refsM.pagination);
+       
 
         if (jsos.length === 0) {
             console.log("Пустой локал");
         }
         
     } catch (error) {
-        console.log("Внезапная ошибка");
+        console.log(error);
     }
 }
 
@@ -31,7 +40,7 @@ export function removeItemFromLocalStorage(key, index) {
         jsos.splice(index, 1);
         const updatedData = JSON.stringify(jsos);
         localStorage.setItem(key, updatedData);
-        refs.notify
+        refsM.notify
     } catch (error) {
         console.log(error);
     }

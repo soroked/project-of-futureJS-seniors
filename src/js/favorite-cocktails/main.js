@@ -1,41 +1,41 @@
 import { fetchData } from "./fetch-data";
-import { refs } from "./refs";
+import { refsM } from "./refsM";
 import { parseLocal } from "./forLocalStorage";
 import { clickToBtn } from "./click-btn-deleted";
 import { renderList } from "./render-list";
 
 //* Получаем ответ от функции fetchData(letter)
 
-refs.form.addEventListener("submit", (e) => {
-    e.preventDefault()
+// refs.form.addEventListener("submit", (e) => {
+//     e.preventDefault()
 
-    const letter = refs.form.elements.search.value
+//     const letter = refs.form.elements.search.value
 
-    if (letter === "") {
-        console.log("Пустая строка");
-        return
-    }
+//     if (letter === "") {
+//         console.log("Пустая строка");
+//         return
+//     }
     
-    returnData(letter)
+//     returnData(letter)
     
-})
+// })
 
-async function returnData(letter) {
+// async function returnData(letter) {
     
-    try {
-        const data = await fetchData(letter)
-        console.log(data);
+//     try {
+//         const data = await fetchData(letter)
+//         console.log(data);
 
-        refs.gellery.innerHTML = renderList(data.data)
-        const dataParse = JSON.stringify(data.data)
-        localStorage.setItem("cocktails", dataParse)
+//         refs.gellery.innerHTML = renderList(data.data)
+//         const dataParse = JSON.stringify(data.data)
+//         localStorage.setItem("cocktails", dataParse)
         
-    } catch (error) {
+//     } catch (error) {
 
-        console.log("Ошибка ответа");
-        refs.gellery.innerHTML = " "
-    }
-}
+//         console.log("Ошибка ответа");
+//         refs.gellery.innerHTML = " "
+//     }
+// }
 
 
 const local = "cocktails" // Предполагаемый ключ локала
@@ -45,7 +45,7 @@ parseLocal(local) //* Проверка local storage
 
 
 //? Делегирование на кнопку удаления
-refs.gellery.addEventListener("click", (e) => {
+refsM.gellery.addEventListener("click", (e) => {
     clickToBtn(e, local)
        // клик по кнопке
 });

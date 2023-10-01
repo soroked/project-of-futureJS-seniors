@@ -3,24 +3,39 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
+      integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <link rel="stylesheet" href="./sass/_favorite-cocktails.scss" />
+    <link rel="stylesheet" href="./sass/index.scss" />
+
     <title>Document</title>
   </head>
   <body>
     <section class="container">
-      <form class="search-cocktails">
+      <!-- <form class="search-cocktails">
         <label>Веедите название коктейля или букву</label>
         <input type="text" name="search" />
         <button type="submit">search</button>
-      </form>
+      </form> -->
       <!-- <svg class="icon-card-deleted">
     <use href="./img/icons.svg#icon-trash-01"></use>
   </svg> -->
       <h1 class="title">Favorite cocktails</h1>
       <ul class="gellery"></ul>
 
+      <div class="pagination">
+        <ul class="pagination-list list"></ul>
+      </div>
+
       <p class="deleted-notify is-hidden">Удалено</p>
     </section>
-    <script type="module" src="./js/main/main.js"></script>
+    <!-- <script type="module" src="./js/main/main.js"></script> -->
+    <script type="module" src="./index.js"></script>
   </body>
 </html>

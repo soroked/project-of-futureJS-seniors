@@ -9,18 +9,23 @@ export function parseLocal(key) {
     const local = localStorage.getItem(key);
     const page = 1
     try {
-        const jsos = JSON.parse(local);
-        console.log(jsos);
-        refsM.gellery.innerHTML = renderList(jsos)
-        
-        
-        
-        // refsM.gellery.innerHTML = renderMarkupCard(page, updateValueBasedOnScreenWidth(), jsos, refsM.gellery, refsM.pagination);
-       
 
-        if (jsos.length === 0) {
+        if (local) {
+            const jsos = JSON.parse(local);
+            
+        refsM.gellery.innerHTML = renderMarkupCard(page, updateValueBasedOnScreenWidth(), jsos, refsM.gellery, refsM.pagination);
+   
+            // refsM.gellery.innerHTML = renderList(jsos)
+        } else {
             console.log("Пустой локал");
         }
+        // const jsos = JSON.parse(local);
+        // console.log(jsos);
+        // refsM.gellery.innerHTML = renderList(jsos)
+
+
+        
+        
         
     } catch (error) {
         console.log(error);

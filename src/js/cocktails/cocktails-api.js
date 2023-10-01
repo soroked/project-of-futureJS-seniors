@@ -14,7 +14,7 @@ async function getRandomCocktails(query) {
     r: query,
   };
   const resp = await axios.get(BASE_URL + ENDPOINT_COCKTAIL, { params });
-  console.log(resp.data);
+  // console.log(resp.data);
   return resp.data;
 
 }
@@ -25,7 +25,7 @@ const cocktailsElement = document.querySelector('.cocktail-list');
 async function getCocktails(cardPerPage) {
   try {
     const data = await getRandomCocktails(updateValueBasedOnScreenWidth());
-    console.log(cardPerPage);
+    // console.log(cardPerPage);
 
    
     // const screenWidth = window.innerWidth;
@@ -71,14 +71,14 @@ async function getCocktails(cardPerPage) {
   }
 }
 
-cocktailsElement.addEventListener("click", onLearnMore)
+cocktailsElement?.addEventListener("click", onLearnMore)
 
 function onLearnMore(e) {
   if(e.target.classList.contains("button-learn-more")) {
     console.log(e.target.dataset.value);
   }
 
-  cocktailsElement.addEventListener("click", onAddFav)
+  cocktailsElement?.addEventListener("click", onAddFav)
 
   function onAddFav(e) {
     if(e.target.classList.contains("button-add-fav")) {
@@ -103,8 +103,14 @@ const toggleFavourite = () => {
     }
   };
 
-  export function getFavourite() {
-    const favorite = JSON.stringify(localStorage.seyItem('favorite')) || {};
-  
-    return favorite;
+export function getFavourite() {
+  const local = localStorage.getItem('favorite');
+ 
+  try {
+    const favorite = JSON.stringify(local);
+    console.log(favorite);
+  } catch (error) {
+    console.log(error);
+  }
+
   }

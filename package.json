@@ -20,6 +20,7 @@
   "dependencies": {
     "axios": "^1.5.1",
     "basiclightbox": "^5.0.4",
+    "debounce": "^1.2.1",
     "modern-normalize": "^1.1.0",
     "notiflix": "^3.2.6"
   },
@@ -32,4 +33,4 @@
     "posthtml-include": "^1.7.4"
   },
   "browserslist": "> 0.5%, last 2 versions, not dead"
-}
+} 

@@ -16,17 +16,3 @@ export default function addToFavorites(ingredient) {
     Notiflix.Notify.failure(error);
   }
 }
-
-
-export function removeFromFavoritesByIndex(index) {
-  try {
-    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-
-    if (index >= 0 && index < favorites.length) {
-      favorites.splice(index, 1);
-      localStorage.setItem('favorites', JSON.stringify(favorites));
-    }
-  } catch (error) {
-    Notiflix.Notify.failure(error);
-  }
-}

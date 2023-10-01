@@ -73,7 +73,7 @@ body {
   body {
     background-image: url('../img/background/background.png');
 
-    &.body-dark-theme {
+    &.dark {
       background-image: url('../img/background/background-dark.png');
     }
   }
@@ -97,7 +97,7 @@ body {
     background-image: url('../img/background/background-tablet.png');
     background-color: black;
 
-    &.body-dark-theme {
+    &.dark {
       background-image: url('../img/background/background-tablet-dark.png');
     }
   }
@@ -112,7 +112,7 @@ body {
   body {
     background-image: url('../img/background/background-desktop.png');
 
-    &.body-dark-theme {
+    &.dark {
       background-image: url('../img/background/background-desktop-dark.png');
     }
   }

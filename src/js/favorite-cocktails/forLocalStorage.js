@@ -7,7 +7,7 @@ import { updateValueBasedOnScreenWidth } from "../main/pagination/updateValueBas
 //? Функция парса локала если он есть
 export function parseLocal(key) {
     const local = localStorage.getItem(key);
-    const page = 1
+    // const page = 1
     
     try {
           

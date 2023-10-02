@@ -28,9 +28,9 @@ function showNotification(item) {
     
     refsM.notify.textContent = `Your deleted favorites cocktails: ${name}`
 
-    refsM.notify.classList.remove("is-hidden");
+    refsM.notify.classList.remove("is-hidden-favorite");
 
     setTimeout(() => {
-        refsM.notify.classList.add("is-hidden");
+        refsM.notify.classList.add("is-hidden-favorite");
     }, 2000);
 }

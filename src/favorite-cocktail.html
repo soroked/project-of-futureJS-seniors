@@ -13,10 +13,16 @@
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <link rel="stylesheet" href="./sass/_favorite-cocktails.scss" />
     <link rel="stylesheet" href="./sass/index.scss" />
+    <link rel="stylesheet" href="./sass/_header.scss" />
 
     <title>Document</title>
   </head>
   <body>
+    <include src="./partials/header/header.html"></include>
+    <!-- <label class="switch toggle">
+      <input type="checkbox" id="themeSwitch" />
+      <span class="slider round"></span>
+    </label> -->
     <section class="container">
       <form class="search-cocktails">
         <label>Веедите название коктейля или букву</label>
@@ -79,7 +85,9 @@
 
       <p class="deleted-notify is-hidden">Удалено</p>
     </section>
+    <include src="./partials/footer/footer.html"></include>
     <!-- <script type="module" src="./js/main/main.js"></script> -->
-    <script type="module" src="./index.js"></script>
+    <script type="module" src="./js/header/header.js"></script>
+    <script type="module" src="./js/favorite-cocktails/main.js"></script>
   </body>
 </html>

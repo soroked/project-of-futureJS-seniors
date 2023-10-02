@@ -1,17 +1,17 @@
-import { refs } from './hero/hero';
+import { refsM } from './favorite-cocktails/refsM';
 import searchMarkup from '../templates/searchMarkup.hbs';
 import { createPagination } from './main/pagination/pagination.js';
 import refs from './hero/refs';
 
-export function renderMarkupCard(page, cardPerPage, arr) {
+export function renderMarkupCard(page, cardPerPage, arr, list, listPag) {
   let firstIndex = (page - 1) * cardPerPage;
   let lastIndex = firstIndex + cardPerPage;
   const pageLimit = arr.slice(firstIndex, lastIndex);
   const totalPages = Math.ceil(arr.length / cardPerPage);
-  createPagination(totalPages, page, arr);
+  createPagination(totalPages, page, arr, list, listPag);
 
   const logo = new URL('../img/icons.svg#icon-heart', import.meta.url);
-  const icon = "#icon-heart"
+  const icon = '#icon-heart';
 
   refs.list.innerHTML = pageLimit.map(
         item =>
@@ -24,12 +24,14 @@ export function renderMarkupCard(page, cardPerPage, arr) {
             <div class="button-div">
             <button data-value=${item.drink} class="button-learn-more karina-dark-theme-bg karina-dark-theme">LEARN MORE</button>
           <button data-value=${item._id} class="button-add-fav">
-          <svg class="icon-add-fav"><use href=${logo.pathname+icon}></use></svg>
+          <svg class="icon-add-fav"><use href=${
+            logo.pathname + icon
+          }></use></svg>
         </svg></button>
             </div>
            </li>
           
           `
-      )
-      .join('');
+    )
+    .join('');
 }

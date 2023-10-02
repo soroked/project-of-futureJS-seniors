@@ -17,12 +17,12 @@ export function renderMarkupCard(page, cardPerPage, arr) {
         item =>
         
           `        
-         <li class="cocktail-item hero-dark">
+         <li class="cocktail-item karina-dark-theme-bg">
             <img class="cocktail-img" src=${item.drinkThumb} alt=${item.drink}>
-            <h3 class="cocktail-title hero-dark">${item.drink}</h3>
-            <p class="cocktail-description hero-dark">${item.description}</p>
+            <h3 class="cocktail-title karina-dark-theme">${item.drink}</h3>
+            <p class="cocktail-description karina-dark-theme">${item.description}</p>
             <div class="button-div">
-            <button data-value=${item.drink} class="button-learn-more hero-dark">LEARN MORE</button>
+            <button data-value=${item.drink} class="button-learn-more karina-dark-theme-bg karina-dark-theme">LEARN MORE</button>
           <button data-value=${item._id} class="button-add-fav">
           <svg class="icon-add-fav"><use href=${logo.pathname+icon}></use></svg>
         </svg></button>

@@ -1,5 +1,10 @@
-body.dark .hero-dark {
+body.dark .karina-dark-theme {
   color: var( --primary-text-color-theme-dark);
+ 
+}
+
+body.dark .karina-dark-theme-bg {
+
   background-color: var(--bg-card-modal-color-theme-dark);
 }
 

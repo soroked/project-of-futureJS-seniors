@@ -181,7 +181,7 @@ body.dark .karina-dark-theme-bg {
   }
 
   .cocktail-img {
-    width: 316px;
+    max-width: 100%;
     height: 289px;
   }
 

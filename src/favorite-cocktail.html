@@ -24,7 +24,53 @@
         <button type="submit">search</button>
       </form>
 
-      <h1 class="title">Favorite cocktails</h1>
+      <h1 class="title favorite-cocktails-dark">Favorite cocktails</h1>
+
+      <div class="alex-error-img-container is-hidden-img-favorite">
+        <picture>
+          <source
+            media="(min-width: 768px)"
+            type="image/webp"
+            srcset="
+              ./img/hero/hero-error-tablet.webp    1x,
+              ./img/hero/hero-error-tablet@2x.webp 2x
+            "
+          />
+          <source
+            media="(min-width: 768px)"
+            type="image/png"
+            srcset="
+              ./img/hero/hero-error-tablet.png    1x,
+              ./img/hero/hero-error-tablet@2x.png 2x
+            "
+          />
+          <source
+            media="(min-width: 320px)"
+            type="image/webp"
+            srcset="
+              ./img/hero/hero-error-mobile.webp    1x,
+              ./img/hero/hero-error-mobile@2x.webp 2x
+            "
+          />
+          <source
+            media="(min-width: 320px)"
+            type="image/png"
+            srcset="
+              ./img/hero/hero-error-mobile.png    1x,
+              ./img/hero/hero-error-mobile@2x.png 2x
+            "
+          />
+          <img
+            class="hero-error-img"
+            src="./img/hero/hero-error-mobile.png"
+            alt="cocktails"
+          />
+        </picture>
+        <p class="hero-error-text favorite-cocktails-dark">
+          You haven't added any
+          <span class="hero-text-accent"> favorite cocktails</span> yet
+        </p>
+      </div>
       <ul class="gellery"></ul>
 
       <div class="pagination">

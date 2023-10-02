@@ -26,7 +26,7 @@ function showNotification(item) {
 
     const name = item.querySelector(".name-card-cocktails").textContent
     
-    refsM.notify.textContent = `Удалено: ${name}`
+    refsM.notify.textContent = `Your deleted favorites cocktails: ${name}`
 
     refsM.notify.classList.remove("is-hidden");
 

@@ -1,4 +1,11 @@
 /* Общие стили для всех устройств */
+
+body.dark .favorite-cocktails-dark {
+    color: var(--primary-text-color-theme-dark);
+}
+
+
+
 .container {
     width: 375px;
     padding-right: 20px;
@@ -151,12 +158,24 @@ img {
 }
 
 .is-hidden {
+    width: 0;
+    height: 0;
     opacity: 0;
     pointer-events: none;
+display:none;
+}
 
-
-
-
+.is-hidden-img-favorite {
+position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
 }
 
 .deleted-notify {
@@ -164,6 +183,7 @@ img {
     position: fixed;
     top: 50px;
     right: 50px;
+    color: #fff;
 
     border-radius: 14px;
     background: #7E8FDD;
@@ -171,6 +191,27 @@ img {
     padding-right: 10px;
     padding-top: 20px;
     padding-bottom: 20px;
+}
+
+.alex-error-img-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 100px;
+    padding-bottom: 140px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+@media screen and (min-width: 768px) {
+    .alex-error-img-container {
+        padding-top: 138px;
+        padding-bottom: 138px;
+    }
 }
 
 /* Existing styles */

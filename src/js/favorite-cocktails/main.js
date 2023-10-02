@@ -46,8 +46,7 @@ parseLocal(local) //* Проверка local storage
 
 //? Делегирование на кнопку удаления
 refsM.gellery?.addEventListener("click", (e) => {
-    console.log(e.target);
-    console.log(local);
+    
     clickToBtn(e, local)
        // клик по кнопке
 });

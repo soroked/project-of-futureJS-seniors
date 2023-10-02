@@ -4,6 +4,27 @@ import { parseLocal } from "./forLocalStorage";
 import { clickToBtn } from "./click-btn-deleted";
 import { renderList } from "./render-list";
 
+const bodyEl = document.body;
+const colorSwither = document.getElementById("themeSwitch");
+
+if (localStorage.getItem('switcher') === 'light') {
+    colorSwither.checked = false;
+} else {
+    colorSwither.checked = true;
+    bodyEl.classList.toggle('dark');
+    colorSwither.classList.add('dark');
+}
+
+colorSwither.addEventListener("click", () => {
+    colorSwither.classList.toggle('dark');
+    bodyEl.classList.toggle('dark');
+    if (localStorage.getItem('switcher') === 'light') {
+        localStorage.setItem('switcher', 'dark')
+    } else {
+        localStorage.setItem('switcher', 'light')
+    }
+});
+
 //* Получаем ответ от функции fetchData(letter)
 
 refsM.form.addEventListener("submit", (e) => {

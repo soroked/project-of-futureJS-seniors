@@ -9,22 +9,9 @@ import {
   removeFromFavoritesByIndex,
 } from '../localstorage-fav-ingredients.js';
 
-// import {
-//   favoriteCoctail,
-//   favoriteIngridient,
-//   getFavoriteCoctail,
-//   getFavoriteIngridient,
-//   setFavoriteCoctail,
-//   setFavoriteIngridient,
-// } from './local-storage';
 function getIngredients(queryId) {
-  //   return axios.get(
-  //     `https://drinkify.b.goit.study/api/v1/ingredients/64aebb7f82d96cc69e0eb4a5`
-  //   );
   return axios.get(BASE_URL + ENDPOINT_INGREDIENTS + `${queryId}`);
 }
-
-//const btnLearnMore = document.querySelector('.btn');
 
 const query = 'The Jimmy Conway';
 modalInstanceCoctail(query);
@@ -181,8 +168,6 @@ export function modalInstanceCoctail(query) {
   });
 }
 
-// ..btnLearnMore.addEventListener('click', handleBtnOpenModalCoctail);
-
 // onFavoriteIngridientCheck();
 
 // onFavoriteCoctailCheck();
@@ -253,14 +238,5 @@ export function modalInstanceCoctail(query) {
 //   onBtnIngridientClick.textContent = 'remove from favorite';
 //   if (PAGE_OPEN === 2) {
 //     renderList(favoriteIngridient); //оновлюємо сторінку
-//   }
-// }
-
-// function handleBtnOpenModalCoctail(event) {
-//   event.preventDefault();
-//   if (event.target.nodeName === 'BUTTON') {
-//     getCocktails(query).then(response => {
-//       console.log(response);
-//     });
 //   }
 // }

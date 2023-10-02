@@ -19,7 +19,7 @@
       </button>
     </div>
     <div class="hero-img-container">
-      <picture>
+      <picture class="picture-hero-light">
         <source
           media="(min-width: 1280px)"
           type="image/webp"
@@ -81,7 +81,7 @@
         />
       </picture>
 
-      <picture class="hero-dark is-hidden-hero">
+      <picture class="picture-hero-dark is-hidden-hero">
         <source
           media="(min-width: 1280px)"
           type="image/webp"
@@ -165,13 +165,13 @@
   <form class="hero-search-form">
     <div class="hero-input-container">
       <input
-        class="hero-form-input"
+        class="hero-form-input hero-dark-placeholder"
         name="search"
         type="text"
         placeholder="Search"
         autocomplete="off"
       />
-      <svg class="input-search-icon" aria-label="search" width="16" height="16">
+      <svg class="input-search-icon hero-dark-icon" aria-label="search" width="16" height="16">
         <use href="./img/icons.svg#icon-search"></use>
       </svg>
     </div>

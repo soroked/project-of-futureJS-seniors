@@ -1,0 +1,28 @@
+{{#each this}}
+<div class="photo-card-coctail">
+    <div class="photo-coctail">
+        <img src="{{drinkThumb}}" alt="" title="" width="288" height="'277" loading="lazy" class="image-coctail" />
+    </div>
+    <div class="info-modal-coctail">
+        <h2 class="title-modal-coctail">{{drink}}</h2>
+        <p class="text-modal-coctail-categories">INGREDIENTS:</p>
+        <p class="text-modal opacity-modal">Per cocktail</p>
+        <ul>
+            <li>
+                <a href="">
+                    {{ingredients.title}}
+                </a>
+            </li>
+        </ul>
+
+        <p class="text-modal-coctail-categories">INSTRUCTIONS:</p>
+        <p class="text-modal">
+            {{instructions}}
+        </p>
+
+
+
+    </div>
+</div>
+
+{{/each}}

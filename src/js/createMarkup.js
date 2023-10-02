@@ -1,6 +1,6 @@
 export default function createIngredientCard(ingredient) {
   return `
-    <div class="ingredient-card">
+    <div class="ingredient-card" data-value=${ingredient._id}>
       <h2 class="ingredient-header">${ingredient.title}</h2>
       <p class="alcoholic-ing">${ingredient.type}</p>
       <p class="ingredient-description">${ingredient.description}</p>

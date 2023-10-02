@@ -14,18 +14,20 @@ let page = 1;
 window.addEventListener('load', updateValueBasedOnScreenWidth);
 window.addEventListener('resize', debounce(updateValueBasedOnScreenWidth, 300));
 
+window.addEventListener('load', onInputSearch);
+
 async function onInputSearch(e) {
   e.preventDefault();
-  let searchQuery = null;
+  let searchQuery = '';
 
-  if (e.target.classList.contains('button-list-js')) {
+  if (e.target.classList?.contains('button-list-js')) {
     return;
   }
 
   if (e.target.nodeName === 'BUTTON') {
     searchQuery = e.target.dataset.value;
-  } else {
-    searchQuery = e.currentTarget.elements.search.value.trim();
+  } else if (e.target.nodeName === 'FORM'){
+    searchQuery = e.currentTarget.elements?.search.value.trim();
   }
 
   try {

@@ -15,6 +15,7 @@ import { renderList } from "./render-list";
 //         console.log("Пустая строка");
 //         return
 //     }
+    // 
     
 //     returnData(letter)
     

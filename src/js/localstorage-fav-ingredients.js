@@ -1,6 +1,6 @@
 import Notiflix from "notiflix";
 
-export  function addToFavorites(ingredient) {
+export function addToFavorites(ingredient) {
   try {
      const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 

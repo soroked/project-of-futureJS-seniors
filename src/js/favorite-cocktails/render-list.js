@@ -1,10 +1,12 @@
 //? Функция рендера разметки
 
+
+
 export function renderList(data) {
 
   const logo = new URL('../../img/icons.svg#icon-trash-01', import.meta.url);
-  const icon = "#icon-trash-01"
-
+    const icon = "#icon-trash-01"
+    
   return data
     .map(
         (el, index) => 

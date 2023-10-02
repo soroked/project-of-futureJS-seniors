@@ -28,7 +28,7 @@ row-gap: 20px;
 }
 
 .ingredient-card {
-width: 335px;
+max-width: 335px;
 padding: 20px;
 border-radius: 20px;
 background: var(--bg-card-color-theme-light);
@@ -53,7 +53,7 @@ margin-bottom: 14px;
 }
 
 .ingredient-description {
-width: 295px;
+max-width: 295px;
 height: 54px;
 font-size: 14px;
 overflow: hidden;
@@ -71,7 +71,7 @@ gap: 15px;
 
 
 .ingredient-learn-more-btn {
-width: 232px;
+min-width: 232px;
 height: 48px;
 font-weight: 600;
 border-radius: 12px;
@@ -146,6 +146,17 @@ display: none;
 .not-found-txt-span {
   color:var(--secondary-accent-color);
   font-style: italic;
+  text-align: center;
+}
+
+@media screen and (max-width: 767px) {
+  .not-found-txt-span {
+    text-align: center;
+  }
+
+  .not-found-txt {
+    text-align: center;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -166,7 +177,7 @@ line-height: 1.2;
 }
 
 .ingredient-card {
-width: 344px;
+max-width: 344px;
 height: 242px;
 }
 
@@ -179,7 +190,7 @@ font-size: 20px;
 }
 
 .ingredient-learn-more-btn {
-width: 225px;
+max-width: 225px;
 height: 56px;
 }
 
@@ -200,6 +211,7 @@ height: 56px;
 width: 372px;
 font-size: 24px;
 line-height: 1.17;
+text-align: center;
 }
 
 }
@@ -221,20 +233,15 @@ column-gap: 24px;
 // body-dark-the-ingredients
 
 
-body.dark-theme {
-  background: #121212;
+body.dark .favorite-ingredients-dark {
+  color: var(--primary-text-color-theme-dark);
 }
 
-body.dark-theme .ingredient-card {
+body.dark .ingredient-dark-card {
   background-color: var(--bg-card-modal-color-theme-dark);
 }
 
-.body.dark-theme .learn-more-btn {
-  color: var(--color-background-white);
-}
-
-.body.dark-theme .ingredient-description,
-body.dark-theme .alcoholic-ing {
+body.dark .alcoholic-dark-ing {
   color: var(--modal-second-text-color-theme-dark);
 }
 

@@ -8,6 +8,24 @@ import { addToFavorites,removeFromFavoritesByIndex } from './localstorage-fav-in
 const notFoundContainer = document.querySelector('.not-found-container');
 const ingredientsGallery = document.querySelector('.ingredients-gallery');
 
+const bodyEl = document.body;
+const colorSwitcher = document.getElementById('themeSwitch');
+if (localStorage.getItem('switcher') === 'light') {
+    colorSwitcher.checked = false;
+} else {
+    colorSwitcher.checked = true;
+    bodyEl.classList.toggle('dark');
+    colorSwitcher.classList.add('dark');
+}
+colorSwitcher.addEventListener('click', () => {
+    colorSwitcher.classList.toggle('dark');
+    bodyEl.classList.toggle('dark');
+    if (localStorage.getItem('switcher') === 'light') {
+        localStorage.setItem('switcher', 'dark')
+    } else {
+        localStorage.setItem('switcher', 'light')
+    }
+});
 
 let ingredients = JSON.parse(localStorage.getItem('favorites'))
 

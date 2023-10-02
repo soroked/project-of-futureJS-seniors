@@ -3,6 +3,15 @@ body.dark .hero-dark {
     color: var( --primary-text-color-theme-dark);
 }
 
+body.dark .hero-dark-icon {
+    fill: var(--primary-text-color-theme-dark);
+    stroke: var(--primary-text-color-theme-dark);
+}
+
+body.dark .hero-dark-placeholder::placeholder {
+    color: var(--hover-modal-btn-color-theme-dark)
+}
+
 .is-hidden-hero {
     position: absolute;
     width: 1px;
@@ -75,6 +84,7 @@ body.dark .hero-dark {
 
 .btn-hero:hover {
     background-color: var(--primary-hover-accent-color);
+    transition: var(--transition-btn);
 }
 
 .hero-img-container {

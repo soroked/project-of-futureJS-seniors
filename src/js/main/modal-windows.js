@@ -24,10 +24,10 @@ function getIngredients(queryId) {
   return axios.get(BASE_URL + ENDPOINT_INGREDIENTS + `${queryId}`);
 }
 
-const btnLearnMore = document.querySelector('.btn');
+//const btnLearnMore = document.querySelector('.btn');
 
-//const query = 'The Jimmy Conway';
-
+const query = 'The Jimmy Conway';
+modalInstanceCoctail(query);
 // MODAL TEXT
 
 export function modalInstanceCoctail(query) {
@@ -181,7 +181,7 @@ export function modalInstanceCoctail(query) {
   });
 }
 
-btnLearnMore.addEventListener('click', handleBtnOpenModalCoctail);
+// ..btnLearnMore.addEventListener('click', handleBtnOpenModalCoctail);
 
 // onFavoriteIngridientCheck();
 
@@ -264,5 +264,3 @@ btnLearnMore.addEventListener('click', handleBtnOpenModalCoctail);
 //     });
 //   }
 // }
-
-// modalInstanceCoctail(query);

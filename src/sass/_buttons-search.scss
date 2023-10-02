@@ -129,6 +129,8 @@
 
     &:hover {
       background: var(--secondary-accent-color);
+       transition: var(--transition-btn);
+      transform: scale(1.05);
     }
   }
 }

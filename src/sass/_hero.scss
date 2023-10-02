@@ -12,6 +12,10 @@ body.dark .hero-dark-placeholder::placeholder {
     color: var(--hover-modal-btn-color-theme-dark)
 }
 
+body.dark .hero-form-input {
+    color: var(--primary-text-color-theme-dark);
+}
+
 .is-hidden-hero {
     position: absolute;
     width: 1px;
@@ -73,7 +77,6 @@ body.dark .hero-dark-placeholder::placeholder {
     border-radius: 12px;
     text-decoration: none;
     background-color: var(--primary-accent-color);
-    transition: var(--transition-btn);
     font-size: 14px;
     font-weight: 600;
     line-height: 1.4;
@@ -85,10 +88,19 @@ body.dark .hero-dark-placeholder::placeholder {
 .btn-hero:hover {
     background-color: var(--primary-hover-accent-color);
     transition: var(--transition-btn);
+    animation: pulse;
+    animation-duration: 1000ms;
+    animation-delay: 700ms;
+    
 }
 
 .hero-img-container {
     position: relative;
+}
+
+.input-search-icon {
+    fill: var(--primary-text-color-theme-light);
+    stroke: var(--primary-text-color-theme-light);
 }
 
 .hero-abc-description {
@@ -117,6 +129,7 @@ body.dark .hero-dark-placeholder::placeholder {
     padding: 12px 8px 12px 42px;
     border-radius: 80px;
     border: 2px solid var(--primary-accent-color);
+    color: var(--primary-text-color-theme-light);
     background-color: transparent;
     outline: transparent;
 }

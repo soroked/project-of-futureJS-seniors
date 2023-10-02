@@ -5,6 +5,7 @@ import debounce from 'debounce';
 import { listPag } from '../main/pagination/pagination.js';
 import refs from './refs.js';
 import { markupError } from './markupError.js';
+import { modalInstanceCoctail } from '../main/modal-windows.js';
 
 refs.form.addEventListener('submit', onInputSearch);
 refs.searchDropdown.addEventListener('click', onInputSearch);
@@ -43,6 +44,16 @@ async function onInputSearch(e) {
     let arr = [];
     arr.push(response.data);
     renderMarkupCard(page, updateValueBasedOnScreenWidth(), ...arr);
+
+    const onLearnMoreBtn = document.querySelector(".hero-search-cards");
+    onLearnMoreBtn.addEventListener("click", onLearnMore);
+      function onLearnMore(e) {
+      if(e.target.classList.contains("button-learn-more")) {
+        const cocktailName = e.target.dataset.value;
+       return modalInstanceCoctail(cocktailName);
+      }
+     }
+
   } catch (error) {
     listPag.innerHTML = '';
     refs.list.innerHTML = markupError;

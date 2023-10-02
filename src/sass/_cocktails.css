@@ -1,3 +1,13 @@
+body.dark .karina-dark-theme {
+  color: var( --primary-text-color-theme-dark);
+ 
+}
+
+body.dark .karina-dark-theme-bg {
+
+  background-color: var(--bg-card-modal-color-theme-dark);
+}
+
 .container {
   padding-left: 20px;
   padding-right: 20px;
@@ -26,10 +36,11 @@
   gap: 20px;
 }
 
-.cocktail-list {
+.hero-search-cards {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  padding-bottom: 40px;
 }
 
 .cocktail-item {
@@ -38,6 +49,7 @@
   perspective: 1000px;
   padding: 14px;
   background-color: var(--bg-card-color-theme-light);
+  
   border-radius: 20px;
 }
 
@@ -47,8 +59,8 @@
   font-weight: 500;
   line-height: 28px;
   word-wrap: break-word;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 
 .cocktail-img {
@@ -96,7 +108,6 @@
 .button-learn-more {
   box-sizing: border-box;
   background-color: var(--bg-card-color-theme-light);
-
   box-shadow: 0px 4px 46px 0px rgba(0, 0, 0, 0.05);
   color: var(--primary-text-color-theme-light);
   font-family: Poppins;
@@ -146,24 +157,31 @@
     padding-right: 32px;
   }
 
-  .cocktail-list {
+  .cocktail-main-title {
+    
+    padding-bottom: 40px;
+  }
+
+  .hero-search-cards {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     row-gap: 32px;
     column-gap: 16px;
+    padding-bottom: 64px;
+    
   }
 
   .cocktail-item {
-    flex-basis: calc((100% - 16px) / 2);
+    
     max-width: 344px;
     max-height: 523px;
     perspective: 1000px;
   }
 
   .cocktail-img {
-    width: 316px;
+    max-width: 100%;
     height: 289px;
   }
 
@@ -207,19 +225,27 @@
   }
 
   .cocktail-main-title {
-    padding-top: 25px;
-    padding-bottom: 24px;
-    padding-left: 68px;
+    padding-top: 50px;
+    
+    padding-bottom: 44px;
   }
 
-  .cocktail-list {
+  /* .cocktail-list {
     flex-direction: row;
     row-gap: 44px;
     column-gap: 24px;
-  }
+  } */
+
+  .hero-search-cards {
+    padding-bottom: 44px;
+    column-gap: 24px;
+    flex-direction: row;
+    row-gap: 44px;
+    column-gap: 24px;
+} 
 
   .cocktail-item {
-    flex-basis: calc((100% - 16px) / 3);
+    flex-basis: calc((100% - 24px) / 3);
   }
 
   .cocktail-title {

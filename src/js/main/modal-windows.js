@@ -26,28 +26,27 @@ function getIngredients(queryId) {
 
 const btnLearnMore = document.querySelector('.btn');
 
-const query = 'The Jimmy Conway';
+//const query = 'The Jimmy Conway';
 
-function handleBtnOpenModalCoctail(event) {
-  event.preventDefault();
-  if (event.target.nodeName === 'BUTTON') {
-    getCocktails(query).then(response => {
-      console.log(response);
-      const ingridientsMarkup = response.data[0].ingredients
-        .map(
-          item =>
-            `<li class="item-modal-coctail-ingridients mw-text-third-dark" data-value=${item.ingredientId}>
+// MODAL TEXT
+
+export function modalInstanceCoctail(query) {
+  getCocktails(query).then(response => {
+    console.log(response);
+
+    const ingridientsMarkup = response.data[0].ingredients
+      .map(
+        item =>
+          `<li class="item-modal-coctail-ingridients mw-text-third-dark" data-value=${item.ingredientId}>
                     <p class="link-modal-coctail-ingridient mw-text-third-dark">
                     ${item.title}
                     </p>
                     </li>`
-        )
-        .join('');
-      console.log(ingridientsMarkup);
+      )
+      .join('');
 
-      // MODAL TEXT
-      const modalInstanceCoctail = basicLightbox.create(
-        `
+    const modalInstanceCoctail = basicLightbox.create(
+      `
                     <div class="modal modal-coctail mw-modal-dark">
                     <div class="photo-card-coctail dark-photo-card-coctail">
                     <div class="photo-info">
@@ -61,8 +60,8 @@ function handleBtnOpenModalCoctail(event) {
                     <p class="text-modal-coctail-type">Per cocktail</p>
 
                     <ul class="list-modal-coctail-ingridients">` +
-          ingridientsMarkup +
-          `</ul>
+        ingridientsMarkup +
+        `</ul>
                      </div></div>
                     <p class="title-modal-coctail-categories mw-text-main-dark">INSTRUCTIONS:</p>
                     
@@ -76,52 +75,51 @@ function handleBtnOpenModalCoctail(event) {
                     </div>
                     </div>
                     `
+    );
+
+    // RENDER
+    modalInstanceCoctail.show();
+
+    // Add listeners for window
+    //   const linkModalCoctail = document.querySelector(
+    //     '.link-modal-coctail-ingridient'
+    //     );
+    const linkModalCoctail = document.querySelector(
+      '.list-modal-coctail-ingridients'
+    );
+
+    const backBtnModalCoctail = document.querySelector(
+      '.back-btn-modal-coctail'
+    );
+    const modalCoctail = document.querySelector('.modal-coctail');
+    console.log('hi');
+    console.log(linkModalCoctail);
+
+    // RENDER INGREDIENTS
+    function handleLinkOpenModalIngridient(e) {
+      e.preventDefault();
+      console.log('START');
+      console.dir(
+        e.target.parentElement.classList.contains(
+          'item-modal-coctail-ingridients'
+        )
       );
 
-      // RENDER
-      modalInstanceCoctail.show();
+      if (
+        e.target.parentElement.classList.contains(
+          'item-modal-coctail-ingridients'
+        )
+      ) {
+        const queryId = e.target.closest('.item-modal-coctail-ingridients')
+          .dataset.value;
+        console.log('hoorey');
 
-      // Add listeners for window
-      //   const linkModalCoctail = document.querySelector(
-      //     '.link-modal-coctail-ingridient'
-      //     );
-      const linkModalCoctail = document.querySelector(
-        '.list-modal-coctail-ingridients'
-      );
+        modalCoctail.classList.add('is-hidden-modal');
 
-      const backBtnModalCoctail = document.querySelector(
-        '.back-btn-modal-coctail'
-      );
-      const modalCoctail = document.querySelector('.modal-coctail');
-      console.log('hi');
-      console.log(linkModalCoctail);
+        getIngredients(queryId).then(resp => {
+          console.log(resp);
 
-      // RENDER INGREDIENTS
-      function handleLinkOpenModalIngridient(e) {
-        e.preventDefault();
-        console.log('START');
-        console.dir(
-          e.target.parentElement.classList.contains(
-            'item-modal-coctail-ingridients'
-          )
-        );
-
-        //const queryId = '64f1d5dc69d8333cf130fd36';
-        if (
-          e.target.parentElement.classList.contains(
-            'item-modal-coctail-ingridients'
-          )
-        ) {
-          const queryId = e.target.closest('.item-modal-coctail-ingridients')
-            .dataset.value;
-          console.log('hoorey');
-
-          modalCoctail.classList.add('is-hidden-modal');
-
-          getIngredients(queryId).then(resp => {
-            console.log(resp);
-
-            const modalInstanceIngridient = basicLightbox.create(`
+          const modalInstanceIngridient = basicLightbox.create(`
                     <div class="modal modal-ingridient mw-modal-dark">
                     <div class="ingridient-card">
                     <h2 class="title-modal-ingridient mw-text-main-dark">${resp.data[0].title}</h2>
@@ -150,44 +148,44 @@ function handleBtnOpenModalCoctail(event) {
                     </div>
                     </div></div>
                     `);
-            modalInstanceIngridient.show();
+          modalInstanceIngridient.show();
 
-            const backBtnModalIngridient = document.querySelector(
-              '.back-btn-modal-ingridient'
-            );
-            const addBtnModalCoctail = document.querySelector(
-              '.add-btn-modal-ingridient'
-            );
+          const backBtnModalIngridient = document.querySelector(
+            '.back-btn-modal-ingridient'
+          );
+          const addBtnModalCoctail = document.querySelector(
+            '.add-btn-modal-ingridient'
+          );
 
-            addBtnModalCoctail.addEventListener('click', e => {
-              addToFavorites(resp.data[0]);
-            });
-
-            function modalCloseIngridient() {
-              modalInstanceIngridient.close();
-              modalCoctail.classList.remove('is-hidden-modal');
-            }
-            backBtnModalIngridient.addEventListener(
-              'click',
-              modalCloseIngridient
-            );
+          addBtnModalCoctail.addEventListener('click', e => {
+            addToFavorites(resp.data[0]);
           });
-        }
-      }
 
-      function modalCloseCoctail() {
-        modalInstanceCoctail.close();
+          function modalCloseIngridient() {
+            modalInstanceIngridient.close();
+            modalCoctail.classList.remove('is-hidden-modal');
+          }
+          backBtnModalIngridient.addEventListener(
+            'click',
+            modalCloseIngridient
+          );
+        });
       }
-      linkModalCoctail.addEventListener('click', handleLinkOpenModalIngridient);
-      backBtnModalCoctail.addEventListener('click', modalCloseCoctail);
-    });
-  }
+    }
+
+    function modalCloseCoctail() {
+      modalInstanceCoctail.close();
+    }
+    linkModalCoctail.addEventListener('click', handleLinkOpenModalIngridient);
+    backBtnModalCoctail.addEventListener('click', modalCloseCoctail);
+  });
 }
 
 btnLearnMore.addEventListener('click', handleBtnOpenModalCoctail);
 
-// onFavoriteCoctailCheck();
 // onFavoriteIngridientCheck();
+
+// onFavoriteCoctailCheck();
 
 // function onFavoriteCoctailCheck() {
 //   const addBtnModalCoctail = document.querySelector(`add-btn-modal-coctail`);
@@ -257,3 +255,14 @@ btnLearnMore.addEventListener('click', handleBtnOpenModalCoctail);
 //     renderList(favoriteIngridient); //оновлюємо сторінку
 //   }
 // }
+
+// function handleBtnOpenModalCoctail(event) {
+//   event.preventDefault();
+//   if (event.target.nodeName === 'BUTTON') {
+//     getCocktails(query).then(response => {
+//       console.log(response);
+//     });
+//   }
+// }
+
+// modalInstanceCoctail(query);

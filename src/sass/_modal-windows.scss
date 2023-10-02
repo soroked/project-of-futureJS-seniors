@@ -12,14 +12,8 @@
     clip: rect(0 0 0 0);
     clip-path: inset(50%);
     margin: -1px;
-    
-    .paragraph-modal-ingridient {
-            height: 100px;
-            overflow: auto;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-        }
 }
+
 }
 .is-hidden-modal {
     position: absolute;
@@ -85,6 +79,7 @@ font-size: 14px;
     font-weight: 400;
     line-height: 1.286;
     margin-bottom: 8px;
+    list-style-type: disc;
    
 }
 .link-modal-coctail-ingridient{
@@ -181,7 +176,10 @@ color: var(--primary-text-color-theme-light);
     height: 100px;
     overflow: auto;
     scrollbar-width: none;
+    //   -ms-overflow-style: none;
 }
+
+
 .span-paragraph-modal-ingridient{
     color: var(--primary-text-color-theme-light);
     font-weight: 600;
@@ -198,6 +196,7 @@ color: var(--primary-text-color-theme-light);
     font-weight: 400;
     line-height: 1.286;
     margin-bottom: 8px;
+    list-style-type: disc;
 }
 .link-modal-ingridient {
     color: var(--modal-second-text-color-theme-light);

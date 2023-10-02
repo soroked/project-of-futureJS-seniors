@@ -1,4 +1,4 @@
-import { getCocktails } from '../swagger-api.js';
+import { getCocktails, getRandomCocktails } from '../swagger-api.js';
 import { renderMarkupCard } from '../renderMarkupCard.js';
 import { updateValueBasedOnScreenWidth } from '../main/pagination/updateValueBasedOnScreenWidth.js';
 import debounce from 'debounce';
@@ -15,6 +15,7 @@ window.addEventListener('load', updateValueBasedOnScreenWidth);
 window.addEventListener('resize', debounce(updateValueBasedOnScreenWidth, 300));
 
 window.addEventListener('load', onInputSearch);
+let random = true;
 
 async function onInputSearch(e) {
   e.preventDefault();
@@ -31,7 +32,14 @@ async function onInputSearch(e) {
   }
 
   try {
-    const response = await getCocktails(searchQuery);
+    let response;
+    if (random) {
+      response = await getRandomCocktails(updateValueBasedOnScreenWidth());
+      random = false;
+    } else {
+      response = await getCocktails(searchQuery);
+    }
+    
 
     let arr = [];
     arr.push(response.data);

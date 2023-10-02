@@ -1,6 +1,6 @@
 import { removeItemFromLocalStorage } from "./forLocalStorage";
 import { parseLocal } from "./forLocalStorage";
-import { refs } from "./refs";
+import { refsM } from "./refsM";
 
 // //? Функция клика по кнопке
 
@@ -26,11 +26,11 @@ function showNotification(item) {
 
     const name = item.querySelector(".name-card-cocktails").textContent
     
-    refs.notify.textContent = `Удалено: ${name}`
+    refsM.notify.textContent = `Your deleted favorites cocktails: ${name}`
 
-    refs.notify.classList.remove("is-hidden");
+    refsM.notify.classList.remove("is-hidden-favorite");
 
     setTimeout(() => {
-        refs.notify.classList.add("is-hidden");
+        refsM.notify.classList.add("is-hidden-favorite");
     }, 2000);
 }

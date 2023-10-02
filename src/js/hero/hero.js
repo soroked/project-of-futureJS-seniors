@@ -6,8 +6,8 @@ import { listPag } from '../main/pagination/pagination.js';
 import refs from './refs.js';
 import { markupError } from './markupError.js';
 
-// refs.form.addEventListener('submit', onInputSearch);
-// refs.searchDropdown.addEventListener('click', onInputSearch);
+refs.form.addEventListener('submit', onInputSearch);
+refs.searchDropdown.addEventListener('click', onInputSearch);
 
 let page = 1;
 

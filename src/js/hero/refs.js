@@ -5,6 +5,7 @@ const refs = {
   searchButtonWrapper: document.querySelector('.button-search-wrapper-js'),
   buttonSpan: document.querySelector('.button-search-span-js'),
   searchDropdown: document.querySelector('.button-dropdown-js'),
+  scrollErrorPicture: document.querySelector('.error-img-container'),
 };
 
 export default refs;

@@ -27,7 +27,7 @@ async function onInputSearch(e) {
 
   if (e.target.nodeName === 'BUTTON') {
     searchQuery = e.target.dataset.value;
-  } else if (e.target.nodeName === 'FORM'){
+  } else if (e.target.nodeName === 'FORM') {
     searchQuery = e.currentTarget.elements?.search.value.trim();
   }
 
@@ -39,7 +39,6 @@ async function onInputSearch(e) {
     } else {
       response = await getCocktails(searchQuery);
     }
-    
 
     let arr = [];
     arr.push(response.data);
@@ -47,6 +46,10 @@ async function onInputSearch(e) {
   } catch (error) {
     listPag.innerHTML = '';
     refs.list.innerHTML = markupError;
+    refs.scrollErrorPicture.scrollIntoView({
+      behavior: 'smooth',
+      block: 'end',
+    });
   } finally {
     refs.form.reset();
     refs.buttonSpan.innerHTML = 'A';

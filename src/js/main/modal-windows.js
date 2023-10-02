@@ -13,8 +13,6 @@ function getIngredients(queryId) {
   return axios.get(BASE_URL + ENDPOINT_INGREDIENTS + `${queryId}`);
 }
 
-const query = 'The Jimmy Conway';
-modalInstanceCoctail(query);
 // MODAL TEXT
 
 export function modalInstanceCoctail(query) {

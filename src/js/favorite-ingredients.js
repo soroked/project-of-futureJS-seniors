@@ -13,7 +13,7 @@ const ingredientsGallery = document.querySelector('.ingredients-gallery');
 
 const bodyEl = document.body;
 const colorSwitcher = document.getElementById('themeSwitch');
-if (localStorage.getItem('switcher') === 'light') {
+if (localStorage.getItem('switcher') === 'light' || !localStorage.getItem('switcher')) {
     colorSwitcher.checked = false;
 } else {
     colorSwitcher.checked = true;
@@ -23,7 +23,7 @@ if (localStorage.getItem('switcher') === 'light') {
 colorSwitcher.addEventListener('click', () => {
     colorSwitcher.classList.toggle('dark');
     bodyEl.classList.toggle('dark');
-    if (localStorage.getItem('switcher') === 'light') {
+    if (localStorage.getItem('switcher') === 'light' || !localStorage.getItem('switcher')) {
         localStorage.setItem('switcher', 'dark')
     } else {
         localStorage.setItem('switcher', 'light')

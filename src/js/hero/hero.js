@@ -9,8 +9,10 @@ import { modalInstanceCoctail } from '../main/modal-windows.js';
 
 refs.form.addEventListener('submit', onInputSearch);
 refs.searchDropdown.addEventListener('click', onInputSearch);
+const favs = JSON.parse(localStorage.getItem('cocktails')) || [];
 
 let page = 1;
+let fav = [];
 
 window.addEventListener('load', updateValueBasedOnScreenWidth);
 window.addEventListener('resize', debounce(updateValueBasedOnScreenWidth, 300));
@@ -40,7 +42,7 @@ async function onInputSearch(e) {
     } else {
       response = await getCocktails(searchQuery);
     }
-    
+    fav = response.data
 
     let arr = [];
     arr.push(response.data);
@@ -53,7 +55,7 @@ async function onInputSearch(e) {
         const cocktailName = e.target.dataset.value;
        return modalInstanceCoctail(cocktailName);
       }
-     }
+      }
 
   } catch (error) {
     listPag.innerHTML = '';
@@ -61,5 +63,30 @@ async function onInputSearch(e) {
   } finally {
     refs.form.reset();
     refs.buttonSpan.innerHTML = 'A';
+  }
+}
+
+const heart = document.querySelector('.hero-search-cards');
+heart.addEventListener('click', onHeart);
+
+function onHeart(e) {
+  if (e.target.nodeName === 'use' || e.target.classList.contains('button-add-fav') || e.target.classList.contains('icon-add-fav')) {
+    const heartButton = e.target.closest('.button-add-fav')
+    const id = heartButton.dataset.value
+    const cocktail = fav.find(item => item._id === id);
+    const favs = JSON.parse(localStorage.getItem('cocktails')) || [];
+
+    const index = favs.findIndex((item) => item._id === id);
+    console.dir(heartButton);    
+    if (index < 0) {
+      heartButton.classList.add('button-add-fav-active');
+    favs.push(cocktail);
+    localStorage.setItem('cocktails', JSON.stringify(favs));
+      return;
+    }
+    heartButton.classList.remove('button-add-fav-active');
+    favs.splice(index, 1);
+    localStorage.setItem('cocktails', JSON.stringify(favs));
+    
   }
 }

@@ -210,13 +210,6 @@ export function modalInstanceCoctail(query) {
 
           addBtnModalIngredient.addEventListener('click', e => {
             addToFavorites(resp.data[0]);
-            if (favorites.includes(queryId)) {
-              console.log('here');
-              addBtnModalIngredient.textContent = 'remove from favorite';
-              return;
-            }
-            removeFromFavoritesByIndex(indexId);
-            addBtnModalIngredient.textContent = 'add to favorite';
           });
 
           function modalCloseIngridient() {

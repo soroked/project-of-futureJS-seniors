@@ -4,13 +4,13 @@ import refs from '../../hero/refs';
 
 export let paginationIsSet = false;
 
-export function createPagination(totalPages, page, arr, list, listPag) {
+export function createPagination(totalPages, page, arr, list, listPag, renderMarkupCardIng) {
   let liItem = '';
   let activeLiItem = null;
   let beforePage = page - 1;
   let afterPage = page + 1;
 
-  refs.titileCocktail.scrollIntoView({ behavior: 'smooth' });
+  // refs.titileCocktail.scrollIntoView({ behavior: 'smooth' });
 
   if (page > 1) {
     liItem += `<li class="prev"><span>&#60</span></li>`;
@@ -100,6 +100,11 @@ export function createPagination(totalPages, page, arr, list, listPag) {
       list,
       listPag
     );
+    renderMarkupCardIng( clickedPage,
+      6,
+       arr,
+       list,
+       listPag);
   }
 
   function onLeftRight(evt) {

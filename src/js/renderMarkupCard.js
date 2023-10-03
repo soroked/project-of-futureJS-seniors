@@ -25,7 +25,7 @@ const icon = '#icon-heart';
 
       return `        
          <li class="cocktail-item karina-dark-theme-bg">
-            <img class="cocktail-img" src=${item.drinkThumb} alt=${item.drink}>
+            <img class="cocktail-img" src=${item.drinkThumb} alt="${item.drink.slice(0.17)}">
             <h3 class="cocktail-title karina-dark-theme">${item.drink}</h3>
             <p class="cocktail-description karina-dark-theme">${
               item.description

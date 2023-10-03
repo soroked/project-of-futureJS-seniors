@@ -26,13 +26,8 @@
       border-radius: 8px;
       background: var(--bg-abc-btn-color);
     }
-
-    .button-search-wrapper {
-      position: relative;
-    }
   
     .icon{
-      fill: none;
       width: 18px; 
       height: 18px;
       transition: transform 0.3s;
@@ -50,10 +45,6 @@
     }
   
     .button-search-dropdown {
-      position:absolute;
-      top: 100%;
-      z-index: 1000;
-
       width: 90px;
       height: 84px;
       flex-shrink: 0;

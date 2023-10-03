@@ -1,10 +1,8 @@
-.pagination-list,
-.pagination-list-ing {
+.pagination-list {
   display: flex;
   justify-content: center;
   align-items: center;
   column-gap: 8px;
-  margin-bottom: 50px;
 }
 
 .numb,
@@ -41,9 +39,7 @@
 }
 
 @media screen and (min-width: 768px) {
-
-  .pagination-list,
-  .pagination-list-ing {
+  .pagination-list {
     column-gap: 14px;
   }
 
@@ -73,7 +69,6 @@
   .prev {
     margin-right: 184px;
   }
-
   .next {
     margin-left: 184px;
   }

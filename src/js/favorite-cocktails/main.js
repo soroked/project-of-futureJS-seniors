@@ -7,7 +7,7 @@ import { renderList } from "./render-list";
 const bodyEl = document.body;
 const colorSwither = document.getElementById("themeSwitch");
 
-if (localStorage.getItem('switcher') === 'light' || !localStorage.getItem('switcher')) {
+if (localStorage.getItem('switcher') === 'light') {
     colorSwither.checked = false;
 } else {
     colorSwither.checked = true;
@@ -18,7 +18,7 @@ if (localStorage.getItem('switcher') === 'light' || !localStorage.getItem('switc
 colorSwither.addEventListener("click", () => {
     colorSwither.classList.toggle('dark');
     bodyEl.classList.toggle('dark');
-    if (localStorage.getItem('switcher') === 'light' || !localStorage.getItem('switcher')) {
+    if (localStorage.getItem('switcher') === 'light') {
         localStorage.setItem('switcher', 'dark')
     } else {
         localStorage.setItem('switcher', 'light')

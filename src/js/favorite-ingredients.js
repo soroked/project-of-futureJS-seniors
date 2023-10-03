@@ -7,18 +7,13 @@ import {
   addToFavorites,
   removeFromFavoritesByIndex,
 } from './localstorage-fav-ingredients';
-import { renderMarkupCardIng } from './createMarkup';
-
 
 const notFoundContainer = document.querySelector('.not-found-container');
 const ingredientsGallery = document.querySelector('.ingredients-gallery');
-const listPag = document.querySelector('.pagination-list-ing') 
-
-let page = 1;
 
 const bodyEl = document.body;
 const colorSwitcher = document.getElementById('themeSwitch');
-if (localStorage.getItem('switcher') === 'light' || !localStorage.getItem('switcher')) {
+if (localStorage.getItem('switcher') === 'light') {
     colorSwitcher.checked = false;
 } else {
     colorSwitcher.checked = true;
@@ -28,7 +23,7 @@ if (localStorage.getItem('switcher') === 'light' || !localStorage.getItem('switc
 colorSwitcher.addEventListener('click', () => {
     colorSwitcher.classList.toggle('dark');
     bodyEl.classList.toggle('dark');
-    if (localStorage.getItem('switcher') === 'light' || !localStorage.getItem('switcher')) {
+    if (localStorage.getItem('switcher') === 'light') {
         localStorage.setItem('switcher', 'dark')
     } else {
         localStorage.setItem('switcher', 'light')
@@ -42,12 +37,11 @@ if (ingredients.length === 0) {
 } else {
   notFoundContainer.classList.add('fav-ingr-is-hidden');
 
-    console.log(ingredients);
-    renderMarkupCardIng(page, 6, ingredients, ingredientsGallery, listPag)
-    // return ingredientsGallery.innerHTML += ingredientCard;
-    
-  };
-
+  ingredients.forEach(ingredient => {
+    const ingredientCard = createIngredientCard(ingredient);
+    ingredientsGallery.innerHTML += ingredientCard;
+  });
+}
 
 ingredientsGallery.addEventListener('click', onDeleteButtonHandler);
 

@@ -1,27 +1,12 @@
-import { createPagination } from './main/pagination/pagination.js';
-
-export function renderMarkupCardIng(page, cardPerPage, arr, list, listPag) {
-  let firstIndex = (page - 1) * cardPerPage;
-  let lastIndex = firstIndex + cardPerPage;
-  const pageLimit = arr.slice(firstIndex, lastIndex);
-  const totalPages = Math.ceil(arr.length / cardPerPage);
-  createPagination(totalPages, page, arr, list, listPag, renderMarkupCardIng);
-  console.log(page, cardPerPage, arr, list, listPag);
-
-
-
- list.innerHTML = pageLimit.map(
-    item => {
-      
-      
-       return `
-    <li class="ingredient-card ingredient-dark-card" data-value=${item._id}>
-      <h2 class="ingredient-header favorite-ingredients-dark">${item.title}</h2>
-      <p class="alcoholic-ing alcoholic-dark-ing">${item.type}</p>
-      <p class="ingredient-description favorite-ingredients-dark">${item.description}</p>
+export default function createIngredientCard(ingredient) {
+  return `
+    <li class="ingredient-card ingredient-dark-card" data-value=${ingredient._id}>
+      <h2 class="ingredient-header favorite-ingredients-dark">${ingredient.title}</h2>
+      <p class="alcoholic-ing alcoholic-dark-ing">${ingredient.type}</p>
+      <p class="ingredient-description favorite-ingredients-dark">${ingredient.description}</p>
       <div class="ingredient-btns">
-      <button class="ingredient-learn-more-btn favorite-ingredients-dark learn-more-btn add-to-favorites openLearnMore" data-id="${item._id}">Learn More</button>
-      <button class="delete-btn" data-id="${item._id}">
+      <button class="ingredient-learn-more-btn favorite-ingredients-dark learn-more-btn add-to-favorites openLearnMore" data-id="${ingredient._id}">Learn More</button>
+      <button class="delete-btn" data-id="${ingredient._id}">
         <svg
               class="delete-icon"
               xmlns="http://www.w3.org/2000/svg"
@@ -41,8 +26,5 @@ export function renderMarkupCardIng(page, cardPerPage, arr, list, listPag) {
       </button>
       </div>
     </li>
-  `     
-          }        
-    )
-    .join('');
+  `;
 }

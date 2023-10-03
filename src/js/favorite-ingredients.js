@@ -11,7 +11,26 @@ import {
 const notFoundContainer = document.querySelector('.not-found-container');
 const ingredientsGallery = document.querySelector('.ingredients-gallery');
 
-let ingredients = JSON.parse(localStorage.getItem('favorites'));
+const bodyEl = document.body;
+const colorSwitcher = document.getElementById('themeSwitch');
+if (localStorage.getItem('switcher') === 'light') {
+    colorSwitcher.checked = false;
+} else {
+    colorSwitcher.checked = true;
+    bodyEl.classList.toggle('dark');
+    colorSwitcher.classList.add('dark');
+}
+colorSwitcher.addEventListener('click', () => {
+    colorSwitcher.classList.toggle('dark');
+    bodyEl.classList.toggle('dark');
+    if (localStorage.getItem('switcher') === 'light') {
+        localStorage.setItem('switcher', 'dark')
+    } else {
+        localStorage.setItem('switcher', 'light')
+    }
+});
+
+let ingredients = JSON.parse(localStorage.getItem('favorites'))
 
 if (ingredients.length === 0) {
   notFoundContainer.classList.remove('fav-ingr-is-hidden');

@@ -5,7 +5,7 @@ export default function createIngredientCard(ingredient) {
       <p class="alcoholic-ing">${ingredient.type}</p>
       <p class="ingredient-description">${ingredient.description}</p>
       <div class="ingredient-btns">
-      <button class="ingredient-learn-more-btn learn-more-btn add-to-favorites" data-id="${ingredient._id}">Learn More</button>
+      <button class="ingredient-learn-more-btn learn-more-btn add-to-favorites openLearnMore" data-id="${ingredient._id}">Learn More</button>
       <button class="delete-btn" data-id="${ingredient._id}">
         <svg
               class="delete-icon"

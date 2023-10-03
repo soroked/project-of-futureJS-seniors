@@ -1,13 +1,17 @@
 import { refsM } from "./refsM";
 import { renderList } from "./render-list";
-import { renderMarkupCard } from "../renderMarkupCard"
-import { updateValueBasedOnScreenWidth } from "../main/pagination/updateValueBasedOnScreenWidth";
+
+import { renderMarkupCardFav } from "./render-list";
+
+// import { updateValueBasedOnScreenWidth } from "../main/pagination/updateValueBasedOnScreenWidth";
 
 
 //? Функция парса локала если он есть
 export function parseLocal(key) {
     const local = localStorage.getItem(key);
-    // const page = 1
+    let page = 1
+    // const logo = new URL('../../img/icons.svg#icon-trash-01', import.meta.url);
+    // const icon = "#icon-trash-01"
     
     try {
           
@@ -22,9 +26,13 @@ export function parseLocal(key) {
                 
             }
             
-        // refsM.gellery.innerHTML = renderMarkupCard(page, updateValueBasedOnScreenWidth(), jsos, refsM.gellery, refsM.pagination);
-          
-            refsM.gellery.innerHTML = renderList(json)
+            renderMarkupCardFav(page, 6, json, refsM.gellery, refsM.pagination)
+            
+           
+            // refsM.gellery.innerHTML = renderList(json)
+           
+            
+            
             
         } else{
              refsM.erroreImg.classList.remove("is-hidden-img-favorite")

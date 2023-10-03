@@ -11,8 +11,8 @@ export function renderMarkupCard(page, cardPerPage, arr, list, listPag) {
 
   createPagination(totalPages, page, arr, list, listPag);
 
-  const logo = new URL('../img/icons.svg#icon-heart', import.meta.url);
-  const icon = '#icon-heart';
+const logo = new URL('../img/icons.svg#icon-heart', import.meta.url);
+const icon = '#icon-heart';
 
   const favs = JSON.parse(localStorage.getItem('cocktails')) || [];
 

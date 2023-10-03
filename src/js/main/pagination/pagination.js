@@ -4,7 +4,15 @@ import refs from '../../hero/refs';
 
 export let paginationIsSet = false;
 
-export function createPagination(totalPages, page, arr, list, listPag, renderMarkupCardIng) {
+export function createPagination(
+  totalPages,
+  page,
+  arr,
+  list,
+  listPag,
+  renderMarkupCardIng,
+  renderMarkupCardFav
+) {
   let liItem = '';
   let activeLiItem = null;
   let beforePage = page - 1;
@@ -93,18 +101,23 @@ export function createPagination(totalPages, page, arr, list, listPag, renderMar
 
   function handlePaginationClick(clickedPage) {
     createPagination(totalPages, clickedPage, arr, list, listPag);
+
     renderMarkupCard(
       clickedPage,
       updateValueBasedOnScreenWidth(),
       arr,
       list,
-      listPag
+      listPag,
     );
-    renderMarkupCardIng( clickedPage,
-      6,
-       arr,
-       list,
-       listPag);
+
+    
+
+    renderMarkupCardIng(clickedPage, 6, arr, list, listPag);
+
+if (renderMarkupCardFav) {
+  renderMarkupCardFav(clickedPage, 6, arr, list, listPag);
+}
+    
   }
 
   function onLeftRight(evt) {

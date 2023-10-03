@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/2.0.0/modern-normalize.min.css"
+      integrity="sha512-4xo8blKMVCiXpTaLzQSLSw3KFOVPWhm/TRtuPVc4WG6kUgjH6J03IBuG7JZPkcWMxJ5huwaBpOpnwYElP/m6wg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="stylesheet" href="./sass/_favorite-cocktails.scss" />
+    <link rel="stylesheet" href="./sass/index.scss" />
+    <link rel="stylesheet" href="./sass/_header.scss" />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <include src="./partials/header/header.html"></include>
+    <!-- <label class="switch toggle">
+      <input type="checkbox" id="themeSwitch" />
+      <span class="slider round"></span>
+    </label> -->
+    <section class="container">
+      <!-- <form class="search-cocktails">
+          <label>Веедите название коктейля или букву</label>
+          <input type="text" name="search" />
+          <button type="submit">search</button>
+        </form> -->
+
+      <h1 class="title favorite-cocktails-dark">Favorite cocktails</h1>
+
+      <div class="alex-error-img-container is-hidden-img-favorite">
+        <picture>
+          <source
+            media="(min-width: 768px)"
+            type="image/webp"
+            srcset="
+              ./img/hero/hero-error-tablet.webp    1x,
+              ./img/hero/hero-error-tablet@2x.webp 2x
+            "
+          />
+          <source
+            media="(min-width: 768px)"
+            type="image/png"
+            srcset="
+              ./img/hero/hero-error-tablet.png    1x,
+              ./img/hero/hero-error-tablet@2x.png 2x
+            "
+          />
+          <source
+            media="(min-width: 320px)"
+            type="image/webp"
+            srcset="
+              ./img/hero/hero-error-mobile.webp    1x,
+              ./img/hero/hero-error-mobile@2x.webp 2x
+            "
+          />
+          <source
+            media="(min-width: 320px)"
+            type="image/png"
+            srcset="
+              ./img/hero/hero-error-mobile.png    1x,
+              ./img/hero/hero-error-mobile@2x.png 2x
+            "
+          />
+          <img
+            class="hero-error-img"
+            src="./img/hero/hero-error-mobile.png"
+            alt="cocktails"
+          />
+        </picture>
+        <p class="hero-error-text favorite-cocktails-dark">
+          You haven't added any
+          <span class="hero-text-accent"> favorite cocktails</span> yet
+        </p>
+      </div>
+      <ul class="gellery"></ul>
+
+      <div class="pagination">
+        <ul class="pagination-list list"></ul>
+      </div>
+
+      <p class="deleted-notify is-hidden">Удалено</p>
+    </section>
+    <include src="./partials/footer/footer.html"></include>
+    <!-- <script type="module" src="./js/main/main.js"></script> -->
+    <script type="module" src="./js/favorite-cocktails/main.js"></script>
+    <!-- <script type="module" src="./js/header/header.js"></script>
+    <script type="module" src="./js/header/darkTheme.js"></script> -->
+  </body>
+</html>

@@ -1,0 +1,251 @@
+body.dark .karina-dark-theme {
+  color: var(--primary-text-color-theme-dark);
+}
+
+body.dark .karina-dark-theme-bg {
+  background-color: var(--bg-card-modal-color-theme-dark);
+}
+
+.container {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media screen and (min-width: 375px) {
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 375px;
+  }
+}
+
+.cocktail-section {
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+.cocktail-container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 335px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.hero-search-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-bottom: 40px;
+}
+
+.cocktail-item {
+  max-width: 335px;
+  max-height: 471px;
+  perspective: 1000px;
+  padding: 14px;
+  background-color: var(--bg-card-color-theme-light);
+
+  border-radius: 20px;
+}
+
+.cocktail-main-title {
+  font-size: 24px;
+  font-family: var(--primary-font);
+  font-weight: 500;
+  line-height: 28px;
+  word-wrap: break-word;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.cocktail-img {
+  width: 307px;
+  height: 260px;
+  text-align: center;
+  border-radius: 16px;
+  display: block;
+}
+
+.cocktail-title {
+  color: var(--primary-text-color-theme-light);
+  font-family: var(--primary-font);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+  margin-bottom: 14px;
+  margin-top: 20px;
+  margin-left: 6px;
+}
+
+.cocktail-description {
+  color: var(--primary-text-color-theme-light);
+  font-size: 14px;
+  font-family: var(--primary-font);
+  font-weight: 400;
+  line-height: 18px;
+  word-wrap: break-word;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  margin-left: 6px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.button-div {
+  display: flex;
+  margin-bottom: 6px;
+  padding-left: 6px;
+}
+.button-learn-more {
+  box-sizing: border-box;
+  background-color: var(--bg-card-color-theme-light);
+  box-shadow: 0px 4px 46px 0px rgba(0, 0, 0, 0.05);
+  color: var(--primary-text-color-theme-light);
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+  letter-spacing: 0.28px;
+  text-transform: uppercase;
+  border-radius: 12px;
+  border: 1px solid #7e8fdd;
+  width: 232px;
+  height: 48px;
+  margin-right: 13px;
+}
+
+.button-add-fav {
+  border-radius: 12px;
+  background: var(--primary-accent-color);
+  width: 48px;
+  height: 48px;
+  border-style: none;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.icon-add-fav {
+  width: 18px;
+  height: 18px;
+  stroke: var(--bg-card-color-theme-light);
+  fill: none;
+}
+
+.button-add-fav:hover > .icon-add-fav {
+  fill: var(--bg-card-color-theme-light);
+}
+
+.button-add-fav-active > .icon-add-fav {
+  fill: var(--bg-card-color-theme-light);
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: 768px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
+  .cocktail-main-title {
+    padding-bottom: 40px;
+  }
+
+  .hero-search-cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 32px;
+    column-gap: 16px;
+    padding-bottom: 64px;
+  }
+
+  .cocktail-item {
+    max-width: 344px;
+    max-height: 523px;
+    perspective: 1000px;
+  }
+
+  .cocktail-img {
+    max-width: 100%;
+    height: 289px;
+  }
+
+  .cocktail-title {
+    margin-left: 10px;
+  }
+
+  .cocktail-description {
+    margin-left: 10px;
+  }
+
+  .button-div {
+    display: flex;
+    margin-bottom: 10px;
+    padding-left: 10px;
+  }
+
+  .button-learn-more {
+    width: 225px;
+    height: 56px;
+
+    margin-right: 14px;
+  }
+
+  .button-add-fav {
+    width: 56px;
+    height: 56px;
+  }
+
+  .icon-add-fav {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container {
+    width: 1280px;
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+
+  .cocktail-main-title {
+    padding-top: 50px;
+
+    padding-bottom: 44px;
+  }
+
+  /* .cocktail-list {
+    flex-direction: row;
+    row-gap: 44px;
+    column-gap: 24px;
+  } */
+
+  .hero-search-cards {
+    padding-bottom: 44px;
+    column-gap: 24px;
+    flex-direction: row;
+    row-gap: 44px;
+    column-gap: 24px;
+  }
+
+  .cocktail-item {
+    flex-basis: calc((100% - 24px) / 3);
+  }
+
+  .cocktail-title {
+    margin-bottom: 14px;
+    margin-top: 24px;
+    margin-left: 10px;
+  }
+}

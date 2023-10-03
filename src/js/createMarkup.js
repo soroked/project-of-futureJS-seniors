@@ -1,11 +1,11 @@
 export default function createIngredientCard(ingredient) {
   return `
-    <div class="ingredient-card">
-      <h2 class="ingredient-header">${ingredient.title}</h2>
-      <p class="alcoholic-ing">${ingredient.type}</p>
-      <p class="ingredient-description">${ingredient.description}</p>
+    <li class="ingredient-card ingredient-dark-card" data-value=${ingredient._id}>
+      <h2 class="ingredient-header favorite-ingredients-dark">${ingredient.title}</h2>
+      <p class="alcoholic-ing alcoholic-dark-ing">${ingredient.type}</p>
+      <p class="ingredient-description favorite-ingredients-dark">${ingredient.description}</p>
       <div class="ingredient-btns">
-      <button class="ingredient-learn-more-btn learn-more-btn add-to-favorites" data-id="${ingredient._id}">Learn More</button>
+      <button class="ingredient-learn-more-btn favorite-ingredients-dark learn-more-btn add-to-favorites openLearnMore" data-id="${ingredient._id}">Learn More</button>
       <button class="delete-btn" data-id="${ingredient._id}">
         <svg
               class="delete-icon"
@@ -25,6 +25,6 @@ export default function createIngredientCard(ingredient) {
             </svg>
       </button>
       </div>
-    </div>
+    </li>
   `;
 }

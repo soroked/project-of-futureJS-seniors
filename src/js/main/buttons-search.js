@@ -65,14 +65,18 @@ const thirdButtonsRow = renderButtonsRow(ALPHANUMBERS, 27);
 const fourthButtonsRow = renderButtonsRow(ALPHANUMBERS, 0, 19);
 const fifthButtonsRow = renderButtonsRow(ALPHANUMBERS, 19);
 
-refs.buttonListEl.innerHTML =
+if (refs.buttonListEl) {
+  refs.buttonListEl.innerHTML =
   firstButtonsRow +
   secondButtonsRow +
   thirdButtonsRow +
   fourthButtonsRow +
   fifthButtonsRow;
 
-refs.searchButtonWrapper.addEventListener('click', searchButtonWrapperHandler);
+}
+
+
+refs.searchButtonWrapper?.addEventListener('click', searchButtonWrapperHandler);
 
 function searchButtonWrapperHandler(e) {
   if (e.target.nodeName === 'BUTTON') {

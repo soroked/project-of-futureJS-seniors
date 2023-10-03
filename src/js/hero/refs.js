@@ -4,7 +4,6 @@ const refs = {
   list: document.querySelector('.hero-search-cards'),
   searchButtonWrapper: document.querySelector('.button-search-wrapper-js'),
   buttonSpan: document.querySelector('.button-search-span-js'),
-  searchDropdown: document.querySelector('.button-dropdown-js'),
 };
 
 export default refs;

@@ -63,8 +63,19 @@ export function modalIngidient(queryId) {
 
     function modalCloseIngridient() {
       modalInstanceIngridient.close();
-      modalCoctail.classList.remove('is-hidden-modal');
     }
     backBtnModalIngridient.addEventListener('click', modalCloseIngridient);
   });
+}
+
+const ingredientGalleryModal = document.querySelector('.ingredients-gallery')
+
+ingredientGalleryModal.addEventListener('click', onGalleryClick)
+
+function onGalleryClick(e) {
+  if (e.target.nodeName !== "BUTTON" || e.target.classList.contains('delete-btn')) {
+  return
+  } else {
+    modalIngidient(e.target.dataset.id)
+}
 }

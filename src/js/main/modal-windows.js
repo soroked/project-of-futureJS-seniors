@@ -13,6 +13,7 @@ function getIngredients(queryId) {
   return axios.get(BASE_URL + ENDPOINT_INGREDIENTS + `${queryId}`);
 }
 
+modalInstanceCoctail('155 Belmont')
 // MODAL TEXT
 
 export function modalInstanceCoctail(query) {

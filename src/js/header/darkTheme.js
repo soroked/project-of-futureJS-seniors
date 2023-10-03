@@ -10,6 +10,14 @@ const picturesDark = document.querySelector('.picture-hero-dark');
 const picturesLight = document.querySelector('.picture-hero-light');
 const LS_KEY = 'switcher';
 
+if (localStorage.getItem('switcher') === 'light') {
+    picturesLight.classList.remove('is-hidden-hero');
+    picturesDark.classList.add('is-hidden-hero');
+} else {
+    picturesLight.classList.add('is-hidden-hero');
+    picturesDark.classList.remove('is-hidden-hero');
+}
+
 function onCheckBoxChange(){
 
 if (colorSwither.checked){

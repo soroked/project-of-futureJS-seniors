@@ -29,28 +29,14 @@
     overflow: hidden;
 }
 
-.modal-coctail{
+.modal{
 padding: 40px 20px;
 background-color: var(--bg-modal-color-theme-light);
 max-width: 335px;
 border-radius: 20px;
-height: 905px;
 overflow: auto;
 
 }
-
-
-.modal-ingredient {
-    padding: 40px 20px;
-    background-color: var(--bg-modal-color-theme-light);
-    max-width: 335px;
-    border-radius: 20px;
-    height: 905px;
-    overflow: auto;
-    scrollbar-width: none;
-}
-
-
 .info-modal-coctail{
 padding: 0;
 }
@@ -61,6 +47,10 @@ padding: 0;
     background: lightgray -7.08px -17px / 103.146% 109.386% no-repeat;
 margin-bottom: 40px;
 }
+.main-title-modal-coctail{
+  //  visibility: hidden;
+}
+
 .title-modal-coctail-categories{
     color: var(--primary-text-color-theme-light);
         font-size: 16px;
@@ -97,12 +87,10 @@ font-size: 14px;
 text-decoration: none;
 cursor: pointer;
 }
-
 .link-modal-coctail-ingridient:hover,
 .item-modal-coctail-ingridients:hover {
     color: var(--primary-accent-color);
 }
-
 .paragrapg-modal-coctail{
 color: var(--modal-first-text-color-theme-light);
     font-size: 14px;
@@ -121,8 +109,7 @@ color: var(--modal-first-text-color-theme-light);
         line-height: 1.43;
         letter-spacing: 0.28px;
         text-transform: uppercase;
-        padding-top: 14px;
-        padding-bottom: 14px;
+        padding: 14px 84px;
         border:none;
         border-radius: 12px;
         background: var(--primary-accent-color);
@@ -186,9 +173,9 @@ color: var(--primary-text-color-theme-light);
     line-height: 1.43;
     margin-bottom: 40px;
     margin-top: 20px;
-   //height: 100px;
-    // overflow: auto;
-    // scrollbar-width: none;
+    height: 100px;
+    overflow: auto;
+    scrollbar-width: none;
     //   -ms-overflow-style: none;
 }
 
@@ -218,20 +205,12 @@ color: var(--primary-text-color-theme-light);
 
 
 @media screen and (min-width: 768px){
-.modal-coctail {
+.modal {
         padding: 40px;
         max-width: 600px;
         border-radius: 20px;
-        height: 569px;
+
     }
-
-        .modal-ingredient {
-            padding: 40px;
-            max-width: 600px;
-            height: 569px;
-            border-radius: 20px;
-        }
-
     .photo-info{
         display: flex;
         margin-bottom: 20px;
@@ -271,8 +250,7 @@ margin-bottom: 20px;
             font-size: 18px;
             line-height: 1.33;
             letter-spacing: 0.36px;
-            padding-top: 16px;
-            padding-bottom: 16px;
+            padding: 16 44px;
             border: none;
             margin-bottom: 0;
             margin-right: 18px;
@@ -323,27 +301,6 @@ margin-bottom: 20px;
 
 }
 
-.modal-coctail-close-btn,
-.modal-ingredient-close-btn {
-    position: absolute;
-    top: 18px;
-    right: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 24px;
-    height: 24px;
-    padding: 0;
-    cursor: pointer;
-    background-color: inherit;
-   border: none;
-}
-.icon-off{
-stroke: var(--primary-text-color-theme-light);
-}
-
-
-// DARK THRME 
 
 body.dark .mw-modal-dark {
     background: var(--bg-card-modal-color-theme-dark);
@@ -353,10 +310,6 @@ body.dark .mw-text-main-dark {
     color: var(--primary-text-color-theme-dark);
 }
 
-body.dark .mw-text-first-dark {
-    color: var(--bg-card-color-theme-light);
-    stroke: var(--bg-card-color-theme-light);
-}
 body.dark .mw-text-secondary-dark {
     color: var(--modal-second-text-color-theme-dark);
 }
@@ -366,25 +319,17 @@ body.dark .mw-text-third-dark {
 }
 
 body.dark .mw-btn-dark {
-    background: var(--modal-btn-color-theme-dark);
+    color: var(--modal-btn-color-theme-dark);
 }
 
 body.dark .mw-btn-hover-dark {
-    background: var(--hover-modal-btn-color-theme-dark);
+    color: var(--hover-modal-btn-color-theme-dark);
 }
-
 
 body.dark .back-btn-modal-coctail:hover,
 body.dark .back-btn-modal-ingridient:hover {
-    background: var(--hover-modal-btn-color-theme-dark);
+    background: var(--hover-modal-btn-color-theme-light);
 }
-
-body.dark .link-modal-coctail-ingridient:hover,
-body.dark .item-modal-coctail-ingridients:hover {
-    color: var(--primary-accent-color);
-}
-
-
 
 
 

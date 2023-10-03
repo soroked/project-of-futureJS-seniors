@@ -60,8 +60,8 @@
 <path fill="none" stroke="rgba(253, 253, 255, 0.5)" style="stroke: var(--color1, rgba(253, 253, 255, 0.5))" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" stroke-width="1" d="M6 0.5h20c3.038 0 5.5 2.462 5.5 5.5v20c0 3.038-2.462 5.5-5.5 5.5h-20c-3.038 0-5.5-2.462-5.5-5.5v-20c0-3.038 2.462-5.5 5.5-5.5z"></path>
 </symbol>
 <symbol id="icon-x" viewBox="0 0 32 32">
-<path fill="none" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M24 8l-16 16"></path>
-<path fill="none" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M8 8l16 16"></path>
+<path fill="none" stroke="#fdfdff" style="stroke: var(--color1, #fdfdff)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M24 8l-16 16"></path>
+<path fill="none" stroke="#fdfdff" style="stroke: var(--color1, #fdfdff)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M8 8l16 16"></path>
 </symbol>
 <symbol id="icon-newspaper" viewBox="0 0 32 32">
 <path d="M28 8v-4h-28v22c0 1.105 0.895 2 2 2h27c1.657 0 3-1.343 3-3v-17h-4zM26 26h-24v-20h24v20zM4 10h20v2h-20zM16 14h8v2h-8zM16 18h8v2h-8zM16 22h6v2h-6zM4 14h10v10h-10z"></path>

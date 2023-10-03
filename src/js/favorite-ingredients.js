@@ -7,15 +7,7 @@ import { addToFavorites,removeFromFavoritesByIndex } from './localstorage-fav-in
 
 const notFoundContainer = document.querySelector('.not-found-container');
 const ingredientsGallery = document.querySelector('.ingredients-gallery');
-const learnMoreBtn = document.querySelector('.openLearnMore')
 
-learnMoreBtn.addEventListener('click', openLearnMoreModal) 
-
-function openLearnMoreModal(e) {
-  if (e.target.classList.contains('openLearnMore')) {
-    console.log(e);
-  }
-}
 
 
 let ingredients = JSON.parse(localStorage.getItem('favorites'))

@@ -1,5 +1,6 @@
 .pagination-list,
-.pagination-list-ing {
+.pagination-list-ing,
+.pagination-list-favorite {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -43,7 +44,8 @@
 @media screen and (min-width: 768px) {
 
   .pagination-list,
-  .pagination-list-ing {
+  .pagination-list-ing,
+  .pagination-list-favorite {
     column-gap: 14px;
   }
 

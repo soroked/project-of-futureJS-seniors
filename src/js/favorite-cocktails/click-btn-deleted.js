@@ -1,6 +1,7 @@
 import { removeItemFromLocalStorage } from "./forLocalStorage";
 import { parseLocal } from "./forLocalStorage";
 import { refsM } from "./refsM";
+import { modalInstanceCoctail } from "../main/modal-windows";
 
 // //? Функция клика по кнопке
 
@@ -13,9 +14,18 @@ export function clickToBtn(e, key) {
             removeItemFromLocalStorage(key, index);
             parseLocal(key);
             
-           showNotification(listItem)
+            showNotification(listItem)
+            
         }
         
+    }
+
+    if (e.target.classList.contains("btn-learn-favorite-eduard")) {
+        const cocktailName = e.target.dataset.value;
+        console.log(cocktailName.replaceAll("-"," "));
+        
+        return modalInstanceCoctail(cocktailName.replaceAll("-"," "));
+
     }
 }
 

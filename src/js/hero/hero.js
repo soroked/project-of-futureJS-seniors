@@ -62,7 +62,8 @@ async function onInputSearch(e) {
     function onLearnMore(e) {
       if (e.target.classList.contains('button-learn-more')) {
         const cocktailName = e.target.dataset.value;
-        return modalInstanceCoctail(cocktailName);
+        
+       return modalInstanceCoctail(cocktailName.replaceAll("+", " "));
       }
     }
   } catch (error) {

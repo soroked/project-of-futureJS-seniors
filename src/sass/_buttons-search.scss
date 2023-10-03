@@ -33,6 +33,7 @@
   
     .icon{
       fill: none;
+      stroke: var(--primary-text-color-theme-dark);
       width: 18px; 
       height: 18px;
       transition: transform 0.3s;
@@ -45,8 +46,8 @@
       
       & .icon {
         transform: rotate(180deg);
+       
       }
-
     }
   
     .button-search-dropdown {

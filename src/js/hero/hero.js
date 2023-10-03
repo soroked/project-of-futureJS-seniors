@@ -35,28 +35,33 @@ async function onInputSearch(e) {
   }
 
   try {
-    let response;
+    let response = null;
     if (random) {
       response = await getRandomCocktails(updateValueBasedOnScreenWidth());
       random = false;
     } else {
       response = await getCocktails(searchQuery);
     }
-    fav = response.data
+    fav = response.data;
 
     let arr = [];
     arr.push(response.data);
-    renderMarkupCard(page, updateValueBasedOnScreenWidth(), ...arr);
+    renderMarkupCard(
+      page,
+      updateValueBasedOnScreenWidth(),
+      ...arr,
+      refs.list,
+      refs.listPag
+    );
 
-    const onLearnMoreBtn = document.querySelector(".hero-search-cards");
-    onLearnMoreBtn.addEventListener("click", onLearnMore);
-      function onLearnMore(e) {
-      if(e.target.classList.contains("button-learn-more")) {
+    const onLearnMoreBtn = document.querySelector('.hero-search-cards');
+    onLearnMoreBtn.addEventListener('click', onLearnMore);
+    function onLearnMore(e) {
+      if (e.target.classList.contains('button-learn-more')) {
         const cocktailName = e.target.dataset.value;
-       return modalInstanceCoctail(cocktailName);
+        return modalInstanceCoctail(cocktailName);
       }
-      }
-
+    }
   } catch (error) {
     listPag.innerHTML = '';
     refs.list.innerHTML = markupError;
@@ -74,23 +79,26 @@ const heart = document.querySelector('.hero-search-cards');
 heart.addEventListener('click', onHeart);
 
 function onHeart(e) {
-  if (e.target.nodeName === 'use' || e.target.classList.contains('button-add-fav') || e.target.classList.contains('icon-add-fav')) {
-    const heartButton = e.target.closest('.button-add-fav')
-    const id = heartButton.dataset.value
+  if (
+    e.target.nodeName === 'use' ||
+    e.target.classList.contains('button-add-fav') ||
+    e.target.classList.contains('icon-add-fav')
+  ) {
+    const heartButton = e.target.closest('.button-add-fav');
+    const id = heartButton.dataset.value;
     const cocktail = fav.find(item => item._id === id);
     const favs = JSON.parse(localStorage.getItem('cocktails')) || [];
 
-    const index = favs.findIndex((item) => item._id === id);
-    console.dir(heartButton);    
+    const index = favs.findIndex(item => item._id === id);
+    console.dir(heartButton);
     if (index < 0) {
       heartButton.classList.add('button-add-fav-active');
-    favs.push(cocktail);
-    localStorage.setItem('cocktails', JSON.stringify(favs));
+      favs.push(cocktail);
+      localStorage.setItem('cocktails', JSON.stringify(favs));
       return;
     }
     heartButton.classList.remove('button-add-fav-active');
     favs.splice(index, 1);
     localStorage.setItem('cocktails', JSON.stringify(favs));
-    
   }
 }

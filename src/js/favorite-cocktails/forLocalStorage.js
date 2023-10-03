@@ -12,11 +12,11 @@ export function parseLocal(key) {
     try {
           
         if (local) {
-            console.log("Не пустой локал");
+            // console.log("Не пустой локал");
             const json = JSON.parse(local);
             
             if (json.length === 0) {
-                console.log("Пусто после удаления");
+                // console.log("Пусто после удаления");
                 localStorage.removeItem("cocktails")
                 refsM.erroreImg.classList.remove("is-hidden-img-favorite")
                 
@@ -28,11 +28,11 @@ export function parseLocal(key) {
             
         } else{
              refsM.erroreImg.classList.remove("is-hidden-img-favorite")
-            console.log("Пустой локал");
+            // console.log("Пустой локал");
         }    
         
     } catch (error) {
-        console.log(error);
+        // console.log(error);
     }
 }
 
@@ -51,7 +51,7 @@ export function removeItemFromLocalStorage(key, index) {
         localStorage.setItem(key, updatedData);
         
     } catch (error) {
-        console.log(error);
+        // console.log(error);
     }
     
 }

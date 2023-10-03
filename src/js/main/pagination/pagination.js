@@ -1,23 +1,16 @@
 import { renderMarkupCard } from '../../renderMarkupCard';
 import { updateValueBasedOnScreenWidth } from './updateValueBasedOnScreenWidth';
 import refs from '../../hero/refs';
-import { refsM } from '../../favorite-cocktails/refsM';
 
-export const listPag = document.querySelector('.pagination-list');
+export let paginationIsSet = false;
 
-let paginationIsSet = false;
-
-export function createPagination(totalPages, page, arr, list, listPag) {
-
-  let newList = listPag
-  console.log(refsM.pagination);
-
+export function createPagination(totalPages, page, arr, list, listPag, renderMarkupCardIng) {
   let liItem = '';
   let activeLiItem = null;
   let beforePage = page - 1;
   let afterPage = page + 1;
 
-  // list.scrollIntoView({ behavior: 'smooth' });
+  // refs.titileCocktail.scrollIntoView({ behavior: 'smooth' });
 
   if (page > 1) {
     liItem += `<li class="prev"><span>&#60</span></li>`;
@@ -71,10 +64,8 @@ export function createPagination(totalPages, page, arr, list, listPag) {
   if (page < totalPages) {
     liItem += `<li class="next"><span>&#62</span></li>`;
   }
-// console.log(list);
-// console.log(listPag);
-  refsM.pagination.innerHTML = liItem
 
+  listPag.innerHTML = liItem;
 
   const prevButton = document.querySelector('.prev');
   const nextButton = document.querySelector('.next');
@@ -101,8 +92,19 @@ export function createPagination(totalPages, page, arr, list, listPag) {
   }
 
   function handlePaginationClick(clickedPage) {
-    createPagination(totalPages, clickedPage, arr);
-    renderMarkupCard(clickedPage, updateValueBasedOnScreenWidth(), arr);
+    createPagination(totalPages, clickedPage, arr, list, listPag);
+    renderMarkupCard(
+      clickedPage,
+      updateValueBasedOnScreenWidth(),
+      arr,
+      list,
+      listPag
+    );
+    renderMarkupCardIng( clickedPage,
+      6,
+       arr,
+       list,
+       listPag);
   }
 
   function onLeftRight(evt) {

@@ -17,7 +17,10 @@ body.dark .karina-dark-theme-bg {
     margin-right: auto;
     width: 375px;
   }
+
 }
+
+
 
 .cocktail-section {
   padding-top: 20px;
@@ -38,7 +41,7 @@ body.dark .karina-dark-theme-bg {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding-bottom: 40px;
+  margin-bottom: 40px;
 }
 
 .cocktail-item {
@@ -155,6 +158,7 @@ body.dark .karina-dark-theme-bg {
     padding-right: 32px;
   }
 
+  
   .cocktail-main-title {
     padding-bottom: 40px;
   }
@@ -166,7 +170,7 @@ body.dark .karina-dark-theme-bg {
     justify-content: center;
     row-gap: 32px;
     column-gap: 16px;
-    padding-bottom: 64px;
+    margin-bottom: 64px;
   }
 
   .cocktail-item {
@@ -225,18 +229,13 @@ body.dark .karina-dark-theme-bg {
     padding-bottom: 44px;
   }
 
-  /* .cocktail-list {
-    flex-direction: row;
-    row-gap: 44px;
-    column-gap: 24px;
-  } */
 
   .hero-search-cards {
-    padding-bottom: 44px;
     column-gap: 24px;
     flex-direction: row;
     row-gap: 44px;
     column-gap: 24px;
+    margin-bottom: 44px;
   }
 
   .cocktail-item {

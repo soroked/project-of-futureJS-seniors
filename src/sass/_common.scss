@@ -33,6 +33,10 @@ img {
   display: block;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   --primary-font: 'Poppins', sans-serif;
   --primary-accent-color: #7e8fdd;

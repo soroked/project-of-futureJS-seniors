@@ -10,7 +10,7 @@ const picturesDark = document.querySelector('.picture-hero-dark');
 const picturesLight = document.querySelector('.picture-hero-light');
 const LS_KEY = 'switcher';
 
-if (localStorage.getItem('switcher') === 'light') {
+if (localStorage.getItem('switcher') === 'light' || !localStorage.getItem('switcher')) {
     picturesLight.classList.remove('is-hidden-hero');
     picturesDark.classList.add('is-hidden-hero');
 } else {

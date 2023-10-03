@@ -1,4 +1,4 @@
-<section class="hero container">
+<section class="hero-section container">
   <div class="hero-wrapper">
     <div class="hero-text-container">
       <h1 class="main-hero-title hero-dark">
@@ -10,12 +10,8 @@
         From classic sips to exotic mixes, we're your key to becoming a cocktail
         wizard!
       </p>
-      <button
-        type="button"
-        class="btn-hero"
-        onclick="document.location='#cocktails'"
-      >
-        View cocktails
+      <button type="button" class="btn-hero">
+        <a class="hero-btn-link link" href="#cocktails">View cocktails</a>
       </button>
     </div>
     <div class="hero-img-container">
@@ -171,11 +167,21 @@
         placeholder="Search"
         autocomplete="off"
       />
-      <svg class="input-search-icon hero-dark-icon" aria-label="search" width="16" height="16">
+      <svg
+        class="input-search-icon hero-dark-icon"
+        aria-label="search"
+        width="16"
+        height="16"
+      >
         <use href="./img/icons.svg#icon-search"></use>
       </svg>
     </div>
   </form>
-<h2 class="cocktail-main-title karina-dark-theme">Cocktails</h2>
+  <h2 id="cocktails" class="cocktail-main-title karina-dark-theme">
+    Cocktails
+  </h2>
   <ul class="hero-search-cards"></ul>
+  <div class="pagination">
+    <ul class="pagination-list list"></ul>
+  </div>
 </section>

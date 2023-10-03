@@ -138,12 +138,10 @@ export function modalInstanceCoctail(query) {
       ) {
         const queryId = e.target.closest('.item-modal-coctail-ingridients')
           .dataset.value;
-        console.log('hoorey');
 
         modalCoctail.classList.add('is-hidden-modal');
 
         getIngredients(queryId).then(resp => {
-          console.log(resp);
 
           const modalInstanceIngridient = basicLightbox.create(`
                     <div class="modal modal-ingridient mw-modal-dark">
@@ -176,16 +174,48 @@ export function modalInstanceCoctail(query) {
                     `);
           modalInstanceIngridient.show();
 
-          const backBtnModalIngridient = document.querySelector(
-            '.back-btn-modal-ingridient'
-          );
-          const addBtnModalCoctail = document.querySelector(
-            '.add-btn-modal-ingridient'
-          );
+    let favsIngr = JSON.parse(localStorage.getItem('favorites')) || [];
+    let addOrDelete = 'ADD TO FAVORITE';
+          
+    addOrDelete = favsIngr?.some(item => item._id === resp.data[0]._id)
+      ? 'REMOVE FROM FAVORITE'
+      : 'ADD TO FAVORITE';
 
-          addBtnModalCoctail.addEventListener('click', e => {
-            addToFavorites(resp.data[0]);
-          });
+    const addToFavoriteIngr = document.querySelector('.add-btn-modal-ingridient');
+    addToFavoriteIngr.addEventListener('click', onAddBtn);
+
+          function onAddBtn(e) {
+      if (e.target.nodeName === 'BUTTON' || e.target.classList.contains('add-btn-modal-ingridient')) {
+      const id = resp.data[0]._id
+      const ingr = resp.data[0];
+      favsIngr = JSON.parse(localStorage.getItem('favorites')) || [];
+
+        const indexIngr = favsIngr.findIndex((item) => item._id === id);
+        console.log(indexIngr);
+      
+        if (indexIngr < 0) {
+      favsIngr.push(ingr);
+      addToFavoriteIngr.innerHTML = "REMOVE FROM FAVORITE";
+      localStorage.setItem('favorites', JSON.stringify(favsIngr));
+      return;
+      }
+        favsIngr.splice(indexIngr, 1);
+        console.log(favsIngr);
+      addToFavoriteIngr.innerHTML = "ADD TO FAVORITE"
+      localStorage.setItem('favorites', JSON.stringify(favsIngr));
+    }
+}
+
+          // const backBtnModalIngridient = document.querySelector(
+          //   '.back-btn-modal-ingridient'
+          // );
+          // const addBtnModalCoctail = document.querySelector(
+          //   '.add-btn-modal-ingridient'
+          // );
+
+          // addBtnModalCoctail.addEventListener('click', e => {
+          //   addToFavorites(resp.data[0]);
+          // });
 
           function modalCloseIngridient() {
             modalInstanceIngridient.close();

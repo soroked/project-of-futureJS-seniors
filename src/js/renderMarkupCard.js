@@ -11,13 +11,14 @@ export function renderMarkupCard(page, cardPerPage, arr, list, listPag) {
 
   createPagination(totalPages, page, arr, list, listPag);
 
-  const logo = new URL('../img/icons.svg#icon-heart', import.meta.url);
-  const icon = '#icon-heart';
+const logo = new URL('../img/icons.svg#icon-heart', import.meta.url);
+const icon = '#icon-heart';
 
   const favs = JSON.parse(localStorage.getItem('cocktails')) || [];
 
   list.innerHTML = pageLimit
     .map(item => {
+      const drink = item.drink.split(" ").join("+");
       const notActive = favs?.some(itemLS => itemLS._id === item._id)
         ? 'button-add-fav-active'
         : '';
@@ -31,7 +32,7 @@ export function renderMarkupCard(page, cardPerPage, arr, list, listPag) {
             }</p>
             <div class="button-div">
             <button data-value=${
-              item.drink
+              drink
             } class="button-learn-more karina-dark-theme-bg karina-dark-theme">LEARN MORE</button>
           <button data-value=${item._id} class="button-add-fav ${notActive}">
           <svg class="icon-add-fav"><use href=${

@@ -13,6 +13,8 @@ const favs = JSON.parse(localStorage.getItem('cocktails')) || [];
 let page = 1;
 let fav = [];
 
+
+
 window.addEventListener('load', updateValueBasedOnScreenWidth);
 window.addEventListener('resize', debounce(updateValueBasedOnScreenWidth, 300));
 
@@ -34,6 +36,8 @@ async function onInputSearch(e) {
   }
 
   try {
+
+
     let response = null;
     if (random) {
       response = await getRandomCocktails(updateValueBasedOnScreenWidth());
@@ -50,7 +54,7 @@ async function onInputSearch(e) {
       updateValueBasedOnScreenWidth(),
       ...arr,
       refs.list,
-      refs.listPag
+      refs.listPag,
     );
 
     const onLearnMoreBtn = document.querySelector('.hero-search-cards');
@@ -58,7 +62,8 @@ async function onInputSearch(e) {
     function onLearnMore(e) {
       if (e.target.classList.contains('button-learn-more')) {
         const cocktailName = e.target.dataset.value;
-        return modalInstanceCoctail(cocktailName);
+        
+       return modalInstanceCoctail(cocktailName.replaceAll("+", " "));
       }
     }
   } catch (error) {

@@ -233,27 +233,13 @@ column-gap: 24px;
 // body-dark-the-ingredients
 
 
-body.dark {
-  color: var(--primary-text-color-theme-dark);
-  background: #121212;
-}
-
-
-
-body.dark .favorite-dark-title {
+body.dark .favorite-ingredients-dark {
   color: var(--primary-text-color-theme-dark);
 }
 
 body.dark .ingredient-dark-card {
   background-color: var(--bg-card-modal-color-theme-dark);
 }
-
-body.dark .learn-more-dark-btn,
-body.dark .ingredient-dark-header,
-body.dark .ingredient-dark-description {
-  color: var(--primary-text-color-theme-dark);
-}
-
 
 body.dark .alcoholic-dark-ing {
   color: var(--modal-second-text-color-theme-dark);

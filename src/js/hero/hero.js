@@ -2,7 +2,6 @@ import { getCocktails, getRandomCocktails } from '../swagger-api.js';
 import { renderMarkupCard } from '../renderMarkupCard.js';
 import { updateValueBasedOnScreenWidth } from '../main/pagination/updateValueBasedOnScreenWidth.js';
 import debounce from 'debounce';
-import { listPag } from '../main/pagination/pagination.js';
 import refs from './refs.js';
 import { markupError } from './markupError.js';
 import { modalInstanceCoctail } from '../main/modal-windows.js';

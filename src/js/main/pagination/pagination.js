@@ -1,7 +1,6 @@
 import { renderMarkupCard } from '../../renderMarkupCard';
 import { updateValueBasedOnScreenWidth } from './updateValueBasedOnScreenWidth';
 import refs from '../../hero/refs';
-import { refsM } from '../../favorite-cocktails/refsM';
 
 export let paginationIsSet = false;
 

@@ -1,54 +1,109 @@
 <header class="header container">
   <nav class="header-navigation">
-    <ul class="header-list">
+    <ul class="header-list">   
       <li class="header-item">
         <a class="header-link" href="./index.html">Home</a>
-      </li>
-      <li
-        class="header-item"
-        id="favorite-dropdown"
-        onclick="toggleFavoriteMenu(event)"
-      >
-        <a class="header-link" href="#">
+      </li>  
+      <li class="header-item">
+  <div class="favorite-dropdown">      
+        <a class="header-link" href="#">             
           <span>Favorite</span>
           <svg class="chevron-down" width="24" height="24">
             <use href="./img/icons.svg#icon-chevron-down"></use>
           </svg>
-        </a>
-        <div class="favorite-navigation">
+        </a> 
+        <div class="favorite-navigation">       
           <ul class="navigation-list" id="favorite-menu">
             <li class="navigation-item">
-              <a href="./favorite-cocktail.html">Favorite cocktails</a>
+              <a class="favorite-link" href="./favorite-cocktail.html">Favorite cocktails</a>
             </li>
-            <li class="navigation-item">
-              <a href="./favorite-ingredients.html">Favorite ingredients</a>
-            </li>
+            <li class="navigation-item"> 
+              <a class="favorite-link" href="./favorite-ingredients.html">Favorite ingredients</a> 
+            </li>         
           </ul>
-        </div>
-      </li>
+        </div> 
+    </div>
+      </li>  
     </ul>
-  </nav>
+  </nav>   
 
-  <div class="logo">
-    <a href="./index.html" class="header-logo">
-      <span>Drinkify</span>
-      <svg class="header-logo-img" width="29" height="25">
-        <use href="./img/icons.svg#icon-cocktail"></use>
+  <div class="logo">   
+    <a href="./index.html" class="header-logo">   
+      <span>Drinkify</span>   
+      <svg class="header-logo-img" width="29" height="25"> 
+        <use href="./img/icons.svg#icon-cocktail"></use>    
       </svg>
     </a>
-  </div>
-
-  <label class="switch toggle">
+    </div>  
+ 
+  <label class="switch toggle"> 
     <input type="checkbox" id="themeSwitch" />
     <span class="slider round"></span>
   </label>
 
-  <div class="header-menu">
-    <svg class="heder-close-menu" id="close-menu" width="16" height="16">
-      <use href="./img/icons.svg#icon-x"></use>
-    </svg>
-    <svg class="burger-menu" id="open-menu" width="32" height="32">
-      <use class="menu-icon" href="./img/icons.svg#icon-align-justify"></use>
-    </svg>
-  </div>
+  <div class="header-menu">    
+    <button class="menu-toggle js-open-menu" 
+                type="button"   
+                data-menu-button 
+                aria-expanded="false"
+                aria-controls="mobile-menu">               
+    <svg class="burger-menu" width="32" height="32"     
+    aria-label="кнопка мобільного меню">
+    <use class="icon-menu" href="./img/icons.svg#icon-align-justify"></use>
+    </svg>  
+</button>
+
+<div class="menu-container js-menu-container" id="mobile-menu" data-menu>
+    <button class="menu-toggle js-close-menu">
+        <svg class="close-menu" width="16" height="16" aria-label="кнопка мобільного меню">    
+            <use class="icon-cross" href="./img/icons.svg#icon-x"></use>
+        </svg>
+        </button>     
+        
+        <div class="logo-menu">        
+            <a href="./index.html" class="header-logo-menu"> 
+              <span>Drinkify</span>   
+              <svg class="header-logo-img-menu" width="29" height="25"> 
+                <use href="./img/icons.svg#icon-cocktail"></use>    
+              </svg>
+            </a>       
+         
+          <label class="switch-menu toggle"> 
+            <input type="checkbox" id="themeSwitch" /> 
+            <span class="slider round"></span>     
+          </label>     
+          
+        </div>        
+ 
+        <nav class="header-navigation-menu">         
+            <ul class="header-list-menu">
+              <li class="header-item-menu">   
+                <a class="header-link-menu" href="./index.html">Home</a>
+              </li>
+              <li class="header-item-menu">
+                <div class="favorite-dropdown-menu">  
+                <a class="header-link-menu favorite-btn" href="#">      
+                  <span>Favorite</span>
+                  <svg class="chevron-down-menu" width="24" height="24"> 
+                    <use href="./img/icons.svg#icon-chevron-down"></use>
+                  </svg>  
+                </a> 
+                <div class="favorite-navigation-menu">       
+                  <ul class="navigation-list-menu">
+                    <li class="navigation-item-menu">
+                      <a class="navigation-link-menu" href="./favorite-cocktail.html">Favorite cocktails</a>
+                    </li>
+                    <li class="navigation-item-menu">  
+                      <a class="navigation-link-menu" href="./favorite-ingredients.html">Favorite ingredients</a>
+                    </li>
+                  </ul>
+                </div>
+                </div>
+              </li>
+            </ul>        
+          </nav>    
+  </div>  
+</div> 
+
+  
 </header>

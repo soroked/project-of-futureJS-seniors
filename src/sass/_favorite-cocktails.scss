@@ -4,6 +4,10 @@ body.dark .favorite-cocktails-dark {
     color: var(--primary-text-color-theme-dark);
 }
 
+body.dark .favorite-cocktails-dark-bg {
+    background-color: var(--bg-card-modal-color-theme-dark);
+}
+
 
 
 .container {
@@ -216,7 +220,7 @@ position: absolute;
 
 /* Existing styles */
 
-@media screen and (min-width: 767px) and (max-width: 1279px) {
+@media screen and (min-width: 768px) and (max-width: 1279px) {
     .container {
         width: 768px;
         margin-left: auto;

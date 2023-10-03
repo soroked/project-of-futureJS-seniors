@@ -13,12 +13,19 @@ function getIngredients(queryId) {
   return axios.get(BASE_URL + ENDPOINT_INGREDIENTS + `${queryId}`);
 }
 
-modalInstanceCoctail('155 Belmont')
+// modalInstanceCoctail('155 Belmont')
 // MODAL TEXT
 
+let abd = '';
+
 export function modalInstanceCoctail(query) {
+  if (abd === query) {
+    return;
+  }
+  abd = query;
+
   getCocktails(query).then(response => {
-    console.log(response);
+    console.log('asd');
 
     const ingridientsMarkup = response.data[0].ingredients
       .map(
@@ -30,6 +37,13 @@ export function modalInstanceCoctail(query) {
                     </li>`
       )
       .join('');
+    
+    let favs = JSON.parse(localStorage.getItem('cocktails')) || [];
+    let addOrDelete = 'ADD TO FAVORITE';
+    addOrDelete = favs?.some(item => item._id === response.data[0]._id)
+      ? 'REMOVE FROM FAVORITE'
+      : 'ADD TO FAVORITE';
+    console.log(addOrDelete);
 
     const modalInstanceCoctail = basicLightbox.create(
       `
@@ -55,7 +69,7 @@ export function modalInstanceCoctail(query) {
                     ${response.data[0].instructions}
                     </p>
                     <div class="buttons">
-                    <button class="add-btn-modal-coctail">ADD TO FAVORITE</button>
+                    <button class="add-btn-modal-coctail" data-value=${response.data[0]._id}>${addOrDelete}</button>
                     <button class="back-btn-modal-coctail mw-text-main-dark mw-btn-dark">Back</button>
                     </div>
                     </div>
@@ -65,6 +79,32 @@ export function modalInstanceCoctail(query) {
 
     // RENDER
     modalInstanceCoctail.show();
+
+    const addToFavorite = document.querySelector('.add-btn-modal-coctail');
+    addToFavorite.addEventListener('click', onAddBtn);
+    const heartButton = document.querySelector('button-add-fav');
+    console.log(heartButton);
+    
+    function onAddBtn(e) {
+      console.log('asd');
+      if (e.target.nodeName === 'BUTTON' || e.target.classList.contains('add-button-modal-coctail')) {
+        const id = e.target.dataset.value
+        const cocktail = response.data[0];
+        favs = JSON.parse(localStorage.getItem('cocktails')) || [];
+
+        const index = favs.findIndex((item) => item._id === id);
+        
+        if (index < 0) {
+        favs.push(cocktail);
+        addToFavorite.innerHTML = "REMOVE FROM FAVORITE";
+        localStorage.setItem('cocktails', JSON.stringify(favs));
+        return;
+        }
+        favs.splice(index, 1);
+        addToFavorite.innerHTML = "ADD TO FAVORITE"
+        localStorage.setItem('cocktails', JSON.stringify(favs));
+      }
+    }
 
     // Add listeners for window
     //   const linkModalCoctail = document.querySelector(

@@ -25,39 +25,40 @@ colorSwither.addEventListener("click", () => {
     }
 });
 
+
 //* Получаем ответ от функции fetchData(letter)
 
-refsM.form.addEventListener("submit", (e) => {
-    e.preventDefault()
+// refsM.form.addEventListener("submit", (e) => {
+//     e.preventDefault()
 
-    const letter = refsM.form.elements.search.value
+//     const letter = refsM.form.elements.search.value
 
-    if (letter === "") {
-        console.log("Пустая строка");
-        return
-    }
+//     if (letter === "") {
+//         console.log("Пустая строка");
+//         return
+//     }
     
     
-    returnData(letter)
+//     returnData(letter)
     
-})
+// })
 
-async function returnData(letter) {
+// async function returnData(letter) {
     
-    try {
-        const data = await fetchData(letter)
-        console.log(data);
+//     try {
+//         const data = await fetchData(letter)
+//         console.log(data);
 
-        refsM.gellery.innerHTML = renderList(data.data)
-        const dataParse = JSON.stringify(data.data)
-        localStorage.setItem("cocktails", dataParse)
+//         refsM.gellery.innerHTML = renderList(data.data)
+//         const dataParse = JSON.stringify(data.data)
+//         localStorage.setItem("cocktails", dataParse)
         
-    } catch (error) {
+//     } catch (error) {
 
-        console.log("Ошибка ответа");
-        refsM.gellery.innerHTML = " "
-    }
-}
+//         console.log("Ошибка ответа");
+//         refsM.gellery.innerHTML = " "
+//     }
+// }
 
 
 const local = "cocktails" // Предполагаемый ключ локала

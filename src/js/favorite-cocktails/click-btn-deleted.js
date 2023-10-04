@@ -15,6 +15,11 @@ export function clickToBtn(e, key) {
             parseLocal(key);
             
             showNotification(listItem)
+
+            ingredients = JSON.parse(localStorage.getItem('cocktails'));
+            if (!ingredients) {
+                location.reload();
+            }
             
         }
         

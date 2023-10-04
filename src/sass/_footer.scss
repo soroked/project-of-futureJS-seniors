@@ -58,6 +58,10 @@
   align-items: center;
 }
 
+.footer-social-item:hover {
+  transform: scale(1.1);
+}
+
 .footer-social-icon {
   display: flex;
   justify-content: center;

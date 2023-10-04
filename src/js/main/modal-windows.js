@@ -148,6 +148,16 @@ export function modalInstanceCoctail(query) {
         //   modal.style.background = '#0000';
 
         getIngredients(queryId).then(resp => {
+
+          let favsIngredients = JSON.parse(localStorage.getItem('favorites')) || [];
+          console.log(favsIngredients);
+          let addOrDeleteIngredient = 'ADD TO FAVORITE';
+          addOrDeleteIngredient = favsIngredients?.some(item => item._id === resp.data[0]._id)
+            ? 'REMOVE FROM FAVORITE'
+            : 'ADD TO FAVORITE';
+
+
+
           const modalInstanceIngridient = basicLightbox.create(`
                     <div class="modal-ingredient mw-modal-dark">
                     <div class="ingridient-card">
@@ -184,7 +194,9 @@ export function modalInstanceCoctail(query) {
                     </ul>
                     </div>
                     <div class="buttons">
-                    <button class="add-btn-modal-ingridient">ADD TO FAVORITE</button>
+                    <button class="add-btn-modal-ingridient" data-value=${
+                      resp.data[0]._id
+                    }>${addOrDeleteIngredient}</button>
                     <button class="back-btn-modal-ingridient mw-text-first-dark mw-btn-dark">Back</button>
                     </div>
                     <button type="button" class="modal-ingredient-close-btn">
@@ -197,6 +209,35 @@ export function modalInstanceCoctail(query) {
 
           modalInstanceIngridient.show();
 
+          const addToFavoriteIngredient = document.querySelector('.add-btn-modal-ingridient');
+          addToFavoriteIngredient.addEventListener('click', onAddBtnIngredient);
+          // const heartButton = document.querySelector('button-add-fav');
+          // console.log(heartButton);
+
+          function onAddBtnIngredient(e) {
+            if (
+              e.target.nodeName === 'BUTTON' ||
+              e.target.classList.contains('add-btn-modal-ingridient')
+            ) {
+              const id = e.target.dataset.value;
+              const ingredient = resp.data[0];
+              favsIngredients = JSON.parse(localStorage.getItem('favorites')) || [];
+
+              const index = favsIngredients.findIndex(item => item._id === id);
+
+              if (index < 0) {
+                favsIngredients.push(ingredient);
+                addToFavoriteIngredient.innerHTML = 'REMOVE FROM FAVORITE';
+                localStorage.setItem('favorites', JSON.stringify(favsIngredients));
+                return;
+              }
+              favsIngredients.splice(index, 1);
+              addToFavoriteIngredient.innerHTML = 'ADD TO FAVORITE';
+              localStorage.setItem('favorites', JSON.stringify(favsIngredients));
+              return;
+            }
+          }
+
           const backBtnModalIngridient = document.querySelector(
             '.back-btn-modal-ingridient'
           );
@@ -208,9 +249,9 @@ export function modalInstanceCoctail(query) {
             '.add-btn-modal-ingridient'
           );
 
-          addBtnModalIngredient.addEventListener('click', e => {
-            addToFavorites(resp.data[0]);
-          });
+          // addBtnModalIngredient.addEventListener('click', e => {
+          //   addToFavorites(resp.data[0]);
+          // });
 
           function modalCloseIngridient() {
             modalInstanceIngridient.close();

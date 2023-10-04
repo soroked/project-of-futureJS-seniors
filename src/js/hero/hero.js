@@ -43,7 +43,7 @@ async function onInputSearch(e) {
       response = await getRandomCocktails(updateValueBasedOnScreenWidth());
       random = false;
     } else {
-      titileCocktail.innerHTML = 'Searching results';
+      refs.titileCocktail.innerHTML = 'Searching results';
       response = await getCocktails(searchQuery);
 
     }

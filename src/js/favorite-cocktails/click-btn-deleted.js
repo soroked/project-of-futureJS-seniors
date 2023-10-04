@@ -23,7 +23,7 @@ export function clickToBtn(e, key) {
     if (e.target.classList.contains("btn-learn-favorite-eduard")) {
         const cocktailName = e.target.dataset.value;
         
-        return modalInstanceCoctail(cocktailName.replaceAll("-"," "));
+        return modalInstanceCoctail(cocktailName.replaceAll("+"," "));
 
     }
 }

@@ -6,6 +6,11 @@ body.dark .karina-dark-theme-bg {
   background-color: var(--bg-card-modal-color-theme-dark);
 }
 
+body.dark .karina-dark-theme-bg:hover {
+  background-color: var(--primary-accent-color);
+}
+
+
 .container {
   padding-left: 20px;
   padding-right: 20px;
@@ -50,8 +55,13 @@ body.dark .karina-dark-theme-bg {
   perspective: 1000px;
   padding: 14px;
   background-color: var(--bg-card-color-theme-light);
-
+  transition: transform 0.3s ease;
   border-radius: 20px;
+  flex-basis: calc((100% - 16px) / 2);
+}
+
+.cocktail-item:hover {
+  transform: scale(1.05);
 }
 
 .cocktail-main-title {
@@ -65,7 +75,7 @@ body.dark .karina-dark-theme-bg {
 }
 
 .cocktail-img {
-  width: 307px;
+  width: 100%;
   height: 260px;
   text-align: center;
   border-radius: 16px;
@@ -82,6 +92,9 @@ body.dark .karina-dark-theme-bg {
   margin-bottom: 14px;
   margin-top: 20px;
   margin-left: 6px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .cocktail-description {
@@ -125,6 +138,11 @@ body.dark .karina-dark-theme-bg {
   margin-right: 13px;
 }
 
+.button-learn-more:hover {
+  background-color: var(--primary-accent-color);
+  color: var(--bg-card-color-theme-light);
+}
+
 .button-add-fav {
   border-radius: 12px;
   background: var(--primary-accent-color);
@@ -132,6 +150,10 @@ body.dark .karina-dark-theme-bg {
   height: 48px;
   border-style: none;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
 }
 
 .icon-add-fav {
@@ -139,6 +161,8 @@ body.dark .karina-dark-theme-bg {
   height: 18px;
   stroke: var(--bg-card-color-theme-light);
   fill: none;
+  
+  
 }
 
 .button-add-fav:hover > .icon-add-fav {
@@ -180,7 +204,7 @@ body.dark .karina-dark-theme-bg {
   }
 
   .cocktail-img {
-    max-width: 100%;
+    width: 100%;
     height: 289px;
   }
 
@@ -201,7 +225,7 @@ body.dark .karina-dark-theme-bg {
   .button-learn-more {
     width: 225px;
     height: 56px;
-
+   font-size: 18px;
     margin-right: 14px;
   }
 

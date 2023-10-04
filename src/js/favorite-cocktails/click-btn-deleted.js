@@ -22,7 +22,6 @@ export function clickToBtn(e, key) {
 
     if (e.target.classList.contains("btn-learn-favorite-eduard")) {
         const cocktailName = e.target.dataset.value;
-        console.log(cocktailName.replaceAll("-"," "));
         
         return modalInstanceCoctail(cocktailName.replaceAll("-"," "));
 
@@ -34,7 +33,7 @@ export function clickToBtn(e, key) {
 //Уведомление об удалении элемента из избранного
 function showNotification(item) {
 
-    const name = item.querySelector(".name-card-cocktails").textContent
+    const name = item.querySelector(".cocktail-title").textContent
     
     refsM.notify.textContent = `Your deleted favorites cocktails: ${name}`
 

@@ -23,7 +23,6 @@ function onCheckBoxChange(){
 if (colorSwither.checked){
     colorSwither.classList.toggle('dark');
     bodyEl.classList.toggle('dark');
-    console.log('dark');
     localStorage.setItem(LS_KEY, 'dark');
 
     picturesLight.classList.toggle('is-hidden-hero');

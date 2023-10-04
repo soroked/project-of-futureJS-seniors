@@ -2,8 +2,8 @@ import { renderMarkupCard } from '../../renderMarkupCard';
 import { updateValueBasedOnScreenWidth } from './updateValueBasedOnScreenWidth';
 import refs from '../../hero/refs';
 
-export let paginationIsSet = false;
-
+let paginationIsSet = true;
+let firstRender = true;
 export function createPagination(
   totalPages,
   page,
@@ -18,10 +18,15 @@ export function createPagination(
   let beforePage = page - 1;
   let afterPage = page + 1;
 
-  // refs.titileCocktail.scrollIntoView({ behavior: 'smooth' });
+  if(!firstRender){    
+    refs.titileCocktail?.scrollIntoView({ behavior: 'smooth' });
+  }
+  firstRender = false;
 
   if (page > 1) {
     liItem += `<li class="prev"><span>&#60</span></li>`;
+  } else {
+    liItem += `<li class="prev empty"><span>&#60</span></li>`;
   }
 
   if (page > 2) {
@@ -71,6 +76,8 @@ export function createPagination(
 
   if (page < totalPages) {
     liItem += `<li class="next"><span>&#62</span></li>`;
+  } else {
+    liItem += `<li class="next empty"><span>&#62</span></li>`;
   }
 
   listPag.innerHTML = liItem;
@@ -94,9 +101,9 @@ export function createPagination(
     );
   });
 
-  if (!paginationIsSet) {
+  if (paginationIsSet) {
     document.addEventListener('keyup', onLeftRight);
-    paginationIsSet = true;
+    paginationIsSet = false;
   }
 
   function handlePaginationClick(clickedPage) {
@@ -107,20 +114,20 @@ export function createPagination(
       updateValueBasedOnScreenWidth(),
       arr,
       list,
-      listPag,
+      listPag
     );
 
-    
+    if (renderMarkupCardIng) {
+      renderMarkupCardIng(clickedPage, 6, arr, list, listPag);
+    }
 
-    renderMarkupCardIng(clickedPage, 6, arr, list, listPag);
-
-if (renderMarkupCardFav) {
-  renderMarkupCardFav(clickedPage, 6, arr, list, listPag);
-}
-    
+    if (renderMarkupCardFav) {
+      renderMarkupCardFav(clickedPage, 6, arr, list, listPag);
+    }
   }
 
   function onLeftRight(evt) {
+    // evt.preventDefault();
     if (evt.key === 'ArrowLeft') {
       if (page === 1) {
         return;

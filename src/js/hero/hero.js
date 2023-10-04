@@ -13,8 +13,6 @@ const favs = JSON.parse(localStorage.getItem('cocktails')) || [];
 let page = 1;
 let fav = [];
 
-
-
 window.addEventListener('load', updateValueBasedOnScreenWidth);
 window.addEventListener('resize', debounce(updateValueBasedOnScreenWidth, 300));
 
@@ -36,14 +34,14 @@ async function onInputSearch(e) {
   }
 
   try {
-
-
     let response = null;
     if (random) {
       response = await getRandomCocktails(updateValueBasedOnScreenWidth());
       random = false;
     } else {
+      refs.titileCocktail.innerHTML = 'Searching results';
       response = await getCocktails(searchQuery);
+
     }
     fav = response.data;
 
@@ -54,24 +52,23 @@ async function onInputSearch(e) {
       updateValueBasedOnScreenWidth(),
       ...arr,
       refs.list,
-      refs.listPag,
+      refs.listPag
     );
-
     const onLearnMoreBtn = document.querySelector('.hero-search-cards');
     onLearnMoreBtn.addEventListener('click', onLearnMore);
     function onLearnMore(e) {
       if (e.target.classList.contains('button-learn-more')) {
         const cocktailName = e.target.dataset.value;
-        
-       return modalInstanceCoctail(cocktailName.replaceAll("+", " "));
+
+        return modalInstanceCoctail(cocktailName.replaceAll('+', ' '));
       }
     }
   } catch (error) {
-    listPag.innerHTML = '';
+    refs.listPag.innerHTML = '';
     refs.list.innerHTML = markupError;
-    refs.scrollErrorPicture.scrollIntoView({
+    refs.titileCocktail.scrollIntoView({
       behavior: 'smooth',
-      block: 'end',
+      block: 'start',
     });
   } finally {
     refs.form.reset();
@@ -94,7 +91,7 @@ function onHeart(e) {
     const favs = JSON.parse(localStorage.getItem('cocktails')) || [];
 
     const index = favs.findIndex(item => item._id === id);
-    console.dir(heartButton);
+
     if (index < 0) {
       heartButton.classList.add('button-add-fav-active');
       favs.push(cocktail);

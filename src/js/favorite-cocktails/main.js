@@ -55,42 +55,6 @@ colorSwither.addEventListener("click", () => {
     });
   })();
 
-
-//* Получаем ответ от функции fetchData(letter)
-
-// refsM.form.addEventListener("submit", (e) => {
-//     e.preventDefault()
-
-//     const letter = refsM.form.elements.search.value
-
-//     if (letter === "") {
-//         console.log("Пустая строка");
-//         return
-//     }
-    
-    
-//     returnData(letter)
-    
-// })
-
-// async function returnData(letter) {
-    
-//     try {
-//         const data = await fetchData(letter)
-//         console.log(data);
-
-//         refsM.gellery.innerHTML = renderList(data.data)
-//         const dataParse = JSON.stringify(data.data)
-//         localStorage.setItem("cocktails", dataParse)
-        
-//     } catch (error) {
-
-//         console.log("Ошибка ответа");
-//         refsM.gellery.innerHTML = " "
-//     }
-// }
-
-
 const local = "cocktails" // Предполагаемый ключ локала
 
 //? Парс и проверка локала

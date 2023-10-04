@@ -6,18 +6,20 @@ const themeChecked = {
     light: false
 }
 const  onCheckBoxChange = (colorSwitcher) => () => {
+    if(picturesLight && picturesDark){
+    picturesLight.classList.toggle('is-hidden-hero');
+    picturesDark.classList.toggle('is-hidden-hero');
+    }
+
 
     if (colorSwitcher.checked){
         colorSwitcher.classList.toggle('dark');
         bodyEl.classList.toggle('dark');
         localStorage.setItem(LS_KEY, 'dark');
     
-        picturesLight.classList.toggle('is-hidden-hero');
-        picturesDark.classList.toggle('is-hidden-hero');
+        
     } else {
         bodyEl.classList.remove('dark');
-        picturesLight.classList.toggle('is-hidden-hero');
-            picturesDark.classList.toggle('is-hidden-hero');
             localStorage.setItem(LS_KEY, 'light');
     }
         colorSwitchers.forEach((switcher)=> switcher.checked = colorSwitcher.checked)
@@ -30,14 +32,16 @@ const picturesDark = document.querySelector('.picture-hero-dark');
 const picturesLight = document.querySelector('.picture-hero-light');
 const LS_KEY = 'switcher';
 
-if (localStorage.getItem('switcher') === 'light' || !localStorage.getItem('switcher')) {
-    picturesLight.classList.remove('is-hidden-hero');
-    picturesDark.classList.add('is-hidden-hero');
-} else {
-    picturesLight.classList.add('is-hidden-hero');
-    picturesDark.classList.remove('is-hidden-hero');
+if(picturesLight && picturesDark){
+    if (localStorage.getItem('switcher') === 'light' || !localStorage.getItem('switcher')) {
+        picturesLight.classList.remove('is-hidden-hero');
+        picturesDark.classList.add('is-hidden-hero');
+    } else {
+        picturesLight.classList.add('is-hidden-hero');
+        picturesDark.classList.remove('is-hidden-hero');
+    }
+    
 }
-
 function setThemeOnLoad(){
 
     const IsData = localStorage.getItem(LS_KEY);

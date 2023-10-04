@@ -10,31 +10,6 @@ const listPag = document.querySelector('.pagination-list-ing');
 
 let page = 1;
 
-const bodyEl = document.body;
-const colorSwitcher = document.getElementById('themeSwitch');
-if (
-  localStorage.getItem('switcher') === 'light' ||
-  !localStorage.getItem('switcher')
-) {
-  colorSwitcher.checked = false;
-} else {
-  colorSwitcher.checked = true;
-  bodyEl.classList.toggle('dark');
-  colorSwitcher.classList.add('dark');
-}
-colorSwitcher.addEventListener('click', () => {
-  colorSwitcher.classList.toggle('dark');
-  bodyEl.classList.toggle('dark');
-  if (
-    localStorage.getItem('switcher') === 'light' ||
-    !localStorage.getItem('switcher')
-  ) {
-    localStorage.setItem('switcher', 'dark');
-  } else {
-    localStorage.setItem('switcher', 'light');
-  }
-});
-
 let ingredients = JSON.parse(localStorage.getItem('favorites'));
 
 if (ingredients.length === 0) {
@@ -46,9 +21,6 @@ if (ingredients.length === 0) {
 }
 
 ingredientsGallery.addEventListener('click', onDeleteButtonHandler);
-
-
-
 
 function onDeleteButtonHandler(event) {
   ingredients = JSON.parse(localStorage.getItem('favorites'));
@@ -88,33 +60,4 @@ function onDeleteButtonHandler(event) {
   }
 }
 
-(() => {
-  const mobileMenu = document.querySelector('.js-menu-container');
-  const openMenuBtn = document.querySelector('.js-open-menu');
-  const closeMenuBtn = document.querySelector('.js-close-menu');
-
-  const toggleMenu = () => {
-    const isMenuOpen =
-      openMenuBtn.getAttribute('aria-expanded') === 'true' || false;
-    openMenuBtn.setAttribute('aria-expanded', !isMenuOpen);
-    mobileMenu.classList.toggle('is-open');
-
-    const scrollLockMethod = !isMenuOpen
-      ? 'disableBodyScroll'
-      : 'enableBodyScroll';
-    bodyScrollLock[scrollLockMethod](document.body);
-  };
-
-  openMenuBtn.addEventListener('click', toggleMenu);
-  closeMenuBtn.addEventListener('click', toggleMenu);
-
-  window.matchMedia('(min-width: 768px)').addEventListener('change', e => {
-    if (!e.matches) return;
-    mobileMenu.classList.remove('is-open');
-    openMenuBtn.setAttribute('aria-expanded', false);
-    bodyScrollLock.enableBodyScroll(document.body);
-  });
-})();
-
 // async function getIngredientsFromAPI() {
-

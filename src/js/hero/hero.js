@@ -43,7 +43,9 @@ async function onInputSearch(e) {
       response = await getRandomCocktails(updateValueBasedOnScreenWidth());
       random = false;
     } else {
+      titileCocktail.innerHTML = 'Searching results';
       response = await getCocktails(searchQuery);
+
     }
     fav = response.data;
 
@@ -67,9 +69,9 @@ async function onInputSearch(e) {
       }
     }
   } catch (error) {
-    listPag.innerHTML = '';
+    refs.listPag.innerHTML = '';
     refs.list.innerHTML = markupError;
-    refs.scrollErrorPicture.scrollIntoView({
+    refs.titileCocktail.scrollIntoView({
       behavior: 'smooth',
       block: 'end',
     });

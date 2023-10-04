@@ -7,9 +7,14 @@ import {
   addToFavorites,
   removeFromFavoritesByIndex,
 } from './localstorage-fav-ingredients';
+import { renderMarkupCardIng } from './createMarkup';
+
 
 const notFoundContainer = document.querySelector('.not-found-container');
 const ingredientsGallery = document.querySelector('.ingredients-gallery');
+const listPag = document.querySelector('.pagination-list-ing') 
+
+let page = 1;
 
 const bodyEl = document.body;
 const colorSwitcher = document.getElementById('themeSwitch');
@@ -37,11 +42,12 @@ if (ingredients.length === 0) {
 } else {
   notFoundContainer.classList.add('fav-ingr-is-hidden');
 
-  ingredients.forEach(ingredient => {
-    const ingredientCard = createIngredientCard(ingredient);
-    ingredientsGallery.innerHTML += ingredientCard;
-  });
-}
+    console.log(ingredients);
+    renderMarkupCardIng(page, 6, ingredients, ingredientsGallery, listPag)
+    // return ingredientsGallery.innerHTML += ingredientCard;
+    
+  };
+
 
 ingredientsGallery.addEventListener('click', onDeleteButtonHandler);
 

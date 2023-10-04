@@ -3,6 +3,7 @@ import { updateValueBasedOnScreenWidth } from './updateValueBasedOnScreenWidth';
 import refs from '../../hero/refs';
 
 let paginationIsSet = true;
+let firstRender = true;
 export function createPagination(
   totalPages,
   page,
@@ -17,7 +18,10 @@ export function createPagination(
   let beforePage = page - 1;
   let afterPage = page + 1;
 
-  refs.titileCocktail.scrollIntoView({ behavior: 'smooth' });
+  if(!firstRender){    
+    refs.titileCocktail?.scrollIntoView({ behavior: 'smooth' });
+  }
+  firstRender = false;
 
   if (page > 1) {
     liItem += `<li class="prev"><span>&#60</span></li>`;

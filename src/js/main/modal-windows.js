@@ -9,6 +9,8 @@ import {
   removeFromFavoritesByIndex,
 } from '../localstorage-fav-ingredients.js';
 
+const notifyMessage = document.querySelector(".deleted-notify");
+
 const iconOff = new URL('../../img/icons.svg#icon-x', import.meta.url);
 const iconX = '#icon-x';
 
@@ -147,6 +149,13 @@ export function modalInstanceCoctail(query) {
         //   modal.style.background = '#0000';
 
         getIngredients(queryId).then(resp => {
+
+          if (!resp.data[0].description || !resp.data[0].type) {
+                modalCloseCoctail()
+                showNotificationIngredient(resp.data[0].title);
+                return;
+              }
+
           let favsIngredients =
             JSON.parse(localStorage.getItem('favorites')) || [];
           let addOrDeleteIngredient = 'ADD TO FAVORITE';
@@ -283,4 +292,15 @@ export function modalInstanceCoctail(query) {
     backBtnModalCoctail.addEventListener('click', modalCloseCoctail);
     modalCoctailCloseBtn.addEventListener('click', modalCloseCoctail);
   });
+}
+
+function showNotificationIngredient(item) {
+
+    notifyMessage.textContent = `На жаль дані тимчасово відсутні: ${item}`
+
+    notifyMessage.classList.remove("is-hidden-favorite");
+
+    setTimeout(() => {
+      notifyMessage.classList.add("is-hidden-favorite");
+    }, 2000);
 }

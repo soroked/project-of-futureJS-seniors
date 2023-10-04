@@ -18,6 +18,12 @@ function getIngredients(queryId) {
 export function modalIngidient(queryId) {
   getIngredients(queryId).then(resp => {
 
+    let favs = JSON.parse(localStorage.getItem('favorites')) || [];
+    let addOrDelete = 'ADD TO FAVORITE';
+    addOrDelete = favs?.some(item => item._id === resp.data[0]._id)
+      ? 'REMOVE FROM FAVORITE'
+      : 'ADD TO FAVORITE';
+
     const modalInstanceIngridient = basicLightbox.create(`
                     <div class="modal modal-ingridient mw-modal-dark">
                     <div class="ingridient-card">
@@ -42,20 +48,14 @@ export function modalIngidient(queryId) {
                     </ul>
                     </div>
                     <div class="buttons">
-                    <button class="add-btn-modal-ingridient">ADD TO FAVORITE</button>
+                    <button class="add-btn-modal-ingridient">${addOrDelete}</button>
                     <button class="back-btn-modal-ingridient mw-text-main-dark mw-btn-dark ">Back</button>
                     </div>
                     </div></div>
                     `);
     modalInstanceIngridient.show();
 
-    let favs = JSON.parse(localStorage.getItem('favorites')) || [];
-    let addOrDelete = 'ADD TO FAVORITE';
-    addOrDelete = favs?.some(item => item._id === resp.data[0]._id)
-      ? 'REMOVE FROM FAVORITE'
-      : 'ADD TO FAVORITE';
-
-    const addToFavorite = document.querySelector('.add-btn-modal-ingredient');
+    const addToFavorite = document.querySelector('.add-btn-modal-ingridient');
     addToFavorite.addEventListener('click', onAddBtn);
 
     function onAddBtn(e) {

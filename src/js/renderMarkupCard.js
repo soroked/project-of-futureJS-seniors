@@ -18,7 +18,7 @@ const icon = '#icon-heart';
 
   list.innerHTML = pageLimit
     .map(item => {
-      const drink = item.drink.split(" ").join("+");
+      const drink = item.drink?.split(" ").join("+");
       const notActive = favs?.some(itemLS => itemLS._id === item._id)
         ? 'button-add-fav-active'
         : '';

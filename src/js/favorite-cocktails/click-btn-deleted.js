@@ -34,7 +34,7 @@ export function clickToBtn(e, key) {
 //Уведомление об удалении элемента из избранного
 function showNotification(item) {
 
-    const name = item.querySelector(".name-card-cocktails").textContent
+    const name = item.querySelector(".cocktail-title").textContent
     
     refsM.notify.textContent = `Your deleted favorites cocktails: ${name}`
 

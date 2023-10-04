@@ -9,45 +9,46 @@ import {
 } from './localstorage-fav-ingredients';
 import { renderMarkupCardIng } from './createMarkup';
 
-
 const notFoundContainer = document.querySelector('.not-found-container');
 const ingredientsGallery = document.querySelector('.ingredients-gallery');
-const listPag = document.querySelector('.pagination-list-ing') 
+const listPag = document.querySelector('.pagination-list-ing');
 
 let page = 1;
 
 const bodyEl = document.body;
 const colorSwitcher = document.getElementById('themeSwitch');
-if (localStorage.getItem('switcher') === 'light' || !localStorage.getItem('switcher')) {
-    colorSwitcher.checked = false;
+if (
+  localStorage.getItem('switcher') === 'light' ||
+  !localStorage.getItem('switcher')
+) {
+  colorSwitcher.checked = false;
 } else {
-    colorSwitcher.checked = true;
-    bodyEl.classList.toggle('dark');
-    colorSwitcher.classList.add('dark');
+  colorSwitcher.checked = true;
+  bodyEl.classList.toggle('dark');
+  colorSwitcher.classList.add('dark');
 }
 colorSwitcher.addEventListener('click', () => {
-    colorSwitcher.classList.toggle('dark');
-    bodyEl.classList.toggle('dark');
-    if (localStorage.getItem('switcher') === 'light' || !localStorage.getItem('switcher')) {
-        localStorage.setItem('switcher', 'dark')
-    } else {
-        localStorage.setItem('switcher', 'light')
-    }
+  colorSwitcher.classList.toggle('dark');
+  bodyEl.classList.toggle('dark');
+  if (
+    localStorage.getItem('switcher') === 'light' ||
+    !localStorage.getItem('switcher')
+  ) {
+    localStorage.setItem('switcher', 'dark');
+  } else {
+    localStorage.setItem('switcher', 'light');
+  }
 });
 
-let ingredients = JSON.parse(localStorage.getItem('favorites'))
+let ingredients = JSON.parse(localStorage.getItem('favorites'));
 
 if (ingredients.length === 0) {
   notFoundContainer.classList.remove('fav-ingr-is-hidden');
 } else {
   notFoundContainer.classList.add('fav-ingr-is-hidden');
 
-    console.log(ingredients);
-    renderMarkupCardIng(page, 6, ingredients, ingredientsGallery, listPag)
-    // return ingredientsGallery.innerHTML += ingredientCard;
-    
-  };
-
+  renderMarkupCardIng(page, 6, ingredients, ingredientsGallery, listPag);
+}
 
 ingredientsGallery.addEventListener('click', onDeleteButtonHandler);
 
@@ -86,7 +87,6 @@ function onDeleteButtonHandler(event) {
     }
   } else if (targetElement.classList.contains('learn-more-btn')) {
     const ingredientId = targetElement.getAttribute('data-id');
-    console.log('IngredientId:', ingredientId);
   }
 }
 

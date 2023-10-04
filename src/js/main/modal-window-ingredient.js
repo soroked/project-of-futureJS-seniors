@@ -17,13 +17,6 @@ function getIngredients(queryId) {
 
 export function modalIngidient(queryId) {
   getIngredients(queryId).then(resp => {
-
-    let favs = JSON.parse(localStorage.getItem('favorites')) || [];
-    let addOrDelete = 'ADD TO FAVORITE';
-    addOrDelete = favs?.some(item => item._id === resp.data[0]._id)
-      ? 'REMOVE FROM FAVORITE'
-      : 'ADD TO FAVORITE';
-
     const modalInstanceIngridient = basicLightbox.create(`
                     <div class="modal modal-ingridient mw-modal-dark">
                     <div class="ingridient-card">
@@ -55,29 +48,39 @@ export function modalIngidient(queryId) {
                     `);
     modalInstanceIngridient.show();
 
-    const addToFavorite = document.querySelector('.add-btn-modal-ingridient');
-    addToFavorite.addEventListener('click', onAddBtn);
+    let favs = JSON.parse(localStorage.getItem('favorites')) || [];
+    let addOrDelete = 'ADD TO FAVORITE';
+    addOrDelete = favs?.some(item => item._id === resp.data[0]._id)
+      ? 'REMOVE FROM FAVORITE'
+      : 'ADD TO FAVORITE';
 
-    function onAddBtn(e) {
-      console.log('asd');
-      if (e.target.nodeName === 'BUTTON' || e.target.classList.contains('add-btn-modal-ingredient')) {
-      const id = e.target.dataset.value
-      const cocktail = resp.data[0];
-      favs = JSON.parse(localStorage.getItem('favorites')) || [];
+    const addToFavorite = document.querySelector('.add-btn-modal-ingredient');
 
-      const index = favs.findIndex((item) => item._id === id);
-      
-      if (index < 0) {
-      favs.push(cocktail);
-      addToFavorite.innerHTML = "REMOVE FROM FAVORITE";
-      localStorage.setItem('favorites', JSON.stringify(favs));
-      return;
-      }
-      favs.splice(index, 1);
-      addToFavorite.innerHTML = "ADD TO FAVORITE"
-      localStorage.setItem('favorites', JSON.stringify(favs));
-    }
-}
+    // addToFavorite.addEventListener('click', onAddBtn);
+
+    // function onAddBtn(e) {
+    //   console.log('asd');
+    //   if (
+    //     e.target.nodeName === 'BUTTON' ||
+    //     e.target.classList.contains('add-btn-modal-ingredient')
+    //   ) {
+    //     const id = e.target.dataset.value;
+    //     const cocktail = resp.data[0];
+    //     favs = JSON.parse(localStorage.getItem('favorites')) || [];
+
+    //     const index = favs.findIndex(item => item._id === id);
+
+    //     if (index < 0) {
+    //       favs.push(cocktail);
+    //       addToFavorite.innerHTML = 'REMOVE FROM FAVORITE';
+    //       localStorage.setItem('favorites', JSON.stringify(favs));
+    //       return;
+    //     }
+    //     favs.splice(index, 1);
+    //     addToFavorite.innerHTML = 'ADD TO FAVORITE';
+    //     localStorage.setItem('favorites', JSON.stringify(favs));
+    //   }
+    // }
 
     const backBtnModalIngridient = document.querySelector(
       '.back-btn-modal-ingridient'
@@ -97,14 +100,17 @@ export function modalIngidient(queryId) {
   });
 }
 
-const ingredientGalleryModal = document.querySelector('.ingredients-gallery')
+const ingredientGalleryModal = document.querySelector('.ingredients-gallery');
 
-ingredientGalleryModal.addEventListener('click', onGalleryClick)
+ingredientGalleryModal.addEventListener('click', onGalleryClick);
 
 function onGalleryClick(e) {
-  if (e.target.nodeName !== "BUTTON" || e.target.classList.contains('delete-btn')) {
-  return
+  if (
+    e.target.nodeName !== 'BUTTON' ||
+    e.target.classList.contains('delete-btn')
+  ) {
+    return;
   } else {
-    modalIngidient(e.target.dataset.id)
-}
+    modalIngidient(e.target.dataset.id);
+  }
 }

@@ -13,38 +13,71 @@ function getIngredients(queryId) {
   return axios.get(BASE_URL + ENDPOINT_INGREDIENTS + `${queryId}`);
 }
 
+const iconOff = new URL('../../img/icons.svg#icon-x', import.meta.url);
+const iconX = '#icon-x';
+
 // MODAL TEXT
 
 export function modalIngidient(queryId) {
   getIngredients(queryId).then(resp => {
+
+    let favsIngredients =
+            JSON.parse(localStorage.getItem('favorites')) || [];
+          let addOrDeleteIngredient = 'ADD TO FAVORITE';
+          addOrDeleteIngredient = favsIngredients?.some(
+            item => item._id === resp.data[0]._id
+          )
+            ? 'REMOVE FROM FAVORITE'
+            : 'ADD TO FAVORITE';
+    
     const modalInstanceIngridient = basicLightbox.create(`
-                    <div class="modal modal-ingridient mw-modal-dark">
+                    <div class="modal-ingredient mw-modal-dark">
                     <div class="ingridient-card">
-                    <h2 class="title-modal-ingridient mw-text-main-dark">${resp.data[0].title}</h2>
-                    <p class="type-ingridient-modal-ingridient mw-text-secondary-dark">${resp.data[0].type}</p>
+                    <h2 class="title-modal-ingridient mw-text-main-dark">${
+                      resp.data[0].title
+                    }</h2>
+                    <p class="type-ingridient-modal-ingridient mw-text-secondary-dark">${
+                      resp.data[0].type
+                    }</p>
                     <div class="line mw-btn-dark"> </div>
-                    <p class="paragraph-modal-ingridient mw-text-secondary-dark"><span class="span-paragraph-modal-ingridient mw-text-main-dark">${resp.data[0].title}</span> ${resp.data[0].description}</p>
+                    <p class="paragraph-modal-ingridient mw-text-secondary-dark"><span class="span-paragraph-modal-ingridient mw-text-main-dark">${
+                      resp.data[0].title
+                    }</span> ${resp.data[0].description}</p>
                     <ul class="list-modal-ingridients ">
                     <li class="item-modal-ingridients mw-text-third-dark">
-                    <p class="text-modal mw-text-third-dark">Type: ${resp.data[0].type}</p>
+                    <p class="text-modal mw-text-third-dark">Type: ${
+                      resp.data[0].type
+                    }</p>
                     </li>
                     <li class="item-modal-ingridients mw-text-third-dark">
                     <p class="text-modal mw-text-third-dark">
                     Country of origin: ${resp.data[0].country}</p>
                     </li>
                     <li class="item-modal-ingridients mw-text-third-dark">
-                    <p class="text-modal mw-text-third-dark"> Alcohol by volume: ${resp.data[0].abv}</p>
+                    <p class="text-modal mw-text-third-dark"> Alcohol by volume: ${
+                      resp.data[0].abv
+                    }</p>
                     </li>
                     <li class="item-modal-ingridients mw-text-third-dark">
-                    <p class="text-modal mw-text-third-dark">Flavour: ${resp.data[0].flavour}</p>
+                    <p class="text-modal mw-text-third-dark">Flavour: ${
+                      resp.data[0].flavour
+                    }</p>
                     </li>
                     </ul>
                     </div>
                     <div class="buttons">
-                    <button class="add-btn-modal-ingridient">${addOrDelete}</button>
-                    <button class="back-btn-modal-ingridient mw-text-main-dark mw-btn-dark ">Back</button>
+                    <button class="add-btn-modal-ingridient" data-value=${
+                      resp.data[0]._id
+                    }>${addOrDeleteIngredient}</button>
+                    <button class="back-btn-modal-ingridient mw-text-first-dark mw-btn-dark">Back</button>
                     </div>
+                    <button type="button" class="modal-ingredient-close-btn">
+            <svg class="icon-off mw-text-first-dark" width="24" height="24"><use href=${
+              iconOff.pathname + iconX
+            }></use></svg>
+          </button>
                     </div></div>
+                    
                     `);
     modalInstanceIngridient.show();
 
@@ -82,21 +115,21 @@ export function modalIngidient(queryId) {
     //   }
     // }
 
-    const backBtnModalIngridient = document.querySelector(
-      '.back-btn-modal-ingridient'
-    );
     const addBtnModalIngridient = document.querySelector(
       '.add-btn-modal-ingridient'
     );
 
-    addBtnModalIngridient.addEventListener('click', e => {
-      addToFavorites(resp.data[0]);
-    });
-
-    function modalCloseIngridient() {
-      modalInstanceIngridient.close();
-    }
-    backBtnModalIngridient.addEventListener('click', modalCloseIngridient);
+    const backBtnModalIngridient = document.querySelector(
+        '.back-btn-modal-ingridient'
+      );
+      const modalIngredientCloseBtn = document.querySelector(
+        '.modal-ingredient-close-btn'
+      );
+      function modalCloseIngridient() {
+        modalInstanceIngridient.close();
+      }
+      backBtnModalIngridient.addEventListener('click', modalCloseIngridient);
+      modalIngredientCloseBtn.addEventListener('click', modalCloseIngridient);
   });
 }
 

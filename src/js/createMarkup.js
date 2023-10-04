@@ -6,15 +6,10 @@ export function renderMarkupCardIng(page, cardPerPage, arr, list, listPag) {
   const pageLimit = arr.slice(firstIndex, lastIndex);
   const totalPages = Math.ceil(arr.length / cardPerPage);
   createPagination(totalPages, page, arr, list, listPag, renderMarkupCardIng);
-  console.log(page, cardPerPage, arr, list, listPag);
 
-
-
- list.innerHTML = pageLimit.map(
-    item => {
-      
-      
-       return `
+  list.innerHTML = pageLimit
+    .map(item => {
+      return `
     <li class="ingredient-card ingredient-dark-card" data-value=${item._id}>
       <h2 class="ingredient-header favorite-ingredients-dark">${item.title}</h2>
       <p class="alcoholic-ing alcoholic-dark-ing">${item.type}</p>
@@ -41,8 +36,7 @@ export function renderMarkupCardIng(page, cardPerPage, arr, list, listPag) {
       </button>
       </div>
     </li>
-  `     
-          }        
-    )
+  `;
+    })
     .join('');
 }

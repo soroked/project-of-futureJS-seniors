@@ -94,7 +94,6 @@ export function modalInstanceCoctail(query) {
     const addToFavorite = document.querySelector('.add-btn-modal-coctail');
     addToFavorite.addEventListener('click', onAddBtn);
     const heartButton = document.querySelector('button-add-fav');
-    console.log(heartButton);
 
     function onAddBtn(e) {
       if (
@@ -148,15 +147,14 @@ export function modalInstanceCoctail(query) {
         //   modal.style.background = '#0000';
 
         getIngredients(queryId).then(resp => {
-
-          let favsIngredients = JSON.parse(localStorage.getItem('favorites')) || [];
-          console.log(favsIngredients);
+          let favsIngredients =
+            JSON.parse(localStorage.getItem('favorites')) || [];
           let addOrDeleteIngredient = 'ADD TO FAVORITE';
-          addOrDeleteIngredient = favsIngredients?.some(item => item._id === resp.data[0]._id)
+          addOrDeleteIngredient = favsIngredients?.some(
+            item => item._id === resp.data[0]._id
+          )
             ? 'REMOVE FROM FAVORITE'
             : 'ADD TO FAVORITE';
-
-
 
           const modalInstanceIngridient = basicLightbox.create(`
                     <div class="modal-ingredient mw-modal-dark">
@@ -209,10 +207,11 @@ export function modalInstanceCoctail(query) {
 
           modalInstanceIngridient.show();
 
-          const addToFavoriteIngredient = document.querySelector('.add-btn-modal-ingridient');
+          const addToFavoriteIngredient = document.querySelector(
+            '.add-btn-modal-ingridient'
+          );
           addToFavoriteIngredient.addEventListener('click', onAddBtnIngredient);
           // const heartButton = document.querySelector('button-add-fav');
-          // console.log(heartButton);
 
           function onAddBtnIngredient(e) {
             if (
@@ -221,19 +220,26 @@ export function modalInstanceCoctail(query) {
             ) {
               const id = e.target.dataset.value;
               const ingredient = resp.data[0];
-              favsIngredients = JSON.parse(localStorage.getItem('favorites')) || [];
+              favsIngredients =
+                JSON.parse(localStorage.getItem('favorites')) || [];
 
               const index = favsIngredients.findIndex(item => item._id === id);
 
               if (index < 0) {
                 favsIngredients.push(ingredient);
                 addToFavoriteIngredient.innerHTML = 'REMOVE FROM FAVORITE';
-                localStorage.setItem('favorites', JSON.stringify(favsIngredients));
+                localStorage.setItem(
+                  'favorites',
+                  JSON.stringify(favsIngredients)
+                );
                 return;
               }
               favsIngredients.splice(index, 1);
               addToFavoriteIngredient.innerHTML = 'ADD TO FAVORITE';
-              localStorage.setItem('favorites', JSON.stringify(favsIngredients));
+              localStorage.setItem(
+                'favorites',
+                JSON.stringify(favsIngredients)
+              );
               return;
             }
           }

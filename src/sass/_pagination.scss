@@ -8,6 +8,10 @@
   margin-bottom: 50px;
 }
 
+.empty {
+  visibility: hidden;
+}
+
 .numb,
 .dots,
 .prev,
@@ -42,7 +46,6 @@
 }
 
 @media screen and (min-width: 768px) {
-
   .pagination-list,
   .pagination-list-ing,
   .pagination-list-favorite {

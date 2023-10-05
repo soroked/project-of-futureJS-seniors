@@ -1,7 +1,6 @@
 import { refsM } from './refsM';
 import { parseLocal } from './forLocalStorage';
 import { clickToBtn } from './click-btn-deleted';
-import { renderList } from './render-list';
 
 const local = 'cocktails'; // Предполагаемый ключ локала
 

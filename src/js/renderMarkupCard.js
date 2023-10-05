@@ -29,7 +29,7 @@ export function renderMarkupCard(page, cardPerPage, arr, list, listPag) {
               item.description
             }</p>
             <div class="button-div">
-            <button data-value=${drink} class="button-learn-more karina-dark-theme-bg karina-dark-theme">LEARN MORE</button>
+            <button data-value=${drink} class="button-learn-more karina-dark-theme-btn karina-dark-theme">LEARN MORE</button>
           <button data-value=${item._id} class="button-add-fav ${notActive}">
           <svg class="icon-add-fav"><use href=${
             logo.pathname + icon

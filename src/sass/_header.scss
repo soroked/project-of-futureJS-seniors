@@ -571,7 +571,7 @@ font-size: 18px;
 font-weight: 400;
 line-height: 24px;
 letter-spacing: 0.36px;
-word-wrap: break-word
+word-wrap: break-word;
 }
 
 .favorite-btn {
@@ -579,7 +579,7 @@ word-wrap: break-word
 }
 
 .favorite-navigation-menu {
-  gap: 8px;  
+  gap: 8px;
 }
 
 .chevron-down-menu{  
@@ -625,13 +625,11 @@ word-wrap: break-word;
 
 .favorite-dropdown-menu {
   position: relative;
-display: inline-block;    
- 
+  display: inline-block;    
 }
  
 .favorite-navigation-menu {
   display: none;   
- 
 }
   
 .favorite-navigation-menu a {

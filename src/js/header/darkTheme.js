@@ -56,23 +56,3 @@ function setThemeOnLoad(){
    }
 
 setThemeOnLoad();
-
-
-
-
-
-// function setThemeOnLoad() {
-//     const lsData = localStorage.getItem(LS_KEY);
-  
-//     if (lsData === 'dark') {
-//       bodyEl.classList.replace('light', 'dark');
-//       themeSwitcher.checked = true;
-//       return;
-//     }
-  
-//     bodyEl.classList.replace('dark', 'light');
-//     themeSwitcher.checked = false;
-// }
-
-// setThemeOnLoad();
-

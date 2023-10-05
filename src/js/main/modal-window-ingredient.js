@@ -87,33 +87,32 @@ export function modalIngidient(queryId) {
       ? 'REMOVE FROM FAVORITE'
       : 'ADD TO FAVORITE';
 
-    const addToFavorite = document.querySelector('.add-btn-modal-ingredient');
+    const addToFavorite = document.querySelector('.add-btn-modal-ingridient');
 
-    // addToFavorite.addEventListener('click', onAddBtn);
+    addToFavorite.addEventListener('click', onAddBtn);
 
-    // function onAddBtn(e) {
-    //   console.log('asd');
-    //   if (
-    //     e.target.nodeName === 'BUTTON' ||
-    //     e.target.classList.contains('add-btn-modal-ingredient')
-    //   ) {
-    //     const id = e.target.dataset.value;
-    //     const cocktail = resp.data[0];
-    //     favs = JSON.parse(localStorage.getItem('favorites')) || [];
+    function onAddBtn(e) {
+      if (
+        e.target.nodeName === 'BUTTON' ||
+        e.target.classList.contains('add-btn-modal-ingredient')
+      ) {
+        const id = e.target.dataset.value;
+        const cocktail = resp.data[0];
+        favs = JSON.parse(localStorage.getItem('favorites')) || [];
 
-    //     const index = favs.findIndex(item => item._id === id);
+        const index = favs.findIndex(item => item._id === id);
 
-    //     if (index < 0) {
-    //       favs.push(cocktail);
-    //       addToFavorite.innerHTML = 'REMOVE FROM FAVORITE';
-    //       localStorage.setItem('favorites', JSON.stringify(favs));
-    //       return;
-    //     }
-    //     favs.splice(index, 1);
-    //     addToFavorite.innerHTML = 'ADD TO FAVORITE';
-    //     localStorage.setItem('favorites', JSON.stringify(favs));
-    //   }
-    // }
+        if (index < 0) {
+          favs.push(cocktail);
+          addToFavorite.innerHTML = 'REMOVE FROM FAVORITE';
+          localStorage.setItem('favorites', JSON.stringify(favs));
+          return;
+        }
+        favs.splice(index, 1);
+        addToFavorite.innerHTML = 'ADD TO FAVORITE';
+        localStorage.setItem('favorites', JSON.stringify(favs));
+      }
+    }
 
     const addBtnModalIngridient = document.querySelector(
       '.add-btn-modal-ingridient'

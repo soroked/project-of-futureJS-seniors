@@ -32,7 +32,7 @@
 .modal-coctail{
 padding: 40px 20px;
 background-color: var(--bg-modal-color-theme-light);
-width: 335px;
+max-width: 335px;
 border-radius: 20px;
 max-height: 905px;
 overflow: auto;
@@ -43,7 +43,7 @@ overflow: auto;
 .modal-ingredient {
     padding: 40px 20px;
     background-color: var(--bg-modal-color-theme-light);
-    width: 335px;
+    max-width: 335px;
     border-radius: 20px;
     max-height: 905px;
     overflow: auto;
@@ -216,14 +216,14 @@ color: var(--primary-text-color-theme-light);
 @media screen and (min-width: 768px){
 .modal-coctail {
         padding: 40px;
-        width: 600px;
+        max-width: 600px;
         border-radius: 20px;
         max-height: 569px;
     }
 
         .modal-ingredient {
             padding: 40px;
-            width: 600px;
+            max-width: 600px;
             max-height: 569px;
             border-radius: 20px;
         }

@@ -64,5 +64,3 @@ function onDeleteButtonHandler(event) {
     location.reload();
   }
 }
-
-// async function getIngredientsFromAPI() {

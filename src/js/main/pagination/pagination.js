@@ -1,6 +1,5 @@
 import { renderMarkupCard } from '../../renderMarkupCard';
 import { updateValueBasedOnScreenWidth } from './updateValueBasedOnScreenWidth';
-import refs from '../../hero/refs';
 
 let paginationIsSet = true;
 let firstRender = true;
@@ -10,6 +9,7 @@ export function createPagination(
   arr,
   list,
   listPag,
+  title,
   renderMarkupCardIng,
   renderMarkupCardFav
 ) {
@@ -18,8 +18,8 @@ export function createPagination(
   let beforePage = page - 1;
   let afterPage = page + 1;
 
-  if(!firstRender){    
-    refs.titileCocktail?.scrollIntoView({ behavior: 'smooth' });
+  if (!firstRender) {
+    title?.scrollIntoView({ behavior: 'smooth' });
   }
   firstRender = false;
 
@@ -107,7 +107,7 @@ export function createPagination(
   }
 
   function handlePaginationClick(clickedPage) {
-    createPagination(totalPages, clickedPage, arr, list, listPag);
+    createPagination(totalPages, clickedPage, arr, list, listPag, title);
 
     renderMarkupCard(
       clickedPage,
@@ -127,7 +127,6 @@ export function createPagination(
   }
 
   function onLeftRight(evt) {
-    // evt.preventDefault();
     if (evt.key === 'ArrowLeft') {
       if (page === 1) {
         return;

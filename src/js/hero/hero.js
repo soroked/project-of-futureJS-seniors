@@ -41,7 +41,6 @@ async function onInputSearch(e) {
     } else {
       refs.titileCocktail.innerHTML = 'Searching results';
       response = await getCocktails(searchQuery);
-
     }
     fav = response.data;
 
@@ -52,7 +51,8 @@ async function onInputSearch(e) {
       updateValueBasedOnScreenWidth(),
       ...arr,
       refs.list,
-      refs.listPag
+      refs.listPag,
+      refs.titileCocktail
     );
     const onLearnMoreBtn = document.querySelector('.hero-search-cards');
     onLearnMoreBtn.addEventListener('click', onLearnMore);

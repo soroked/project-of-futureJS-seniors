@@ -1,11 +1,12 @@
 import { createPagination } from './main/pagination/pagination.js';
+import refs from './hero/refs.js';
 
 export function renderMarkupCard(page, cardPerPage, arr, list, listPag) {
   let firstIndex = (page - 1) * cardPerPage;
   let lastIndex = firstIndex + cardPerPage;
   const pageLimit = arr.slice(firstIndex, lastIndex);
   const totalPages = Math.ceil(arr.length / cardPerPage);
-  createPagination(totalPages, page, arr, list, listPag);
+  createPagination(totalPages, page, arr, list, listPag, refs.titileCocktail);
 
   const logo = new URL('../img/icons.svg#icon-heart', import.meta.url);
   const icon = '#icon-heart';

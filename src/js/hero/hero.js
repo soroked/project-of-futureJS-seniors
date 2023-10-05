@@ -11,7 +11,7 @@ refs.searchDropdown.addEventListener('click', onInputSearch);
 
 let page = 1;
 let fav = [];
-
+let counter = 0;
 window.addEventListener('load', updateValueBasedOnScreenWidth);
 window.addEventListener('resize', debounce(updateValueBasedOnScreenWidth, 300));
 
@@ -53,15 +53,21 @@ async function onInputSearch(e) {
       refs.listPag,
       refs.titileCocktail
     );
-    const onLearnMoreBtn = document.querySelector('.hero-search-cards');
-    onLearnMoreBtn.addEventListener('click', onLearnMore);
-    function onLearnMore(e) {
-      if (e.target.classList.contains('button-learn-more')) {
-        const cocktailName = e.target.dataset.value;
 
-        return modalInstanceCoctail(cocktailName.replaceAll('+', ' '));
+    const onLearnMoreBtn = document.querySelector('.hero-search-cards');
+    if(counter === 0){
+      function onLearnMore(e) {
+        if (e.target.classList.contains('button-learn-more')) {
+          const cocktailName = e.target.dataset.value;
+  
+          return modalInstanceCoctail(cocktailName.replaceAll('+', ' '));
+        }
+   
       }
+      onLearnMoreBtn.addEventListener('click', onLearnMore);
+      counter ++;
     }
+    
   } catch (error) {
     refs.listPag.innerHTML = '';
     refs.list.innerHTML = markupError;

@@ -58,6 +58,11 @@ function onDeleteButtonHandler(event) {
   } else if (targetElement.classList.contains('learn-more-btn')) {
     const ingredientId = targetElement.getAttribute('data-id');
   }
+  ingredients = JSON.parse(localStorage.getItem('favorites'));
+  renderMarkupCardIng(page, 6, ingredients, ingredientsGallery, listPag);
+  if (!ingredients.length) {
+    location.reload();
+  }
 }
 
 // async function getIngredientsFromAPI() {

@@ -3,6 +3,7 @@ const BASE_URL = 'https://drinkify.b.goit.study/api/v1/';
 const ENDPOINT_INGREDIENTS = 'ingredients/';
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
+import { parseLocalIngredient } from '../favorite-ingredients.js';
 
 function getIngredients(queryId) {
   return axios.get(BASE_URL + ENDPOINT_INGREDIENTS + `${queryId}`);
@@ -104,6 +105,7 @@ export function modalIngidient(queryId) {
         favs.splice(index, 1);
         addToFavorite.innerHTML = 'ADD TO FAVORITE';
         localStorage.setItem('favorites', JSON.stringify(favs));
+        parseLocalIngredient('favorites');
       }
     }
 

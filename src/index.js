@@ -1,7 +1,3 @@
 import './js/hero/hero';
-import './js/main/main';
-import './js/footer/footer';
 import './js/main/buttons-search';
 import './js/main/modal-windows';
-
-// import './js/favorite-ingredients'

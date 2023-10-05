@@ -9,7 +9,7 @@ import {
   removeFromFavoritesByIndex,
 } from '../localstorage-fav-ingredients.js';
 
-const notifyMessage = document.querySelector(".deleted-notify");
+const notifyMessage = document.querySelector('.deleted-notify');
 
 const iconOff = new URL('../../img/icons.svg#icon-x', import.meta.url);
 const iconX = '#icon-x';
@@ -146,15 +146,14 @@ export function modalInstanceCoctail(query) {
 
         modalCoctail.classList.add('is-hidden-modal');
 
-        //   modal.style.background = '#0000';
+        // modal.style.background = '#0000';
 
         getIngredients(queryId).then(resp => {
-
           if (!resp.data[0].description || !resp.data[0].type) {
-                modalCloseCoctail()
-                showNotificationIngredient(resp.data[0].title);
-                return;
-              }
+            modalCloseCoctail();
+            showNotificationIngredient(resp.data[0].title);
+            return;
+          }
 
           let favsIngredients =
             JSON.parse(localStorage.getItem('favorites')) || [];
@@ -165,7 +164,8 @@ export function modalInstanceCoctail(query) {
             ? 'REMOVE FROM FAVORITE'
             : 'ADD TO FAVORITE';
 
-          const modalInstanceIngridient = basicLightbox.create(`
+          const modalInstanceIngridient = basicLightbox.create(
+            `
                     <div class="modal-ingredient mw-modal-dark">
                     <div class="ingridient-card">
                     <h2 class="title-modal-ingridient mw-text-main-dark">${
@@ -212,7 +212,11 @@ export function modalInstanceCoctail(query) {
             }></use></svg>
           </button>
                     </div></div>
-                    `);
+                    ,
+            {
+              closable: false,
+            }`
+          );
 
           modalInstanceIngridient.show();
 
@@ -264,15 +268,16 @@ export function modalInstanceCoctail(query) {
             '.add-btn-modal-ingridient'
           );
 
-          // addBtnModalIngredient.addEventListener('click', e => {
-          //   addToFavorites(resp.data[0]);
-          // });
-
           function modalCloseIngridient() {
             modalInstanceIngridient.close();
             modalCoctail.classList.remove('is-hidden-modal');
+            //  modal.style.background = '#000c';
+          }
+          if (modalInstanceIngridient) {
+            modalCoctail.classList.remove('is-hidden-modal');
             // modal.style.background = '#000c';
           }
+
           backBtnModalIngridient.addEventListener(
             'click',
             modalCloseIngridient
@@ -295,12 +300,11 @@ export function modalInstanceCoctail(query) {
 }
 
 function showNotificationIngredient(item) {
+  notifyMessage.textContent = `На жаль дані тимчасово відсутні: ${item}`;
 
-    notifyMessage.textContent = `На жаль дані тимчасово відсутні: ${item}`
+  notifyMessage.classList.remove('is-hidden-favorite');
 
-    notifyMessage.classList.remove("is-hidden-favorite");
-
-    setTimeout(() => {
-      notifyMessage.classList.add("is-hidden-favorite");
-    }, 2000);
+  setTimeout(() => {
+    notifyMessage.classList.add('is-hidden-favorite');
+  }, 2000);
 }

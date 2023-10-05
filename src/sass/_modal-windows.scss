@@ -34,7 +34,7 @@ padding: 40px 20px;
 background-color: var(--bg-modal-color-theme-light);
 max-width: 335px;
 border-radius: 20px;
-height: 905px;
+max-height: 905px;
 overflow: auto;
 
 }
@@ -45,7 +45,7 @@ overflow: auto;
     background-color: var(--bg-modal-color-theme-light);
     max-width: 335px;
     border-radius: 20px;
-    height: 905px;
+    max-height: 905px;
     overflow: auto;
     scrollbar-width: none;
 }
@@ -186,10 +186,6 @@ color: var(--primary-text-color-theme-light);
     line-height: 1.43;
     margin-bottom: 40px;
     margin-top: 20px;
-   //height: 100px;
-    // overflow: auto;
-    // scrollbar-width: none;
-    //   -ms-overflow-style: none;
 }
 
 
@@ -222,13 +218,13 @@ color: var(--primary-text-color-theme-light);
         padding: 40px;
         max-width: 600px;
         border-radius: 20px;
-        height: 569px;
+        max-height: 569px;
     }
 
         .modal-ingredient {
             padding: 40px;
             max-width: 600px;
-            height: 569px;
+            max-height: 569px;
             border-radius: 20px;
         }
 

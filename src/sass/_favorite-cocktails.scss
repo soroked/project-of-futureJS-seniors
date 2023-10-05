@@ -1,19 +1,17 @@
 /* Общие стили для всех устройств */
 
 body.dark .favorite-cocktails-dark {
-    color: var(--primary-text-color-theme-dark);
+  color: var(--primary-text-color-theme-dark);
 }
 
 body.dark .favorite-cocktails-dark-bg {
-    background-color: var(--bg-card-modal-color-theme-dark);
+  background-color: var(--bg-card-modal-color-theme-dark);
 }
 
-
-
 .container {
-    width: 375px;
-    padding-right: 20px;
-    padding-left: 20px;
+  width: 375px;
+  padding-right: 20px;
+  padding-left: 20px;
 }
 
 // body {
@@ -22,38 +20,35 @@ body.dark .favorite-cocktails-dark-bg {
 // }
 
 ul {
-    list-style: none;
+  list-style: none;
 }
 
 h1,
 h2,
 h3,
 p {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 
 img {
-    display: block;
+  display: block;
 }
-
 
 .gellery {
-    list-style: none;
-
-
+  list-style: none;
 }
 
-.title {
-    font-family: "Poppins", sans-serif;
-    margin-top: 80px;
-    font-weight: 500;
-    font-size: 24px;
-    margin-bottom: 40px;
+.title-fav {
+  font-family: 'Poppins', sans-serif;
+  margin-top: 80px;
+  font-weight: 500;
+  font-size: 24px;
+  margin-bottom: 40px;
 }
 
 .delete-icon {
-    pointer-events: none;
+  pointer-events: none;
 }
 
 // .search-cocktails {
@@ -61,249 +56,230 @@ img {
 // }
 
 .item-card-cocktails {
-    background-color: #fff;
-    border-radius: 20px;
-    max-width: 375px;
-    margin-bottom: 20px;
-    padding-left: 14px;
-    padding-right: 14px;
-    padding-top: 14px;
-    padding-bottom: 20px;
+  background-color: #fff;
+  border-radius: 20px;
+  max-width: 375px;
+  margin-bottom: 20px;
+  padding-left: 14px;
+  padding-right: 14px;
+  padding-top: 14px;
+  padding-bottom: 20px;
 }
 
-
 .link-card-cocktails {
-    text-decoration: none;
-    color: #333;
+  text-decoration: none;
+  color: #333;
 }
 
 .img-card-cocktails {
-    max-width: 100%;
-    height: 257px;
-    border-radius: 16px;
+  max-width: 100%;
+  height: 257px;
+  border-radius: 16px;
 }
 
 .name-card-cocktails {
-    font-family: "Poppins", sans-serif;
-    font-weight: 600;
-    text-align: start;
-    color: #242424;
-    font-size: 18px;
-    margin-top: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  text-align: start;
+  color: #242424;
+  font-size: 18px;
+  margin-top: 20px;
 }
 
 .description-card-cocktails {
-
-    font-family: "Poppins", sans-serif;
-    display: -webkit-box;
-    color: #242424;
-    font-weight: 400;
-    margin-top: 14px;
-    width: 295px;
-    font-size: 14px;
-    line-height: 1.28;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-
-
+  font-family: 'Poppins', sans-serif;
+  display: -webkit-box;
+  color: #242424;
+  font-weight: 400;
+  margin-top: 14px;
+  width: 295px;
+  font-size: 14px;
+  line-height: 1.28;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .btn-card-cocktails {
-    font-family: "Poppins", sans-serif;
-    padding: 15px 71px;
-    text-transform: uppercase;
-    font-size: 14px;
-    font-weight: 600;
-    color: #242424;
-    border-radius: 12px;
-    border: 1px solid #7E8FDD;
-    cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  padding: 15px 71px;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 600;
+  color: #242424;
+  border-radius: 12px;
+  border: 1px solid #7e8fdd;
+  cursor: pointer;
 
-    line-height: 1.33;
-    /* 133.333% */
-    letter-spacing: 0.36px;
+  line-height: 1.33;
+  /* 133.333% */
+  letter-spacing: 0.36px;
 
-    background-color: var(--primary-text-color-theme-dark);
-
+  background-color: var(--primary-text-color-theme-dark);
 }
 
-
 .list-btn-card {
-    margin-top: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .btn-card-deleted,
 .btn-card-add {
-    color: black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 48px;
-    height: 48px;
-    padding: 13px;
-    border: none;
-    border-radius: 14px;
-    background: #7E8FDD;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  padding: 13px;
+  border: none;
+  border-radius: 14px;
+  background: #7e8fdd;
 }
 
-
-
 .wraper-card {
-    padding-left: 6px;
-    padding-right: 6px;
+  padding-left: 6px;
+  padding-right: 6px;
 }
 
 .icon-card-deleted {
-    pointer-events: none;
-    width: 40px;
-    height: 40px;
-    fill: none;
-    stroke: #fff;
+  pointer-events: none;
+  width: 40px;
+  height: 40px;
+  fill: none;
+  stroke: #fff;
 }
 
 .is-hidden-favorite {
-    width: 0;
-    height: 0;
-    opacity: 0;
-    pointer-events: none;
-display:none;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  pointer-events: none;
+  display: none;
 }
 
 .is-hidden-img-favorite {
-position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    border: 0;
-    padding: 0;
-    white-space: nowrap;
-    clip-path: inset(100%);
-    clip: rect(0 0 0 0);
-    overflow: hidden;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
 }
 
 .deleted-notify {
-    transition: 250ms linear;
-    position: fixed;
-    top: 50px;
-    right: 50px;
-    color: #fff;
+  transition: 250ms linear;
+  position: fixed;
+  top: 50px;
+  right: 50px;
+  color: #fff;
 
-    border-radius: 14px;
-    background: #7E8FDD;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+  border-radius: 14px;
+  background: #7e8fdd;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .alex-error-img-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding-top: 100px;
-    padding-bottom: 140px;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 100px;
+  padding-bottom: 140px;
+  justify-content: center;
+  align-items: center;
 }
 
-
-
-
-
 @media screen and (min-width: 768px) {
-    .alex-error-img-container {
-        padding-top: 138px;
-        padding-bottom: 138px;
-    }
+  .alex-error-img-container {
+    padding-top: 138px;
+    padding-bottom: 138px;
+  }
 
-    .title{
-        font-size: 40px;
-    }
+  .title-fav {
+    font-size: 40px;
+  }
 }
 
 /* Existing styles */
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
-    .container {
-        width: 768px;
-        margin-left: auto;
-        margin-right: auto;
+  .container {
+    width: 768px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
+  .gellery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
 
-    }
+  .item-card-cocktails {
+    min-width: 344px;
+    flex-basis: 48%;
+    margin-bottom: 20px;
+    padding-bottom: 23px;
+  }
 
-    .gellery {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
+  .name-card-cocktails {
+    font-size: 20px;
+    margin-top: 24px;
+    font-weight: 600;
+    line-height: 1.2;
+  }
 
-    .item-card-cocktails {
-        min-width: 344px;
-        flex-basis: 48%;
-        margin-bottom: 20px;
-        padding-bottom: 23px;
-    }
+  .btn-card-cocktails {
+    padding: 16px 55px;
+  }
 
-    .name-card-cocktails {
-        font-size: 20px;
-        margin-top: 24px;
-        font-weight: 600;
-        line-height: 1.2;
-    }
+  .wraper-card {
+    margin-top: 24px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 
-    .btn-card-cocktails {
-        padding: 16px 55px;
-    }
+  .img-card-cocktails {
+    min-width: 100%;
+    height: 266px;
+  }
 
-    .wraper-card {
-        margin-top: 24px;
-        padding-left: 10px;
-        padding-right: 10px;
-    }
+  .list-btn-card {
+    margin-top: 24px;
+  }
 
-    .img-card-cocktails {
-        min-width: 100%;
-        height: 266px;
-    }
-
-    .list-btn-card {
-        margin-top: 24px;
-    }
-
-    .btn-card-deleted {
-        width: 56px;
-    }
-
+  .btn-card-deleted {
+    width: 56px;
+  }
 }
 
 @media screen and (min-width: 1280px) {
-    .container {
-        width: 1280px;
+  .container {
+    width: 1280px;
 
-        margin-left: auto;
-        margin-right: auto;
-    }
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-    .gellery {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-    }
+  .gellery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
 
-    .item-card-cocktails {
-        flex-basis: 31.33%;
+  .item-card-cocktails {
+    flex-basis: 31.33%;
 
-        margin-bottom: 20px;
-
-    }
-
-
+    margin-bottom: 20px;
+  }
 }

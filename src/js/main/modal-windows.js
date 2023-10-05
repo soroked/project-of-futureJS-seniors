@@ -4,10 +4,8 @@ const ENDPOINT_INGREDIENTS = 'ingredients/';
 import { getCocktails } from '../swagger-api.js';
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
-import {
-  addToFavorites,
-  removeFromFavoritesByIndex,
-} from '../localstorage-fav-ingredients.js';
+import { renderMarkupCard } from '../renderMarkupCard.js';
+import { renderMarkupCardFav } from '../favorite-cocktails/render-list.js';
 
 const notifyMessage = document.querySelector('.deleted-notify');
 

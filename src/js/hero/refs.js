@@ -7,7 +7,6 @@ const refs = {
   searchDropdown: document.querySelector('.button-dropdown-js'),
   listPag: document.querySelector('.pagination-list'),
   titileCocktail: document.querySelector('.cocktail-main-title'),
-  allTitile: document.querySelector('uniq-js'),
 };
 
 export default refs;

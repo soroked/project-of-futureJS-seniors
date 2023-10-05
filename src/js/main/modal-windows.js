@@ -144,10 +144,6 @@ export function modalInstanceCoctail(query) {
         const queryId = e.target.closest('.item-modal-coctail-ingridients')
           .dataset.value;
 
-        modalCoctail.classList.add('is-hidden-modal');
-
-        // modal.style.background = '#0000';
-
         getIngredients(queryId).then(resp => {
           if (!resp.data[0].description || !resp.data[0].type) {
             modalCloseCoctail();
@@ -211,11 +207,7 @@ export function modalInstanceCoctail(query) {
               iconOff.pathname + iconX
             }></use></svg>
           </button>
-                    </div></div>
-                    ,
-            {
-              closable: false,
-            }`
+                    </div></div>`
           );
 
           modalInstanceIngridient.show();
@@ -270,12 +262,6 @@ export function modalInstanceCoctail(query) {
 
           function modalCloseIngridient() {
             modalInstanceIngridient.close();
-            modalCoctail.classList.remove('is-hidden-modal');
-            //  modal.style.background = '#000c';
-          }
-          if (modalInstanceIngridient) {
-            modalCoctail.classList.remove('is-hidden-modal');
-            // modal.style.background = '#000c';
           }
 
           backBtnModalIngridient.addEventListener(

@@ -1,13 +1,8 @@
 import axios from 'axios';
 const BASE_URL = 'https://drinkify.b.goit.study/api/v1/';
 const ENDPOINT_INGREDIENTS = 'ingredients/';
-import { getCocktails } from '../swagger-api.js';
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
-import {
-  addToFavorites,
-  removeFromFavoritesByIndex,
-} from '../localstorage-fav-ingredients.js';
 
 function getIngredients(queryId) {
   return axios.get(BASE_URL + ENDPOINT_INGREDIENTS + `${queryId}`);
@@ -20,16 +15,14 @@ const iconX = '#icon-x';
 
 export function modalIngidient(queryId) {
   getIngredients(queryId).then(resp => {
+    let favsIngredients = JSON.parse(localStorage.getItem('favorites')) || [];
+    let addOrDeleteIngredient = 'ADD TO FAVORITE';
+    addOrDeleteIngredient = favsIngredients?.some(
+      item => item._id === resp.data[0]._id
+    )
+      ? 'REMOVE FROM FAVORITE'
+      : 'ADD TO FAVORITE';
 
-    let favsIngredients =
-            JSON.parse(localStorage.getItem('favorites')) || [];
-          let addOrDeleteIngredient = 'ADD TO FAVORITE';
-          addOrDeleteIngredient = favsIngredients?.some(
-            item => item._id === resp.data[0]._id
-          )
-            ? 'REMOVE FROM FAVORITE'
-            : 'ADD TO FAVORITE';
-    
     const modalInstanceIngridient = basicLightbox.create(`
                     <div class="modal-ingredient mw-modal-dark">
                     <div class="ingridient-card">
@@ -119,16 +112,16 @@ export function modalIngidient(queryId) {
     );
 
     const backBtnModalIngridient = document.querySelector(
-        '.back-btn-modal-ingridient'
-      );
-      const modalIngredientCloseBtn = document.querySelector(
-        '.modal-ingredient-close-btn'
-      );
-      function modalCloseIngridient() {
-        modalInstanceIngridient.close();
-      }
-      backBtnModalIngridient.addEventListener('click', modalCloseIngridient);
-      modalIngredientCloseBtn.addEventListener('click', modalCloseIngridient);
+      '.back-btn-modal-ingridient'
+    );
+    const modalIngredientCloseBtn = document.querySelector(
+      '.modal-ingredient-close-btn'
+    );
+    function modalCloseIngridient() {
+      modalInstanceIngridient.close();
+    }
+    backBtnModalIngridient.addEventListener('click', modalCloseIngridient);
+    modalIngredientCloseBtn.addEventListener('click', modalCloseIngridient);
   });
 }
 

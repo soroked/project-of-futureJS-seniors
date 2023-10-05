@@ -1,24 +1,19 @@
-import { removeItemFromLocalStorage } from './forLocalStorage';
-import { parseLocal } from './forLocalStorage';
-import { refsM } from './refsM';
-import { modalInstanceCoctail } from '../main/modal-windows';
-import renderMarkupCardFav from './render-list';
+import { removeItemFromLocalStorage } from "./forLocalStorage";
+import { parseLocal } from "./forLocalStorage";
+import { refsM } from "./refsM";
+import { modalInstanceCoctail } from "../main/modal-windows";
 
-// //? Функция клика по кнопке
+//? Функция клика по кнопке
 
 export function clickToBtn(e, key) {
   if (e.target.classList.contains('btn-card-deleted')) {
-    const listItem = e.target.closest('.item-card-cocktails');
+      const listItem = e.target.closest('.item-card-cocktails');
     if (listItem) {
       const index = Array.from(listItem.parentNode.children).indexOf(listItem);
       removeItemFromLocalStorage(key, index);
       parseLocal(key);
-      showNotification(listItem);
-
-      ingredients = JSON.parse(localStorage.getItem('cocktails'));
-      if (!ingredients) {
-        location.reload();
-      }
+        showNotification(listItem);
+        return;  
     }
   }
 

@@ -10,7 +10,7 @@ const listPag = document.querySelector('.pagination-list-ing');
 
 let page = 1;
 
-let ingredients = JSON.parse(localStorage.getItem('favorites'));
+let ingredients = JSON.parse(localStorage.getItem('favorites')) || [];
 
 if (ingredients.length === 0) {
   notFoundContainer.classList.remove('fav-ingr-is-hidden');
@@ -55,12 +55,25 @@ function onDeleteButtonHandler(event) {
         notFoundContainer.classList.remove('fav-ingr-is-hidden');
       }
     }
-  } else if (targetElement.classList.contains('learn-more-btn')) {
-    const ingredientId = targetElement.getAttribute('data-id');
   }
   ingredients = JSON.parse(localStorage.getItem('favorites'));
   renderMarkupCardIng(page, 6, ingredients, ingredientsGallery, listPag);
-  if (!ingredients.length) {
-    location.reload();
-  }
+}
+
+export function parseLocalIngredient(key) {
+    let page = 1
+    let ingredients = JSON.parse(localStorage.getItem('favorites')) || [];
+    
+    try {
+          
+        if (ingredients.length === 0) {
+          notFoundContainer.classList.remove('fav-ingr-is-hidden');
+        } else {
+          notFoundContainer.classList.add('fav-ingr-is-hidden');
+
+          renderMarkupCardIng(page, 6, ingredients, ingredientsGallery, listPag);
+        }
+        
+    } catch (error) {
+    }
 }

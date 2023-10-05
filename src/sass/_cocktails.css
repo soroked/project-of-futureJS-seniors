@@ -2,11 +2,12 @@ body.dark .karina-dark-theme {
   color: var(--primary-text-color-theme-dark);
 }
 
-body.dark .karina-dark-theme-bg {
+body.dark .karina-dark-theme-bg,
+body.dark .karina-dark-theme-btn {
   background-color: var(--bg-card-modal-color-theme-dark);
 }
 
-body.dark .karina-dark-theme-bg:hover {
+body.dark .karina-dark-theme-btn:hover {
   background-color: var(--primary-accent-color);
 }
 
@@ -20,6 +21,10 @@ body.dark .karina-dark-theme-bg:hover {
     margin-left: auto;
     margin-right: auto;
     width: 375px;
+  }
+
+  .hero-section {
+    padding-bottom: 80px;
   }
 }
 
@@ -173,6 +178,10 @@ body.dark .karina-dark-theme-bg:hover {
     margin-right: auto;
     padding-left: 32px;
     padding-right: 32px;
+  }
+
+  .hero-section {
+    padding-bottom: 100px;
   }
 
   .cocktail-main-title {

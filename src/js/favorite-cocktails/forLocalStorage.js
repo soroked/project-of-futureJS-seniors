@@ -1,8 +1,6 @@
 import { refsM } from './refsM';
 import { renderMarkupCardFav } from './render-list';
 
-// import { updateValueBasedOnScreenWidth } from "../main/pagination/updateValueBasedOnScreenWidth";
-
 //? Функция парса локала если он есть
 export function parseLocal(key) {
   const local = localStorage.getItem(key);

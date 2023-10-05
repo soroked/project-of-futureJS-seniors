@@ -26,7 +26,7 @@ export function renderMarkupCardFav(page, cardPerPage, arr, list, listPag) {
             <h3 class="cocktail-title karina-dark-theme">${item.drink}</h3>
             <p class="cocktail-description karina-dark-theme">${item.description}</p>
             <div class="button-div">
-            <button data-value=${drink} class="button-learn-more karina-dark-theme-bg karina-dark-theme btn-learn-favorite-eduard">LEARN MORE</button>
+            <button data-value=${drink} class="button-learn-more karina-dark-theme-btn karina-dark-theme btn-learn-favorite-eduard">LEARN MORE</button>
           <button data-value=${item._id} class="button-add-fav btn-card-deleted">
            <svg
               class="delete-icon"

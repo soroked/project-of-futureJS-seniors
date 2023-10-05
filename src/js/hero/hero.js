@@ -8,7 +8,6 @@ import { modalInstanceCoctail } from '../main/modal-windows.js';
 
 refs.form.addEventListener('submit', onInputSearch);
 refs.searchDropdown.addEventListener('click', onInputSearch);
-const favs = JSON.parse(localStorage.getItem('cocktails')) || [];
 
 let page = 1;
 let fav = [];

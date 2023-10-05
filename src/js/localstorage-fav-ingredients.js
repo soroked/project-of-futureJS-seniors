@@ -22,7 +22,6 @@ export function removeFromFavoritesByIndex(index) {
     favorites.splice(index, 1);
     localStorage.setItem('favorites', JSON.stringify(favorites));
     return favorites.length;
-    // }
   } catch (error) {
     Notiflix.Notify.failure(error);
   }

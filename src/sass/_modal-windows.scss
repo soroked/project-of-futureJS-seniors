@@ -235,14 +235,7 @@
 }
 
 
- .basicLightbox__placeholder {
-
-     overflow: auto;
-     height: 90%;
-     border-radius: 20px;
-
-
- }
+ 
 @media screen and (max-width: 767px) {
 
 
@@ -259,7 +252,14 @@
         margin: -1px;
     }
 
+.basicLightbox__placeholder {
 
+    overflow: auto;
+    height: 90%;
+    border-radius: 20px;
+
+
+}
 }
 
 

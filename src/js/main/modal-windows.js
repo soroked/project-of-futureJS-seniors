@@ -140,8 +140,6 @@ export function modalInstanceCoctail(query) {
         const queryId = e.target.closest('.item-modal-coctail-ingridients')
           .dataset.value;
 
-        modalCoctail.classList.add('is-hidden-modal');
-
         getIngredients(queryId).then(resp => {
           if (!resp.data[0].description || !resp.data[0].type) {
             modalCloseCoctail();

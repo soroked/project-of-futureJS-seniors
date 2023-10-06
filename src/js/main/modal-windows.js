@@ -18,13 +18,7 @@ function getIngredients(queryId) {
 
 // MODAL TEXT
 
-let abd = '';
-
 export function modalInstanceCoctail(query) {
-  // if (abd === query) {
-  //   return;
-  // }
-  // abd = query;
 
   getCocktails(query).then(response => {
     const ingridientsMarkup = response.data[0].ingredients

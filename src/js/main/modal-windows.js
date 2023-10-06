@@ -90,7 +90,7 @@ export function modalInstanceCoctail(query) {
     // const heart = document.querySelector('.button-add-fav')
 
     function onAddBtn(e) {
-      const heart = document.querySelector('.button-add-fav[data-name="foo"]')
+      const heart = document.querySelector('.button-add-fav[data-name="foo"]');
       if (
         e.target.nodeName === 'BUTTON' ||
         e.target.classList.contains('add-button-modal-coctail')
@@ -205,11 +205,7 @@ export function modalInstanceCoctail(query) {
               iconOff.pathname + iconX
             }></use></svg>
           </button>
-                    </div></div>
-                    ,
-            {
-              closable: false,
-            }`
+                    </div></div>`
           );
 
           modalInstanceIngridient.show();
@@ -259,10 +255,6 @@ export function modalInstanceCoctail(query) {
 
           function modalCloseIngridient() {
             modalInstanceIngridient.close();
-            modalCoctail.classList.remove('is-hidden-modal');
-          }
-          if (modalInstanceIngridient) {
-            modalCoctail.classList.remove('is-hidden-modal');
           }
 
           backBtnModalIngridient.addEventListener(

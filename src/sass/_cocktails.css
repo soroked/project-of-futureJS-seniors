@@ -137,11 +137,13 @@ body.dark .karina-dark-theme-btn:hover {
   width: 232px;
   height: 48px;
   margin-right: 13px;
+ 
 }
 
 .button-learn-more:hover {
   background-color: var(--primary-accent-color);
   color: var(--bg-card-color-theme-light);
+  transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .button-add-fav {
@@ -150,7 +152,7 @@ body.dark .karina-dark-theme-btn:hover {
   width: 48px;
   height: 48px;
   border-style: none;
-  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  
   display: flex;
   align-items: center;
   justify-content: center;
@@ -161,10 +163,12 @@ body.dark .karina-dark-theme-btn:hover {
   height: 18px;
   stroke: var(--bg-card-color-theme-light);
   fill: none;
+  
 }
 
 .button-add-fav:hover > .icon-add-fav {
   fill: var(--bg-card-color-theme-light);
+  transition: 1000ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .button-add-fav-active > .icon-add-fav {

@@ -1,20 +1,4 @@
-@media screen and (max-width: 767px){
 
-
-.visually-hidden {
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    border: 0;
-    padding: 0;
-    clip: rect(0 0 0 0);
-    clip-path: inset(50%);
-    margin: -1px;
-}
-
-}
 .is-hidden-modal {
     position: absolute;
     width: 1px;
@@ -29,13 +13,13 @@
     overflow: hidden;
 }
 
-.modal-coctail{
-padding: 40px 20px;
-background-color: var(--bg-modal-color-theme-light);
-max-width: 335px;
-border-radius: 20px;
-max-height: 905px;
-overflow: auto;
+.modal-coctail {
+    padding: 40px 20px;
+    background-color: var(--bg-modal-color-theme-light);
+    max-width: 335px;
+    border-radius: 20px;
+    max-height: 100%;
+    overflow: auto;
 
 }
 
@@ -45,57 +29,62 @@ overflow: auto;
     background-color: var(--bg-modal-color-theme-light);
     max-width: 335px;
     border-radius: 20px;
-    max-height: 905px;
+    max-height: 100%;
     overflow: auto;
     scrollbar-width: none;
 }
 
 
-.info-modal-coctail{
-padding: 0;
+.info-modal-coctail {
+    padding: 0;
 }
 
-.photo-coctail{
-    max-width: 295px;
+.photo-coctail {
+    width: 295px;
     border-radius: 16px;
     background: lightgray -7.08px -17px / 103.146% 109.386% no-repeat;
-margin-bottom: 40px;
+    margin-bottom: 40px;
 }
-.title-modal-coctail-categories{
+
+.title-modal-coctail-categories {
     color: var(--primary-text-color-theme-light);
-        font-size: 16px;
-        font-weight: 600;
-        line-height: 1.125;
-        text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.125;
+    text-transform: uppercase;
 }
 
 
-.text-modal-coctail-type{
+.text-modal-coctail-type {
     color: var(--modal-first-text-color-theme-light);
     font-size: 14px;
-        font-weight: 400;
-        line-height: 1.286;
-        margin-top: 8px;
-        margin-bottom: 20px;
+    font-weight: 400;
+    line-height: 1.286;
+    margin-top: 8px;
+    margin-bottom: 20px;
 }
 
-.list-modal-coctail-ingridients{
+.list-modal-coctail-ingridients {
     margin-left: 20px;
     margin-bottom: 40px;
 }
-.item-modal-coctail-ingridients{
-color: var(--modal-second-text-color-theme-light);
-font-size: 14px;
+
+.item-modal-coctail-ingridients {
+    color: var(--modal-second-text-color-theme-light);
+    font-size: 14px;
     font-weight: 400;
     line-height: 1.286;
     margin-bottom: 8px;
     list-style-type: disc;
-   
+    transition: color var(--transition-btn);
+
 }
-.link-modal-coctail-ingridient{
+
+.link-modal-coctail-ingridient {
     color: var(--modal-second-text-color-theme-light);
-text-decoration: none;
-cursor: pointer;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color var(--transition-btn);
 }
 
 .link-modal-coctail-ingridient:hover,
@@ -103,39 +92,44 @@ cursor: pointer;
     color: var(--primary-accent-color);
 }
 
-.paragrapg-modal-coctail{
-color: var(--modal-first-text-color-theme-light);
+
+
+.paragrapg-modal-coctail {
+    color: var(--modal-first-text-color-theme-light);
     font-size: 14px;
-        font-weight: 400;
-        line-height: 1.43;
-        margin-top: 14px;
-        margin-bottom: 40px;
+    font-weight: 400;
+    line-height: 1.43;
+    margin-top: 14px;
+    margin-bottom: 40px;
 
 }
+
 .add-btn-modal-coctail,
 .add-btn-modal-ingridient {
     color: var(--bg-card-color-theme-light);
     min-width: 295px;
-        font-size: 14px;
-        font-weight: 600;
-        line-height: 1.43;
-        letter-spacing: 0.28px;
-        text-transform: uppercase;
-        padding-top: 14px;
-        padding-bottom: 14px;
-        border:none;
-        border-radius: 12px;
-        background: var(--primary-accent-color);
-        margin-bottom: 14px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.43;
+    letter-spacing: 0.28px;
+    text-transform: uppercase;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    border: none;
+    border-radius: 12px;
+    background: var(--primary-accent-color);
+    margin-bottom: 14px;
+    transition: background var(--transition-btn);
 }
 
 .add-btn-modal-coctail:hover,
 .add-btn-modal-ingridient:hover {
     background: var(--primary-hover-accent-color);
 }
+
 .back-btn-modal-coctail,
-.back-btn-modal-ingridient{
-color: var(--primary-text-color-theme-light);
+.back-btn-modal-ingridient {
+    color: var(--primary-text-color-theme-light);
     font-size: 14px;
     min-width: 295px;
     font-weight: 600;
@@ -147,7 +141,9 @@ color: var(--primary-text-color-theme-light);
     border: none;
     border-radius: 12px;
     background: rgba(36, 36, 36, 0.10);
+    transition: background var(--transition-btn);
 }
+
 .back-btn-modal-coctail:hover,
 .back-btn-modal-ingridient:hover {
     background: var(--hover-modal-btn-color-theme-light);
@@ -156,7 +152,7 @@ color: var(--primary-text-color-theme-light);
 
 //    modal ingridient
 
-.title-modal-ingridient{
+.title-modal-ingridient {
     color: var(--primary-text-color-theme-light);
     font-size: 18px;
     font-weight: 600;
@@ -164,14 +160,15 @@ color: var(--primary-text-color-theme-light);
     margin-bottom: 8px;
 }
 
-.type-ingridient-modal-ingridient{
+.type-ingridient-modal-ingridient {
     color: var(--modal-first-text-color-theme-light);
-        font-size: 14px;
-        font-weight: 600;
-        line-height: 1.286;
-        text-transform: uppercase;
-        margin-bottom: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.286;
+    text-transform: uppercase;
+    margin-bottom: 20px;
 }
+
 .line:after {
     content: '';
 
@@ -179,6 +176,7 @@ color: var(--primary-text-color-theme-light);
     height: 1px;
     display: block;
 }
+
 .paragraph-modal-ingridient {
     color: var(--modal-first-text-color-theme-light);
     font-size: 14px;
@@ -186,17 +184,20 @@ color: var(--primary-text-color-theme-light);
     line-height: 1.43;
     margin-bottom: 40px;
     margin-top: 20px;
+    height: 160px;
+    overflow-y: auto;
 }
 
 
-.span-paragraph-modal-ingridient{
+.span-paragraph-modal-ingridient {
     color: var(--primary-text-color-theme-light);
     font-weight: 600;
 }
+
 .list-modal-ingridients {
     margin-left: 20px;
     margin-bottom: 40px;
-    
+
 }
 
 .item-modal-ingridients {
@@ -207,116 +208,10 @@ color: var(--primary-text-color-theme-light);
     margin-bottom: 8px;
     list-style-type: disc;
 }
+
 .link-modal-ingridient {
     color: var(--modal-second-text-color-theme-light);
     text-decoration: none;
-}
-
-
-@media screen and (min-width: 768px){
-.modal-coctail {
-        padding: 40px;
-        max-width: 600px;
-        border-radius: 20px;
-        max-height: 569px;
-    }
-
-        .modal-ingredient {
-            padding: 40px;
-            max-width: 600px;
-            max-height: 569px;
-            border-radius: 20px;
-        }
-
-    .photo-info{
-        display: flex;
-        margin-bottom: 20px;
-    }
-
-        .photo-coctail {
-            max-width: 288 px;
-            border-radius: 20px;
-            margin-bottom: 0;
-        }
-        
-        .info-modal-coctail{
-            margin-left: 20px;
-        }
-
-    .main-title-modal-coctail {
- //visibility: visible;
-color: var(--primary-text-color-theme-light);
-font-size: 20px;
-font-weight: 600;
-line-height: 1.2;
-margin-bottom: 20px;
-}
-   
-         .paragrapg-modal-coctail {
-            margin-top: 18px; }
-.buttons{
-    display: flex;
-    justify-content: flex-start;
-    margin-top: 40px;
-}
-    
-        .add-btn-modal-coctail,
-        .add-btn-modal-ingridient {
-            color: var(--bg-card-color-theme-light);
-            min-width: 251px;
-            font-size: 18px;
-            line-height: 1.33;
-            letter-spacing: 0.36px;
-            padding-top: 16px;
-            padding-bottom: 16px;
-            border: none;
-            margin-bottom: 0;
-            margin-right: 18px;
-        }
-    
-      
-        .back-btn-modal-coctail,
-        .back-btn-modal-ingridient {
-            min-width: 173px;
-            font-size: 18px;
-            line-height: 1.33;
-            letter-spacing: 0.36px;
-            padding: 16px 60px;
-            height: 56px;
-            }
-
-    
-        .title-modal-ingridient {
-            font-size: 20px;
-            line-height: 1.2;
-            margin-bottom: 12px;
-        }
-    
-        .type-ingridient-modal-ingridient {
-            font-size: 16px;
-            line-height: 1.125;
-            text-transform: uppercase;
-            margin-bottom: 22px;
-        }
-    
-    
-        .paragraph-modal-ingridient {
-      margin-bottom: 40px;
-            margin-top: 18px;
-         }
-    
-        .list-modal-ingridients {
-            margin-bottom: 40px;
-        }
-      .add-btn-modal-ingridient{
-        margin-right: 18px;
-      }
-
-      .paragrapg-modal-coctail{
-        margin-bottom: 0;
-      }
-
-
 }
 
 .modal-coctail-close-btn,
@@ -332,11 +227,157 @@ margin-bottom: 20px;
     padding: 0;
     cursor: pointer;
     background-color: inherit;
-   border: none;
+    border: none;
 }
-.icon-off{
-stroke: var(--primary-text-color-theme-light);
+
+.icon-off {
+    stroke: var(--primary-text-color-theme-light);
 }
+
+
+ .basicLightbox__placeholder {
+
+     overflow: auto;
+     height: 90%;
+     border-radius: 20px;
+
+
+ }
+@media screen and (max-width: 767px) {
+
+
+    .visually-hidden {
+        position: absolute;
+        white-space: nowrap;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        border: 0;
+        padding: 0;
+        clip: rect(0 0 0 0);
+        clip-path: inset(50%);
+        margin: -1px;
+    }
+
+
+}
+
+
+@media screen and (min-width: 768px) {
+    .modal-coctail {
+        padding: 40px;
+        max-width: 600px;
+        border-radius: 20px;
+        height: 569px;
+    }
+
+    .modal-ingredient {
+        padding: 40px;
+        max-width: 600px;
+        height: 569px;
+        border-radius: 20px;
+    }
+   
+
+
+           .photo-info {
+               display: flex;
+               margin-bottom: 20px;
+           }
+
+   
+
+    .photo-coctail {
+        width: 288 px;
+        border-radius: 20px;
+        margin-bottom: 0;
+    }
+
+    .info-modal-coctail {
+        margin-left: 20px;
+    }
+
+    .main-title-modal-coctail {
+        //visibility: visible;
+        color: var(--primary-text-color-theme-light);
+        font-size: 20px;
+        font-weight: 600;
+        line-height: 1.2;
+        margin-bottom: 20px;
+    }
+
+    .paragrapg-modal-coctail {
+        margin-top: 18px;
+        overflow-y: auto;
+    }
+
+   .buttons {
+       display: flex;
+       justify-content: flex-start;
+       margin-top: 40px;
+   }
+
+    .add-btn-modal-coctail,
+    .add-btn-modal-ingridient {
+        color: var(--bg-card-color-theme-light);
+        min-width: 251px;
+        font-size: 18px;
+        line-height: 1.33;
+        letter-spacing: 0.36px;
+        padding-top: 16px;
+        padding-bottom: 16px;
+        border: none;
+        margin-bottom: 0;
+        margin-right: 18px;
+    }
+
+
+    .back-btn-modal-coctail,
+    .back-btn-modal-ingridient {
+        min-width: 173px;
+        font-size: 18px;
+        line-height: 1.33;
+        letter-spacing: 0.36px;
+        padding: 16px 60px;
+        height: 56px;
+    }
+
+
+    .title-modal-ingridient {
+        font-size: 20px;
+        line-height: 1.2;
+        margin-bottom: 12px;
+    }
+
+    .type-ingridient-modal-ingridient {
+        font-size: 16px;
+        line-height: 1.125;
+        text-transform: uppercase;
+        margin-bottom: 22px;
+    }
+
+
+    .paragraph-modal-ingridient {
+        margin-bottom: 40px;
+        margin-top: 18px;
+    }
+
+    .list-modal-ingridients {
+        margin-bottom: 40px;
+    }
+
+    .add-btn-modal-ingridient {
+        margin-right: 18px;
+    }
+
+    .paragrapg-modal-coctail {
+        margin-bottom: 0;
+        height: 60px;
+        overflow-y: auto;
+    }
+}
+
+
 
 
 // DARK THRME 
@@ -353,6 +394,7 @@ body.dark .mw-text-first-dark {
     color: var(--bg-card-color-theme-light);
     stroke: var(--bg-card-color-theme-light);
 }
+
 body.dark .mw-text-secondary-dark {
     color: var(--modal-second-text-color-theme-dark);
 }
@@ -379,8 +421,3 @@ body.dark .link-modal-coctail-ingridient:hover,
 body.dark .item-modal-coctail-ingridients:hover {
     color: var(--primary-accent-color);
 }
-
-
-
-
-
